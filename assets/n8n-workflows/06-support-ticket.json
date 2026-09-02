@@ -1,0 +1,144 @@
+{
+  "name": "06 — Support Ticket",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "support",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — Support",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-support",
+      "webhookId": "support"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "ticket_id", "value": "=TKT-{{ Date.now() }}" },
+            { "name": "client_name", "value": "={{ $json.body.name }}" },
+            { "name": "client_email", "value": "={{ $json.body.email }}" },
+            { "name": "subject", "value": "={{ $json.body.subject }}" },
+            { "name": "workflow", "value": "={{ $json.body.workflow || 'General' }}" },
+            { "name": "priority", "value": "={{ $json.body.priority || 'Medium' }}" },
+            { "name": "details", "value": "={{ $json.body.details }}" },
+            { "name": "status", "value": "open" },
+            { "name": "created_at", "value": "={{ new Date().toISOString() }}" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Shape Ticket",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "id": "shape-ticket"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Support Tickets" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ticket_id": "={{ $json.ticket_id }}",
+            "client_name": "={{ $json.client_name }}",
+            "client_email": "={{ $json.client_email }}",
+            "subject": "={{ $json.subject }}",
+            "workflow": "={{ $json.workflow }}",
+            "priority": "={{ $json.priority }}",
+            "details": "={{ $json.details }}",
+            "status": "={{ $json.status }}",
+            "created_at": "={{ $json.created_at }}"
+          }
+        },
+        "options": {}
+      },
+      "name": "Log Ticket to Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [680, 180],
+      "id": "log-ticket",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "254702505946" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"🎧 New Support Ticket!\\n\\nTicket: {{ $json.ticket_id }}\\nClient: {{ $json.client_name }}\\nEmail: {{ $json.client_email }}\\nWorkflow: {{ $json.workflow }}\\nPriority: {{ $json.priority }}\\n\\nSubject: {{ $json.subject }}\\n\\nDetails: {{ $json.details }}\\n\\nReply within 2 hours ⏰\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Notify Admin",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 300],
+      "id": "notify-admin",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "={{ $json.client_email }}" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"✅ Support Ticket Received\\n\\nHi {{ $json.client_name }}!\\n\\nYour support ticket has been logged.\\n\\nTicket ID: {{ $json.ticket_id }}\\nSubject: {{ $json.subject }}\\nPriority: {{ $json.priority }}\\n\\nWe'll respond within 2 hours on business days.\\nFor urgent issues call: +254 702 505 946\\n\\n— Bobsave Support\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Confirm to Client",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 420],
+      "id": "confirm-client",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, ticket_id: $json.ticket_id, message: \"Ticket received! We'll respond within 2 hours.\" }) }}",
+        "options": {}
+      },
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "id": "respond-ok"
+    }
+  ],
+  "connections": {
+    "Webhook — Support": { "main": [[{ "node": "Shape Ticket", "type": "main", "index": 0 }]] },
+    "Shape Ticket": { "main": [[{ "node": "Log Ticket to Sheet", "type": "main", "index": 0 }, { "node": "Notify Admin", "type": "main", "index": 0 }, { "node": "Confirm to Client", "type": "main", "index": 0 }]] },
+    "Notify Admin": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

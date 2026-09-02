@@ -1,0 +1,95 @@
+{
+  "name": "03 — Client Auth",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "auth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — Auth",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-auth",
+      "webhookId": "auth"
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Clients" },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "email",
+              "lookupValue": "={{ $json.body.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Lookup Client in Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [460, 300],
+      "id": "lookup-client",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.client_id }}",
+              "operation": "equals",
+              "value2": "={{ $('Webhook — Auth').item.json.body.password }}"
+            }
+          ]
+        }
+      },
+      "name": "Validate Password",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "id": "validate-pass"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": true,\n  \"client\": {\n    \"id\": \"{{ $json.id }}\",\n    \"name\": \"{{ $json.name }}\",\n    \"email\": \"{{ $json.email }}\",\n    \"plan\": \"{{ $json.plan }}\",\n    \"planPrice\": \"{{ $json.plan_price }}\",\n    \"status\": \"{{ $json.status }}\",\n    \"execUsed\": {{ $json.exec_used || 0 }},\n    \"execLimit\": {{ $json.exec_limit || 1000 }},\n    \"nextPayment\": \"{{ $json.next_payment }}\",\n    \"totalPaid\": \"{{ $json.total_paid }}\"\n  }\n}",
+        "options": {}
+      },
+      "name": "Respond — Auth OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 200],
+      "id": "respond-ok"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ok\": false, \"message\": \"Invalid credentials\" }",
+        "options": { "responseCode": 401 }
+      },
+      "name": "Respond — Auth Failed",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 400],
+      "id": "respond-fail"
+    }
+  ],
+  "connections": {
+    "Webhook — Auth": { "main": [[{ "node": "Lookup Client in Sheet", "type": "main", "index": 0 }]] },
+    "Lookup Client in Sheet": { "main": [[{ "node": "Validate Password", "type": "main", "index": 0 }]] },
+    "Validate Password": {
+      "main": [
+        [{ "node": "Respond — Auth OK", "type": "main", "index": 0 }],
+        [{ "node": "Respond — Auth Failed", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

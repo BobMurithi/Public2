@@ -1,0 +1,201 @@
+{
+  "name": "01 — Blog Auto Update",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "hours", "hoursInterval": 6 }] }
+      },
+      "name": "Every 6 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "schedule-trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://feeds.feedburner.com/TechCrunch",
+        "options": {}
+      },
+      "name": "TechCrunch RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 180],
+      "id": "rss-techcrunch"
+    },
+    {
+      "parameters": {
+        "url": "https://www.theverge.com/rss/index.xml",
+        "options": {}
+      },
+      "name": "The Verge RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "id": "rss-verge"
+    },
+    {
+      "parameters": {
+        "url": "https://www.wired.com/feed/rss",
+        "options": {}
+      },
+      "name": "Wired RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 420],
+      "id": "rss-wired"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": { "values": [] },
+        "options": {}
+      },
+      "name": "Merge All Feeds",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [680, 300],
+      "id": "merge-feeds"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.title + ' ' + $json.contentSnippet }}",
+              "operation": "contains",
+              "value2": "AI"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "name": "Filter AI & Automation",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "id": "filter-keywords"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [{ "name": "id", "value": "={{ $itemIndex + 1 }}" }],
+          "string": [
+            { "name": "title", "value": "={{ $json.title }}" },
+            { "name": "source", "value": "={{ $json.creator || 'External' }}" },
+            { "name": "author", "value": "External" },
+            { "name": "date", "value": "={{ $json.isoDate ? $json.isoDate.split('T')[0] : new Date().toISOString().split('T')[0] }}" },
+            { "name": "url", "value": "={{ $json.link }}" },
+            { "name": "image", "value": "={{ $json.enclosure?.url || 'assets/images/pexels-jakubzerdzicki-38984817.jpg' }}" },
+            { "name": "read_time", "value": "5 min read" },
+            { "name": "tag_color", "value": "#a0e2e1" },
+            { "name": "tag_text", "value": "#1f6463" }
+          ],
+          "boolean": [{ "name": "featured", "value": false }]
+        },
+        "options": {}
+      },
+      "name": "Shape Article Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1120, 300],
+      "id": "shape-data"
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a content writer for Bobsave, a workflow automation company in Nairobi, Kenya. Rewrite article summaries in a friendly, helpful, business-focused tone that appeals to African entrepreneurs. Keep it to 2-3 sentences max. Focus on practical business value."
+            },
+            {
+              "role": "user",
+              "content": "=Rewrite this article summary for our blog: Title: {{ $json.title }}. Original snippet: {{ $json.contentSnippet || $json.title }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "OpenAI Rewrite Summary",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [1340, 300],
+      "id": "openai-rewrite",
+      "credentials": { "openAiApi": { "id": "1", "name": "OpenAI API" } }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "summary", "value": "={{ $json.message.content }}" }
+          ]
+        },
+        "options": { "dotNotation": false }
+      },
+      "name": "Extract Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1560, 300],
+      "id": "extract-summary"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "name": "Collect All Articles",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [1780, 300],
+      "id": "aggregate"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/BobMurithi/Public2/contents/assets/data/blog-feed.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Accept", "value": "application/vnd.github.v3+json" },
+            { "name": "X-GitHub-Api-Version", "value": "2022-11-28" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "message", "value": "Auto-update blog feed via n8n" },
+            { "name": "content", "value": "={{ Buffer.from(JSON.stringify($json.data, null, 2)).toString('base64') }}" },
+            { "name": "sha", "value": "={{ $json.currentSha }}" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Push to GitHub",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2000, 300],
+      "id": "github-push",
+      "credentials": { "httpHeaderAuth": { "id": "2", "name": "GitHub Token" } }
+    }
+  ],
+  "connections": {
+    "Every 6 Hours": { "main": [[{ "node": "TechCrunch RSS", "type": "main", "index": 0 }, { "node": "The Verge RSS", "type": "main", "index": 0 }, { "node": "Wired RSS", "type": "main", "index": 0 }]] },
+    "TechCrunch RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 0 }]] },
+    "The Verge RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 1 }]] },
+    "Wired RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 2 }]] },
+    "Merge All Feeds": { "main": [[{ "node": "Filter AI & Automation", "type": "main", "index": 0 }]] },
+    "Filter AI & Automation": { "main": [[{ "node": "Shape Article Data", "type": "main", "index": 0 }]] },
+    "Shape Article Data": { "main": [[{ "node": "OpenAI Rewrite Summary", "type": "main", "index": 0 }]] },
+    "OpenAI Rewrite Summary": { "main": [[{ "node": "Extract Summary", "type": "main", "index": 0 }]] },
+    "Extract Summary": { "main": [[{ "node": "Collect All Articles", "type": "main", "index": 0 }]] },
+    "Collect All Articles": { "main": [[{ "node": "Push to GitHub", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

@@ -1,0 +1,113 @@
+{
+  "name": "07 — Payment Reminder",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "name": "Daily 9am Check",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "schedule-daily"
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Clients" },
+        "filtersUI": {
+          "values": [{ "lookupColumn": "status", "lookupValue": "active" }]
+        },
+        "options": {}
+      },
+      "name": "Get All Active Clients",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [460, 300],
+      "id": "get-clients",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ Math.floor((new Date($json.next_payment) - new Date()) / (1000 * 60 * 60 * 24)) }}",
+              "operation": "equal",
+              "value2": 3
+            }
+          ]
+        }
+      },
+      "name": "Due in 3 Days?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "id": "filter-due"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "={{ $json.phone.replace(/[^0-9]/g, '') }}" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"⏰ Payment Reminder\\n\\nHi {{ $json.name }}!\\n\\nThis is a friendly reminder that your Bobsave {{ $json.plan }} Plan payment of {{ $json.plan_price }} is due on {{ $json.next_payment }}.\\n\\nPay via M-Pesa:\\n📱 Till/Paybill: [YOUR MPESA NUMBER]\\nReference: {{ $json.id }}\\n\\nQuestions? Reply here or call +254 702 505 946\\n\\n— Bobsave Team ⚡\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Send Reminder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [900, 300],
+      "id": "send-reminder",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "254702505946" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"📅 Payment Reminder Sent\\n\\nClient: {{ $json.name }}\\nPlan: {{ $json.plan }}\\nAmount: {{ $json.plan_price }}\\nDue: {{ $json.next_payment }}\\n\\nReminder sent via WhatsApp ✅\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Notify Admin",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [900, 420],
+      "id": "notify-admin",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    }
+  ],
+  "connections": {
+    "Daily 9am Check": { "main": [[{ "node": "Get All Active Clients", "type": "main", "index": 0 }]] },
+    "Get All Active Clients": { "main": [[{ "node": "Due in 3 Days?", "type": "main", "index": 0 }]] },
+    "Due in 3 Days?": { "main": [[{ "node": "Send Reminder", "type": "main", "index": 0 }, { "node": "Notify Admin", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

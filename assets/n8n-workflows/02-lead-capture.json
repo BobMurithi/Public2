@@ -1,0 +1,142 @@
+{
+  "name": "02 — Lead Capture & Notify",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-lead",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — New Lead",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-lead",
+      "webhookId": "new-lead"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "id", "value": "=LEAD-{{ Date.now() }}" },
+            { "name": "name", "value": "={{ $json.body.name || $json.name }}" },
+            { "name": "contact", "value": "={{ $json.body.contact || $json.contact }}" },
+            { "name": "interest", "value": "={{ $json.body.interest || $json.interest || 'General Inquiry' }}" },
+            { "name": "source", "value": "={{ $json.body.source || $json.source || 'Website' }}" },
+            { "name": "status", "value": "new" },
+            { "name": "created_at", "value": "={{ new Date().toISOString() }}" },
+            { "name": "message", "value": "={{ $json.body.message || $json.message || '' }}" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Shape Lead Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "id": "shape-lead"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Leads" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "name": "={{ $json.name }}",
+            "contact": "={{ $json.contact }}",
+            "interest": "={{ $json.interest }}",
+            "source": "={{ $json.source }}",
+            "status": "={{ $json.status }}",
+            "created_at": "={{ $json.created_at }}",
+            "message": "={{ $json.message }}"
+          }
+        },
+        "options": {}
+      },
+      "name": "Save to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [680, 180],
+      "id": "save-sheet",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "254702505946" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"🎯 New Lead!\\n\\nName: {{ $json.name }}\\nContact: {{ $json.contact }}\\nInterest: {{ $json.interest }}\\nSource: {{ $json.source }}\\nMessage: {{ $json.message }}\\n\\nReply quickly! ⚡\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "WhatsApp Alert to Admin",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 300],
+      "id": "whatsapp-admin",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "={{ $json.contact.replace(/[^0-9]/g, '') }}" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"Hi {{ $json.name }}! 👋\\n\\nThank you for reaching out to Bobsave!\\n\\nWe've received your inquiry about {{ $json.interest }} and will get back to you within 2 hours.\\n\\nIn the meantime, explore our services at https://bobsave.com/services.html\\n\\n— The Bobsave Team ⚡\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "WhatsApp Auto-Reply to Lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 420],
+      "id": "whatsapp-lead",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Lead received. We'll be in touch shortly!\" }",
+        "options": {}
+      },
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "id": "respond-ok"
+    }
+  ],
+  "connections": {
+    "Webhook — New Lead": { "main": [[{ "node": "Shape Lead Data", "type": "main", "index": 0 }]] },
+    "Shape Lead Data": { "main": [[{ "node": "Save to Google Sheets", "type": "main", "index": 0 }, { "node": "WhatsApp Alert to Admin", "type": "main", "index": 0 }, { "node": "WhatsApp Auto-Reply to Lead", "type": "main", "index": 0 }]] },
+    "Save to Google Sheets": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

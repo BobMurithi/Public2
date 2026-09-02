@@ -1,0 +1,198 @@
+{
+  "name": "08 — Blog Manual Refresh",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "refresh-blog",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — Manual Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-refresh",
+      "webhookId": "refresh-blog"
+    },
+    {
+      "parameters": {
+        "url": "https://feeds.feedburner.com/TechCrunch",
+        "options": {}
+      },
+      "name": "TechCrunch RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 180],
+      "id": "rss-tc"
+    },
+    {
+      "parameters": {
+        "url": "https://www.theverge.com/rss/index.xml",
+        "options": {}
+      },
+      "name": "The Verge RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "id": "rss-verge"
+    },
+    {
+      "parameters": {
+        "url": "https://www.wired.com/feed/rss",
+        "options": {}
+      },
+      "name": "Wired RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [460, 420],
+      "id": "rss-wired"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": { "values": [] },
+        "options": {}
+      },
+      "name": "Merge Feeds",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [680, 300],
+      "id": "merge"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.title + ' ' + ($json.contentSnippet || '') }}",
+              "operation": "contains",
+              "value2": "AI"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "name": "Filter Keywords",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "id": "filter"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [{ "name": "id", "value": "={{ $itemIndex + 1 }}" }],
+          "string": [
+            { "name": "title", "value": "={{ $json.title }}" },
+            { "name": "source", "value": "={{ $json.creator || 'External' }}" },
+            { "name": "author", "value": "External" },
+            { "name": "date", "value": "={{ $json.isoDate ? $json.isoDate.split('T')[0] : new Date().toISOString().split('T')[0] }}" },
+            { "name": "category", "value": "AI" },
+            { "name": "tag_color", "value": "#a0e2e1" },
+            { "name": "tag_text", "value": "#1f6463" },
+            { "name": "summary", "value": "={{ $json.contentSnippet || $json.title }}" },
+            { "name": "image", "value": "assets/images/pexels-jakubzerdzicki-38984817.jpg" },
+            { "name": "url", "value": "={{ $json.link }}" },
+            { "name": "read_time", "value": "5 min read" }
+          ],
+          "boolean": [{ "name": "featured", "value": false }]
+        },
+        "options": {}
+      },
+      "name": "Shape Articles",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1120, 300],
+      "id": "shape"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "name": "Collect Articles",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [1340, 300],
+      "id": "aggregate"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/BobMurithi/Public2/contents/assets/data/blog-feed.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Accept", "value": "application/vnd.github.v3+json" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Get Current SHA",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1340, 180],
+      "id": "get-sha",
+      "credentials": { "httpHeaderAuth": { "id": "2", "name": "GitHub Token" } }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://api.github.com/repos/BobMurithi/Public2/contents/assets/data/blog-feed.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Accept", "value": "application/vnd.github.v3+json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "message", "value": "Manual blog refresh via n8n admin trigger" },
+            { "name": "content", "value": "={{ Buffer.from(JSON.stringify($('Collect Articles').item.json.data, null, 2)).toString('base64') }}" },
+            { "name": "sha", "value": "={{ $('Get Current SHA').item.json.sha }}" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Push to GitHub",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1560, 300],
+      "id": "push-github",
+      "credentials": { "httpHeaderAuth": { "id": "2", "name": "GitHub Token" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Blog refreshed! Cloudflare Pages will redeploy in ~30 seconds.\", \"articles\": {{ $('Collect Articles').item.json.data.length }} }",
+        "options": {}
+      },
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1780, 300],
+      "id": "respond-ok"
+    }
+  ],
+  "connections": {
+    "Webhook — Manual Trigger": { "main": [[{ "node": "TechCrunch RSS", "type": "main", "index": 0 }, { "node": "The Verge RSS", "type": "main", "index": 0 }, { "node": "Wired RSS", "type": "main", "index": 0 }, { "node": "Get Current SHA", "type": "main", "index": 0 }]] },
+    "TechCrunch RSS": { "main": [[{ "node": "Merge Feeds", "type": "main", "index": 0 }]] },
+    "The Verge RSS": { "main": [[{ "node": "Merge Feeds", "type": "main", "index": 1 }]] },
+    "Wired RSS": { "main": [[{ "node": "Merge Feeds", "type": "main", "index": 2 }]] },
+    "Merge Feeds": { "main": [[{ "node": "Filter Keywords", "type": "main", "index": 0 }]] },
+    "Filter Keywords": { "main": [[{ "node": "Shape Articles", "type": "main", "index": 0 }]] },
+    "Shape Articles": { "main": [[{ "node": "Collect Articles", "type": "main", "index": 0 }]] },
+    "Collect Articles": { "main": [[{ "node": "Push to GitHub", "type": "main", "index": 0 }]] },
+    "Get Current SHA": { "main": [[{ "node": "Push to GitHub", "type": "main", "index": 0 }]] },
+    "Push to GitHub": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

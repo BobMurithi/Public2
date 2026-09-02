@@ -1,0 +1,157 @@
+{
+  "name": "04 — M-Pesa Payment Confirmation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "payment",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — M-Pesa Daraja",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-mpesa",
+      "webhookId": "payment"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "transaction_id", "value": "={{ $json.body.Body?.stkCallback?.CallbackMetadata?.Item?.find(i => i.Name === 'MpesaReceiptNumber')?.Value || $json.body.TransID }}" },
+            { "name": "amount", "value": "={{ $json.body.Body?.stkCallback?.CallbackMetadata?.Item?.find(i => i.Name === 'Amount')?.Value || $json.body.TransAmount }}" },
+            { "name": "phone", "value": "={{ $json.body.Body?.stkCallback?.CallbackMetadata?.Item?.find(i => i.Name === 'PhoneNumber')?.Value || $json.body.MSISDN }}" },
+            { "name": "date", "value": "={{ new Date().toISOString().split('T')[0] }}" },
+            { "name": "status", "value": "paid" },
+            { "name": "method", "value": "M-Pesa" }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Extract Payment Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "id": "extract-payment"
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Clients" },
+        "filtersUI": {
+          "values": [{ "lookupColumn": "phone", "lookupValue": "={{ $json.phone }}" }]
+        },
+        "options": {}
+      },
+      "name": "Find Client by Phone",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [680, 300],
+      "id": "find-client",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Payments" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $('Extract Payment Data').item.json.date }}",
+            "client": "={{ $json.name || 'Unknown' }}",
+            "plan": "={{ $json.plan || 'Unknown' }}",
+            "amount": "=KSh {{ $('Extract Payment Data').item.json.amount }}",
+            "method": "M-Pesa",
+            "reference": "={{ $('Extract Payment Data').item.json.transaction_id }}",
+            "status": "paid"
+          }
+        },
+        "options": {}
+      },
+      "name": "Log Payment to Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [900, 180],
+      "id": "log-payment",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "={{ $('Extract Payment Data').item.json.phone }}" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"✅ Payment Confirmed!\\n\\nHi {{ $json.name || 'Valued Client' }}!\\n\\nWe've received your payment of KSh {{ $('Extract Payment Data').item.json.amount }}.\\n\\nRef: {{ $('Extract Payment Data').item.json.transaction_id }}\\nDate: {{ $('Extract Payment Data').item.json.date }}\\n\\nYour workflows are active and running! ⚡\\n\\nView your dashboard: https://bobsave.com/dashboard.html\\n\\n— Bobsave Team\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Send Receipt via WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [900, 300],
+      "id": "whatsapp-receipt",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "254702505946" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"💰 Payment Received!\\n\\nClient: {{ $json.name || 'Unknown' }}\\nAmount: KSh {{ $('Extract Payment Data').item.json.amount }}\\nRef: {{ $('Extract Payment Data').item.json.transaction_id }}\\nPlan: {{ $json.plan || 'Unknown' }}\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Notify Admin",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [900, 420],
+      "id": "notify-admin",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ResultCode\": 0, \"ResultDesc\": \"Accepted\" }",
+        "options": {}
+      },
+      "name": "Respond to Daraja",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1120, 300],
+      "id": "respond-daraja"
+    }
+  ],
+  "connections": {
+    "Webhook — M-Pesa Daraja": { "main": [[{ "node": "Extract Payment Data", "type": "main", "index": 0 }]] },
+    "Extract Payment Data": { "main": [[{ "node": "Find Client by Phone", "type": "main", "index": 0 }]] },
+    "Find Client by Phone": { "main": [[{ "node": "Log Payment to Sheet", "type": "main", "index": 0 }, { "node": "Send Receipt via WhatsApp", "type": "main", "index": 0 }, { "node": "Notify Admin", "type": "main", "index": 0 }]] },
+    "Send Receipt via WhatsApp": { "main": [[{ "node": "Respond to Daraja", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}

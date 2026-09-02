@@ -1,0 +1,88 @@
+{
+  "name": "05 — Newsletter Subscribe",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "newsletter",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook — Newsletter",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "id": "webhook-newsletter",
+      "webhookId": "newsletter"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Subscribers" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.body.name }}",
+            "email": "={{ $json.body.email }}",
+            "subscribed_at": "={{ new Date().toISOString() }}",
+            "source": "Blog Newsletter Form",
+            "status": "active"
+          }
+        },
+        "options": {}
+      },
+      "name": "Save Subscriber",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [460, 180],
+      "id": "save-subscriber",
+      "credentials": { "googleSheetsOAuth2Api": { "id": "3", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v18.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "messaging_product", "value": "whatsapp" },
+            { "name": "to", "value": "={{ $json.body.contact || '254702505946' }}" },
+            { "name": "type", "value": "text" },
+            {
+              "name": "text",
+              "value": "={ \"body\": \"🎉 Welcome to Bobsave!\\n\\nHi {{ $json.body.name }}!\\n\\nYou're now subscribed to the Bobsave newsletter — AI, automation, and tech news delivered to you every week.\\n\\nAs a subscriber, you'll be the first to know about:\\n⚡ New automation tools\\n🤖 AI business tips\\n💡 Workflow strategies\\n🇰🇪 African tech news\\n\\nExplore our automation services: https://bobsave.com/services.html\\n\\n— The Bobsave Team\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Welcome WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300],
+      "id": "welcome-wa",
+      "credentials": { "httpHeaderAuth": { "id": "4", "name": "WhatsApp API Token" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Subscribed! Welcome to Bobsave.\" }",
+        "options": {}
+      },
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "id": "respond-ok"
+    }
+  ],
+  "connections": {
+    "Webhook — Newsletter": { "main": [[{ "node": "Save Subscriber", "type": "main", "index": 0 }, { "node": "Welcome WhatsApp", "type": "main", "index": 0 }]] },
+    "Welcome WhatsApp": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "Bobsave" }]
+}
