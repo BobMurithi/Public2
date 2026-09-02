@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <meta name="description" content="Bobsave Client Dashboard — Monitor your workflow activity, executions, billing and support.">
+  <title>My Dashboard — Bobsave</title>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap"></noscript>
+  <style>
+    :root {
+      --green: #9fe870; --green-dark: #264d0c; --pink: #ffd7ef;
+      --yellow: #ffea64; --teal: #a0e2e1; --dark: #232323;
+      --dark-brown: #3a341c; --sage: #edefeb; --white: #ffffff;
+      --sidebar-w: 260px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter Tight', sans-serif; background: #f4f6f1; color: var(--dark); min-height: 100vh; }
+
+    /* ── LOGIN SCREEN ── */
+    .login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--sage); padding: 1.5rem; }
+    .login-card { background: white; border-radius: 2rem; padding: 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+    .login-card .logo { text-align: center; margin-bottom: 1.5rem; }
+    .login-card .logo img { height: 3rem; }
+    .login-card h2 { text-align: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .login-card p { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
+    .form-group input { width: 100%; padding: 0.75rem 1.1rem; border: 1.5px solid #e0e7d8; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.95rem; outline: none; transition: border 0.2s; }
+    .form-group input:focus { border-color: var(--green); }
+    .login-btn { width: 100%; background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.85rem; border: none; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+    .login-btn:hover { background: #bcef9c; }
+    .login-error { color: #e53e3e; font-size: 0.85rem; text-align: center; margin-top: 0.75rem; display: none; }
+    .login-footer { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #aaa; }
+    .login-footer a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+
+    /* ── DASHBOARD LAYOUT ── */
+    .dashboard { display: none; min-height: 100vh; }
+    .dashboard.visible { display: flex; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { width: var(--sidebar-w); background: var(--dark-brown); min-height: 100vh; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; z-index: 200; transition: transform 0.3s; }
+    .sidebar-logo { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .sidebar-logo img { height: 2.5rem; }
+    .sidebar-user { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .sidebar-user .user-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--green-dark); margin-right: 0.75rem; }
+    .sidebar-user .user-info { display: inline-block; vertical-align: middle; }
+    .sidebar-user .user-name { font-weight: 700; font-size: 0.9rem; color: white; }
+    .sidebar-user .user-plan { font-size: 0.75rem; color: #c0b27c; }
+    .sidebar-nav { flex: 1; padding: 1rem 0; }
+    .nav-section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); padding: 1rem 1.5rem 0.4rem; }
+    .sidebar-nav a { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 1.5rem; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; border-left: 3px solid transparent; }
+    .sidebar-nav a:hover { background: rgba(255,255,255,0.06); color: white; }
+    .sidebar-nav a.active { background: rgba(159,232,112,0.1); color: var(--green); border-left-color: var(--green); font-weight: 700; }
+    .sidebar-nav a .nav-icon { font-size: 1.1rem; width: 20px; text-align: center; }
+    .sidebar-bottom { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .logout-btn { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.5); font-size: 0.85rem; cursor: pointer; transition: color 0.2s; background: none; border: none; font-family: 'Inter Tight', sans-serif; }
+    .logout-btn:hover { color: white; }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main-content { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    @media (max-width: 768px) { .main-content { margin-left: 0; } }
+
+    /* ── TOP BAR ── */
+    .topbar { background: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eaede6; position: sticky; top: 0; z-index: 100; }
+    .topbar-left { display: flex; align-items: center; gap: 1rem; }
+    .menu-toggle { background: none; border: none; cursor: pointer; font-size: 1.3rem; display: none; color: var(--dark); }
+    @media (max-width: 768px) { .menu-toggle { display: block; } }
+    .page-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+    .topbar-right { display: flex; align-items: center; gap: 1rem; }
+    .notif-btn { background: var(--sage); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; position: relative; }
+    .notif-badge { position: absolute; top: -2px; right: -2px; background: #e53e3e; color: white; width: 16px; height: 16px; border-radius: 50%; font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .topbar-wa { background: #25d366; color: white; font-weight: 700; padding: 0.45rem 1.1rem; border-radius: 2rem; text-decoration: none; font-size: 0.85rem; white-space: nowrap; }
+
+    /* ── PAGE CONTENT ── */
+    .page-body { padding: 2rem; flex: 1; }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── STAT CARDS ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+    .stat-card { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .stat-card .stat-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .stat-card .stat-value { font-size: 2rem; font-weight: 700; line-height: 1; margin-bottom: 0.25rem; }
+    .stat-card .stat-label { font-size: 0.8rem; color: #888; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .stat-card .stat-sub { font-size: 0.78rem; color: #aaa; margin-top: 0.4rem; }
+    .stat-card.accent-green { border-top: 3px solid var(--green); }
+    .stat-card.accent-yellow { border-top: 3px solid var(--yellow); }
+    .stat-card.accent-teal { border-top: 3px solid var(--teal); }
+    .stat-card.accent-pink { border-top: 3px solid var(--pink); }
+
+    /* ── EXECUTION BAR ── */
+    .exec-bar-wrap { background: white; border-radius: 1.5rem; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .exec-bar-wrap h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 1rem; }
+    .exec-bar-track { background: var(--sage); border-radius: 2rem; height: 14px; overflow: hidden; margin-bottom: 0.5rem; }
+    .exec-bar-fill { height: 100%; border-radius: 2rem; background: linear-gradient(90deg, var(--green), var(--teal)); transition: width 1s ease; }
+    .exec-bar-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: #888; }
+
+    /* ── CARD WIDGET ── */
+    .widget { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+    .widget-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+    .widget-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; }
+    .widget-badge { background: var(--sage); color: var(--dark-brown); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 2rem; }
+
+    /* ── WORKFLOW TABLE ── */
+    .wf-table { width: 100%; border-collapse: collapse; }
+    .wf-table th { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 0 0 0.75rem; text-align: left; border-bottom: 1.5px solid var(--sage); }
+    .wf-table td { padding: 0.9rem 0; border-bottom: 1px solid var(--sage); font-size: 0.88rem; vertical-align: middle; }
+    .wf-table tr:last-child td { border-bottom: none; }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 700; }
+    .status-pill.running { background: rgba(159,232,112,0.2); color: var(--green-dark); }
+    .status-pill.paused { background: rgba(255,234,100,0.2); color: #7a6500; }
+    .status-pill.error { background: rgba(229,62,62,0.1); color: #c53030; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+    /* ── ACTIVITY FEED ── */
+    .activity-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .activity-item { display: flex; align-items: flex-start; gap: 0.9rem; }
+    .activity-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .activity-icon.success { background: rgba(159,232,112,0.2); }
+    .activity-icon.warn { background: rgba(255,234,100,0.2); }
+    .activity-icon.info { background: rgba(160,226,225,0.2); }
+    .activity-body .activity-text { font-size: 0.88rem; font-weight: 500; color: var(--dark); }
+    .activity-body .activity-time { font-size: 0.75rem; color: #aaa; margin-top: 0.15rem; }
+
+    /* ── BILLING ── */
+    .billing-plan { background: var(--dark-brown); border-radius: 1.5rem; padding: 1.5rem; color: white; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .billing-plan .plan-name { font-size: 1.3rem; font-weight: 700; }
+    .billing-plan .plan-price { font-size: 1rem; color: #c0b27c; margin-top: 0.2rem; }
+    .billing-plan .plan-badge { background: var(--green); color: var(--green-dark); font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 2rem; }
+    .upgrade-btn { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; border: none; cursor: pointer; font-family: 'Inter Tight', sans-serif; transition: background 0.2s; }
+    .upgrade-btn:hover { background: #bcef9c; }
+    .invoice-table { width: 100%; border-collapse: collapse; }
+    .invoice-table th { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 0 0 0.6rem; text-align: left; border-bottom: 1.5px solid var(--sage); }
+    .invoice-table td { padding: 0.8rem 0; border-bottom: 1px solid var(--sage); font-size: 0.88rem; }
+    .invoice-table tr:last-child td { border-bottom: none; }
+    .paid-tag { background: rgba(159,232,112,0.2); color: var(--green-dark); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 2rem; }
+
+    /* ── SUPPORT ── */
+    .support-form .form-group { margin-bottom: 1rem; }
+    .support-form label { display: block; font-size: 0.82rem; font-weight: 700; color: #888; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .support-form input, .support-form select, .support-form textarea { width: 100%; padding: 0.7rem 1rem; border: 1.5px solid #e0e7d8; border-radius: 1rem; font-family: 'Inter Tight', sans-serif; font-size: 0.9rem; outline: none; transition: border 0.2s; }
+    .support-form input:focus, .support-form select:focus, .support-form textarea:focus { border-color: var(--green); }
+    .support-form textarea { min-height: 120px; resize: vertical; }
+    .submit-btn { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.75rem 2rem; border: none; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; }
+    .submit-btn:hover { background: #bcef9c; }
+
+    /* ── TWO-COL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ LOGIN SCREEN ══ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="logo"><img src="assets/images/bobsave-logo.svg" alt="Bobsave"></div>
+    <h2>Client Dashboard</h2>
+    <p>Enter your email and client ID to access your workflow dashboard</p>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label>Client ID / Password</label>
+      <input type="password" id="loginPass" placeholder="Your client ID" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Access Dashboard →</button>
+    <div class="login-error" id="loginError">Invalid credentials. Please check your details.</div>
+    <div class="login-footer">
+      Don't have an account? <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank">Get Started</a> ·
+      <a href="index.html">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div class="dashboard" id="dashboard">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/images/bobsave-logo-dark.svg" alt="Bobsave">
+    </div>
+    <div class="sidebar-user">
+      <span class="user-avatar" id="userInitial">J</span>
+      <div class="user-info">
+        <div class="user-name" id="userName">Jane Wanjiku</div>
+        <div class="user-plan" id="userPlan">Business Plan</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="#" class="active" onclick="showSection('overview',this)"><span class="nav-icon">📊</span> Overview</a>
+      <a href="#" onclick="showSection('workflows',this)"><span class="nav-icon">⚡</span> My Workflows</a>
+      <a href="#" onclick="showSection('activity',this)"><span class="nav-icon">📋</span> Activity Log</a>
+      <div class="nav-section-label">Account</div>
+      <a href="#" onclick="showSection('billing',this)"><span class="nav-icon">💳</span> Billing</a>
+      <a href="#" onclick="showSection('support',this)"><span class="nav-icon">🎧</span> Support</a>
+      <a href="#" onclick="showSection('settings',this)"><span class="nav-icon">⚙️</span> Settings</a>
+      <div class="nav-section-label">Resources</div>
+      <a href="services.html"><span class="nav-icon">🛒</span> Add Services</a>
+      <a href="blog.html"><span class="nav-icon">📰</span> Blog</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="logout-btn" onclick="doLogout()"><span>🚪</span> Sign Out</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <span class="page-title" id="pageTitle">Overview</span>
+      </div>
+      <div class="topbar-right">
+        <button class="notif-btn" title="Notifications">
+          🔔<span class="notif-badge">2</span>
+        </button>
+        <a class="topbar-wa" href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%20need%20help!" target="_blank">💬 Support</a>
+      </div>
+    </div>
+
+    <div class="page-body">
+
+      <!-- ── OVERVIEW SECTION ── -->
+      <div class="section active" id="section-overview">
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="exec-bar-wrap">
+          <h3>Execution Usage This Month</h3>
+          <div class="exec-bar-track">
+            <div class="exec-bar-fill" id="execBar" style="width:0%"></div>
+          </div>
+          <div class="exec-bar-labels">
+            <span id="execUsed">0 used</span>
+            <span id="execLimit">of 0 / month</span>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="widget">
+            <div class="widget-header">
+              <span class="widget-title">Active Workflows</span>
+              <span class="widget-badge" id="wfCount">—</span>
+            </div>
+            <table class="wf-table" id="wfTableOverview"><tbody></tbody></table>
+          </div>
+          <div class="widget">
+            <div class="widget-header">
+              <span class="widget-title">Recent Activity</span>
+            </div>
+            <div class="activity-list" id="activityOverview"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WORKFLOWS SECTION ── -->
+      <div class="section" id="section-workflows">
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">My Workflows</span>
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20add%20a%20new%20workflow!" target="_blank" style="background:var(--green);color:var(--green-dark);font-weight:700;padding:0.4rem 1rem;border-radius:2rem;text-decoration:none;font-size:0.82rem;">+ Add Workflow</a>
+          </div>
+          <table class="wf-table" id="wfTableFull"><tbody></tbody></table>
+        </div>
+        <div class="widget" style="background:var(--sage);border:2px dashed #c8dcc0;">
+          <p style="text-align:center;color:#888;padding:1rem 0;">
+            Want to add more workflows? <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20add%20a%20workflow!" target="_blank" style="color:var(--green-dark);font-weight:700;">Chat with us on WhatsApp</a> or <a href="services.html" style="color:var(--green-dark);font-weight:700;">browse our services</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── ACTIVITY SECTION ── -->
+      <div class="section" id="section-activity">
+        <div class="widget">
+          <div class="widget-header">
+            <span class="widget-title">Full Activity Log</span>
+          </div>
+          <div class="activity-list" id="activityFull"></div>
+        </div>
+      </div>
+
+      <!-- ── BILLING SECTION ── -->
+      <div class="section" id="section-billing">
+        <div class="billing-plan">
+          <div>
+            <div class="plan-name" id="billingPlanName">Business Plan</div>
+            <div class="plan-price" id="billingPlanPrice">KSh 3,500 / month</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <span class="plan-badge">✓ Active</span>
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20upgrade%20my%20plan!" target="_blank" class="upgrade-btn">Upgrade Plan</a>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="widget">
+            <div class="widget-header"><span class="widget-title">Next Payment</span></div>
+            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="nextPayment">—</p>
+            <p style="color:#888;font-size:0.85rem;">Auto-reminder sent 3 days before due date via WhatsApp</p>
+          </div>
+          <div class="widget">
+            <div class="widget-header"><span class="widget-title">Total Paid (2025)</span></div>
+            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="totalPaid">—</p>
+            <p style="color:#888;font-size:0.85rem;">All payments processed via M-Pesa or card</p>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-header"><span class="widget-title">Invoice History</span></div>
+          <table class="invoice-table">
+            <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody id="invoiceTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── SUPPORT SECTION ── -->
+      <div class="section" id="section-support">
+        <div class="two-col">
+          <div class="widget">
+            <div class="widget-header"><span class="widget-title">Submit a Support Ticket</span></div>
+            <form class="support-form" onsubmit="submitTicket(event)">
+              <div class="form-group">
+                <label>Subject</label>
+                <input type="text" placeholder="Brief description of your issue" required>
+              </div>
+              <div class="form-group">
+                <label>Workflow</label>
+                <select id="ticketWorkflow">
+                  <option>Select a workflow...</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Priority</label>
+                <select>
+                  <option>Low — General question</option>
+                  <option>Medium — Workflow not running</option>
+                  <option>High — Business impacted</option>
+                  <option>Critical — Complete outage</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Details</label>
+                <textarea placeholder="Describe the issue in detail — what happened, when, and what you expected..."></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Submit Ticket →</button>
+              <p id="ticketMsg" style="color:var(--green-dark);font-size:0.85rem;margin-top:0.75rem;display:none;"></p>
+            </form>
+          </div>
+          <div>
+            <div class="widget" style="background:var(--dark-brown);color:white;">
+              <div class="widget-header">
+                <span class="widget-title" style="color:#c0b27c;">Quick Contact</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:1rem;">
+                <a href="https://wa.me/254702505946" target="_blank" style="display:flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.06);padding:1rem;border-radius:1rem;text-decoration:none;color:white;transition:background 0.2s;">
+                  <span style="font-size:1.5rem;">💬</span>
+                  <div><div style="font-weight:700;">WhatsApp</div><div style="font-size:0.8rem;color:#c0b27c;">+254 702 505 946</div></div>
+                </a>
+                <a href="mailto:bobomurithi@gmail.com" style="display:flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.06);padding:1rem;border-radius:1rem;text-decoration:none;color:white;transition:background 0.2s;">
+                  <span style="font-size:1.5rem;">✉️</span>
+                  <div><div style="font-weight:700;">Email</div><div style="font-size:0.8rem;color:#c0b27c;">bobomurithi@gmail.com</div></div>
+                </a>
+              </div>
+              <p style="color:#c0b27c;font-size:0.82rem;margin-top:1.25rem;">Response time: under 2 hours on business days · 24hr for critical issues</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SETTINGS SECTION ── -->
+      <div class="section" id="section-settings">
+        <div class="widget" style="max-width:560px;">
+          <div class="widget-header"><span class="widget-title">Account Settings</span></div>
+          <form class="support-form" onsubmit="saveSettings(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="settingName" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="settingEmail" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" id="settingPhone" placeholder="+254...">
+            </div>
+            <div class="form-group">
+              <label>Business Name</label>
+              <input type="text" id="settingBiz" placeholder="Your business name">
+            </div>
+            <div class="form-group">
+              <label>Notification Preference</label>
+              <select>
+                <option>WhatsApp + Email</option>
+                <option>WhatsApp only</option>
+                <option>Email only</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Save Changes →</button>
+            <p id="settingsMsg" style="color:var(--green-dark);font-size:0.85rem;margin-top:0.75rem;display:none;"></p>
+          </form>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+</div><!-- /dashboard -->
+
+<script>
+  // ── DEMO CLIENT DATA ──
+  // In production this comes from: fetch('https://your-n8n.com/webhook/client-data?id=' + clientId)
+  const CLIENT_DATA = {
+    name: 'Jane Wanjiku',
+    email: 'jane@example.com',
+    plan: 'Business',
+    planPrice: 'KSh 3,500 / month',
+    execUsed: 3240,
+    execLimit: 5000,
+    nextPayment: '1 Aug 2025',
+    totalPaid: 'KSh 17,500',
+    workflows: [
+      { name: 'WhatsApp Lead Follow-Up',   status: 'running', executions: 1240, last: '2 mins ago' },
+      { name: 'M-Pesa Payment Alerts',      status: 'running', executions: 892,  last: '14 mins ago' },
+      { name: 'Invoice Auto-Send',          status: 'running', executions: 1108, last: '1 hr ago'  },
+    ],
+    activity: [
+      { icon: '⚡', type: 'success', text: 'WhatsApp Lead Follow-Up executed successfully', time: '2 minutes ago' },
+      { icon: '💳', type: 'success', text: 'M-Pesa payment of KSh 4,500 confirmed & receipt sent', time: '14 minutes ago' },
+      { icon: '📄', type: 'success', text: 'Invoice #INV-0042 generated and emailed to client', time: '1 hour ago' },
+      { icon: '⚠️', type: 'warn',    text: 'WhatsApp API rate limit approached (80% of hourly cap)', time: '3 hours ago' },
+      { icon: '⚡', type: 'success', text: 'Lead captured from website form — follow-up sent', time: '4 hours ago' },
+      { icon: '📊', type: 'info',    text: 'Monthly execution report generated and sent to email', time: 'Yesterday' },
+      { icon: '✅', type: 'success', text: 'All 3 workflows passed health check', time: 'Yesterday' },
+      { icon: '🔁', type: 'info',    text: 'Workflow schedules refreshed — next run at midnight', time: '2 days ago' },
+    ],
+    invoices: [
+      { date: 'Jul 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'Jun 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'May 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'Apr 10, 2025', desc: 'Business Plan — Setup Fee', amount: 'KSh 10,000', status: 'paid' },
+    ]
+  };
+
+  // ── LOGIN ──
+  function doLogin() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass  = document.getElementById('loginPass').value.trim();
+    if (!email || !pass) {
+      showErr('Please enter both your email and client ID.');
+      return;
+    }
+    // TODO: Replace with real n8n webhook auth call:
+    // fetch('https://your-n8n.com/webhook/auth', { method:'POST', body: JSON.stringify({email, pass}) })
+    //   .then(r => r.json()).then(data => { if (data.ok) loadDashboard(data.user); else showErr('Invalid credentials.'); })
+
+    // Demo: accept any non-empty input
+    sessionStorage.setItem('bs_user', JSON.stringify({ name: email.split('@')[0], email }));
+    loadDashboard();
+  }
+
+  function showErr(msg) {
+    const el = document.getElementById('loginError');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  // ── LOAD DASHBOARD ──
+  function loadDashboard() {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('dashboard').classList.add('visible');
+
+    const d = CLIENT_DATA;
+
+    // User info
+    document.getElementById('userName').textContent = d.name;
+    document.getElementById('userPlan').textContent = d.plan + ' Plan';
+    document.getElementById('userInitial').textContent = d.name.charAt(0).toUpperCase();
+
+    // Stats
+    const pct = Math.round((d.execUsed / d.execLimit) * 100);
+    document.getElementById('statsGrid').innerHTML = `
+      <div class="stat-card accent-green">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-value">${d.execUsed.toLocaleString()}</div>
+        <div class="stat-label">Executions Used</div>
+        <div class="stat-sub">${pct}% of monthly limit</div>
+      </div>
+      <div class="stat-card accent-teal">
+        <div class="stat-icon">🔄</div>
+        <div class="stat-value">${d.workflows.length}</div>
+        <div class="stat-label">Active Workflows</div>
+        <div class="stat-sub">All running normally</div>
+      </div>
+      <div class="stat-card accent-yellow">
+        <div class="stat-icon">📅</div>
+        <div class="stat-value" style="font-size:1.3rem">${d.nextPayment}</div>
+        <div class="stat-label">Next Payment</div>
+        <div class="stat-sub">${d.planPrice}</div>
+      </div>
+      <div class="stat-card accent-pink">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Uptime This Month</div>
+        <div class="stat-sub">No outages recorded</div>
+      </div>`;
+
+    // Execution bar
+    setTimeout(() => {
+      document.getElementById('execBar').style.width = pct + '%';
+    }, 300);
+    document.getElementById('execUsed').textContent = d.execUsed.toLocaleString() + ' used';
+    document.getElementById('execLimit').textContent = 'of ' + d.execLimit.toLocaleString() + ' / month';
+
+    // Workflow count
+    document.getElementById('wfCount').textContent = d.workflows.length + ' active';
+
+    // Workflow table rows
+    const wfRows = d.workflows.map(w => `
+      <tr>
+        <td><strong>${w.name}</strong></td>
+        <td><span class="status-pill running"><span class="status-dot"></span>${w.status}</span></td>
+        <td style="color:#888">${w.executions.toLocaleString()} runs</td>
+        <td style="color:#aaa;font-size:0.8rem">${w.last}</td>
+      </tr>`).join('');
+    document.getElementById('wfTableOverview').innerHTML = `
+      <thead><tr><th>Workflow</th><th>Status</th><th>Executions</th><th>Last Run</th></tr></thead>
+      <tbody>${wfRows}</tbody>`;
+    document.getElementById('wfTableFull').innerHTML = `
+      <thead><tr><th>Workflow</th><th>Status</th><th>Executions</th><th>Last Run</th></tr></thead>
+      <tbody>${wfRows}</tbody>`;
+
+    // Ticket workflow dropdown
+    document.getElementById('ticketWorkflow').innerHTML =
+      '<option>Select a workflow...</option>' +
+      d.workflows.map(w => `<option>${w.name}</option>`).join('');
+
+    // Activity
+    const actHTML = d.activity.map(a => `
+      <div class="activity-item">
+        <div class="activity-icon ${a.type}">${a.icon}</div>
+        <div class="activity-body">
+          <div class="activity-text">${a.text}</div>
+          <div class="activity-time">${a.time}</div>
+        </div>
+      </div>`).join('');
+    document.getElementById('activityOverview').innerHTML = actHTML.split('</div></div></div>').slice(0,4).join('</div></div></div>') + '</div></div></div>';
+    document.getElementById('activityFull').innerHTML = actHTML;
+
+    // Billing
+    document.getElementById('billingPlanName').textContent = d.plan + ' Plan';
+    document.getElementById('billingPlanPrice').textContent = d.planPrice;
+    document.getElementById('nextPayment').textContent = d.nextPayment;
+    document.getElementById('totalPaid').textContent = d.totalPaid;
+    document.getElementById('invoiceTable').innerHTML = d.invoices.map(inv => `
+      <tr>
+        <td>${inv.date}</td>
+        <td>${inv.desc}</td>
+        <td><strong>${inv.amount}</strong></td>
+        <td><span class="paid-tag">✓ Paid</span></td>
+      </tr>`).join('');
+
+    // Settings pre-fill
+    document.getElementById('settingName').value  = d.name;
+    document.getElementById('settingEmail').value = d.email;
+  }
+
+  // ── NAV ──
+  function showSection(id, el) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('section-' + id).classList.add('active');
+    if (el) el.classList.add('active');
+    const titles = { overview:'Overview', workflows:'My Workflows', activity:'Activity Log', billing:'Billing', support:'Support', settings:'Settings' };
+    document.getElementById('pageTitle').textContent = titles[id] || id;
+    // Close mobile sidebar
+    document.getElementById('sidebar').classList.remove('open');
+    return false;
+  }
+
+  // ── FORMS ──
+  function submitTicket(e) {
+    e.preventDefault();
+    const msg = document.getElementById('ticketMsg');
+    msg.textContent = '✅ Ticket submitted! We\'ll respond within 2 hours via WhatsApp or email.';
+    msg.style.display = 'block';
+    e.target.reset();
+  }
+
+  function saveSettings(e) {
+    e.preventDefault();
+    const msg = document.getElementById('settingsMsg');
+    msg.textContent = '✅ Settings saved!';
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 3000);
+  }
+
+  // ── LOGOUT ──
+  function doLogout() {
+    sessionStorage.removeItem('bs_user');
+    document.getElementById('dashboard').classList.remove('visible');
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPass').value = '';
+  }
+
+  // ── AUTO-LOGIN if session exists ──
+  if (sessionStorage.getItem('bs_user')) loadDashboard();
+
+  // ── ENTER KEY on login ──
+  document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+</script>
+</body>
+</html>

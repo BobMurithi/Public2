@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <meta name="description" content="Bobsave Blog — AI, automation, n8n workflows, tech news and business tips for African entrepreneurs and developers.">
+  <meta name="keywords" content="n8n blog, AI news Kenya, workflow automation tips, business automation Africa, WhatsApp automation, tech news Nairobi">
+  <meta property="og:title" content="Blog — Bobsave Workflow Automation">
+  <meta property="og:description" content="AI, automation and tech news — updated automatically every 6 hours.">
+  <title>Blog — Bobsave</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=Zz6i8P" type="text/css">
+  <style>
+    :root {
+      --green: #9fe870;
+      --green-dark: #264d0c;
+      --pink: #ffd7ef;
+      --yellow: #ffea64;
+      --teal: #a0e2e1;
+      --dark: #232323;
+      --dark-brown: #3a341c;
+      --sage: #edefeb;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter Tight', sans-serif; color: var(--dark); background: #f9faf7; margin: 0; }
+
+    /* ── NAVBAR ── */
+    .bs-navbar { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.93); backdrop-filter: blur(10px); border-bottom: 1px solid #e8ebe4; }
+    .bs-navbar .container { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .bs-navbar .nav-logo img { height: 3rem; }
+    .bs-navbar .nav-links { display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .bs-navbar .nav-links a { text-decoration: none; color: var(--dark); font-size: 0.95rem; font-weight: 500; padding: 0.45rem 0.9rem; border-radius: 2rem; transition: background 0.2s; }
+    .bs-navbar .nav-links a:hover, .bs-navbar .nav-links a.active { background: rgba(159,232,112,0.18); color: var(--green-dark); }
+    .bs-navbar .nav-cta a { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.55rem 1.4rem; border-radius: 2rem; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; white-space: nowrap; }
+    .bs-navbar .nav-cta a:hover { background: #bcef9c; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .bs-navbar .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 1rem 2rem 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.08); gap: 0.1rem; }
+      .bs-navbar .nav-links.open { display: flex; }
+      .bs-navbar .nav-cta { display: none; }
+    }
+
+    /* ── HERO ── */
+    .blog-hero { background: var(--dark-brown); padding: 4rem 0 3rem; text-align: center; }
+    .blog-hero .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+    .blog-hero .hero-badge { display: inline-block; background: var(--green); color: var(--green-dark); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 2rem; margin-bottom: 1.2rem; }
+    .blog-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: white; margin-bottom: 0.75rem; line-height: 1.2; }
+    .blog-hero p { color: #c0b27c; font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .blog-meta-row { display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .blog-meta-row span { color: #aaa; font-size: 0.85rem; }
+    .blog-meta-row .live-dot { display: inline-block; width: 8px; height: 8px; background: var(--green); border-radius: 50%; margin-right: 5px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+    /* ── AD BANNER ── */
+    .ad-banner { background: white; border: 1.5px dashed #d4e8c8; border-radius: 1rem; padding: 1rem 2rem; text-align: center; color: #aaa; font-size: 0.8rem; letter-spacing: 0.05em; margin: 2rem 0; }
+    .ad-banner strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.3rem; color: #ccc; }
+
+    /* ── LAYOUT ── */
+    .blog-layout { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: 1fr 320px; gap: 3rem; }
+    @media (max-width: 960px) { .blog-layout { grid-template-columns: 1fr; } }
+
+    /* ── FILTER BAR ── */
+    .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn { background: white; border: 1.5px solid #dde8d5; padding: 0.4rem 1.1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; color: var(--dark-brown); cursor: pointer; transition: all 0.2s; font-family: 'Inter Tight', sans-serif; }
+    .filter-btn:hover, .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--green-dark); }
+
+    /* ── UPDATE BAR ── */
+    .update-bar { background: var(--sage); border-radius: 1rem; padding: 0.75rem 1.25rem; display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; font-size: 0.85rem; color: #666; flex-wrap: wrap; gap: 0.5rem; }
+    .update-bar .refresh-btn { background: var(--green); color: var(--green-dark); border: none; padding: 0.35rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 700; cursor: pointer; font-family: 'Inter Tight', sans-serif; transition: background 0.2s; }
+    .update-bar .refresh-btn:hover { background: #bcef9c; }
+
+    /* ── FEATURED CARD ── */
+    .featured-card { background: white; border-radius: 2rem; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: grid; grid-template-columns: 1.2fr 1fr; transition: transform 0.2s, box-shadow 0.2s; }
+    .featured-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+    .featured-card .fc-img { height: 100%; min-height: 280px; overflow: hidden; }
+    .featured-card .fc-img img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-card .fc-body { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .featured-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; margin-bottom: 0.75rem; }
+    @media (max-width: 640px) { .featured-card { grid-template-columns: 1fr; } .featured-card .fc-img { min-height: 200px; } }
+
+    /* ── ARTICLE GRID ── */
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .article-card { background: white; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .article-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .article-card .ac-img { height: 180px; overflow: hidden; }
+    .article-card .ac-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .article-card:hover .ac-img img { transform: scale(1.04); }
+    .article-card .ac-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .article-card .ac-footer { padding: 0 1.25rem 1.25rem; }
+
+    /* ── SHARED CARD STYLES ── */
+    .cat-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 2rem; margin-bottom: 0.6rem; }
+    .card-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); line-height: 1.35; margin-bottom: 0.6rem; }
+    .featured-card .card-title { font-size: 1.4rem; }
+    .card-summary { font-size: 0.88rem; color: #555; line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: #aaa; flex-wrap: wrap; gap: 0.3rem; }
+    .read-more { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--green-dark); font-weight: 700; font-size: 0.85rem; text-decoration: none; background: var(--green); padding: 0.45rem 1.1rem; border-radius: 2rem; transition: background 0.2s; }
+    .read-more:hover { background: #bcef9c; color: var(--green-dark); }
+
+    /* ── LOADING & EMPTY STATES ── */
+    .loading-spinner { text-align: center; padding: 4rem 0; color: #aaa; }
+    .spinner { width: 40px; height: 40px; border: 3px solid #eee; border-top-color: var(--green); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .no-results { text-align: center; padding: 3rem; color: #aaa; background: white; border-radius: 1.5rem; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-widget { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .sidebar-widget h3 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin-bottom: 1.2rem; border-bottom: 2px solid var(--sage); padding-bottom: 0.6rem; }
+    /* Newsletter */
+    .newsletter-widget { background: var(--dark-brown); }
+    .newsletter-widget h3 { color: #c0b27c; border-color: rgba(255,255,255,0.1); }
+    .newsletter-widget p { color: #c0b27c; font-size: 0.88rem; margin-bottom: 1rem; }
+    .newsletter-form input { width: 100%; padding: 0.65rem 1rem; border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); border-radius: 2rem; color: white; font-family: 'Inter Tight', sans-serif; font-size: 0.9rem; margin-bottom: 0.65rem; outline: none; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-form input:focus { border-color: var(--green); }
+    .newsletter-form button { width: 100%; background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.65rem; border: none; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.9rem; cursor: pointer; transition: background 0.2s; }
+    .newsletter-form button:hover { background: #bcef9c; }
+    /* Categories */
+    .category-list { list-style: none; padding: 0; margin: 0; }
+    .category-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--sage); font-size: 0.9rem; cursor: pointer; transition: color 0.2s; }
+    .category-list li:last-child { border-bottom: none; }
+    .category-list li:hover { color: var(--green-dark); }
+    .category-list li .count { background: var(--sage); padding: 0.15rem 0.55rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 700; color: #666; }
+    /* Popular */
+    .popular-list { display: flex; flex-direction: column; gap: 1rem; }
+    .popular-item { display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; }
+    .popular-item .pop-num { font-size: 1.5rem; font-weight: 700; color: var(--sage); line-height: 1; min-width: 28px; }
+    .popular-item .pop-title { font-size: 0.85rem; font-weight: 600; color: var(--dark); line-height: 1.35; }
+    .popular-item .pop-meta { font-size: 0.75rem; color: #aaa; margin-top: 0.2rem; }
+    /* Automation CTA */
+    .cta-widget { background: var(--green); text-align: center; }
+    .cta-widget h3 { color: var(--green-dark); border-color: rgba(38,77,12,0.15); }
+    .cta-widget p { font-size: 0.88rem; color: var(--green-dark); margin-bottom: 1.1rem; opacity: 0.85; }
+    .cta-widget a { display: block; background: var(--dark-brown); color: white; font-weight: 700; padding: 0.7rem; border-radius: 2rem; text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+    .cta-widget a:hover { background: var(--dark); }
+    /* Tags cloud */
+    .tags-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag-item { background: var(--sage); border: 1px solid #d4e8c8; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.78rem; font-weight: 500; color: var(--dark-brown); cursor: pointer; transition: all 0.2s; }
+    .tag-item:hover { background: var(--green); border-color: var(--green); color: var(--green-dark); }
+
+    /* ── PAGINATION ── */
+    .pagination-row { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .page-btn { background: white; border: 1.5px solid #dde8d5; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; color: var(--dark-brown); cursor: pointer; transition: all 0.2s; font-family: 'Inter Tight', sans-serif; }
+    .page-btn:hover, .page-btn.active { background: var(--green); border-color: var(--green); color: var(--green-dark); }
+
+    /* ── FOOTER ── */
+    .bs-footer { background: var(--dark); color: #aaa; text-align: center; padding: 2rem; font-size: 0.88rem; }
+    .bs-footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="bs-navbar">
+  <div class="container">
+    <a class="nav-logo" href="index.html"><img src="assets/images/bobsave-logo.svg" alt="Bobsave"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="index.html#contacts">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank">Start Now!</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="hero-badge">Updated Every 6 Hours · Powered by AI</span>
+    <h1>AI, Automation &amp; Tech News</h1>
+    <p>Stay ahead of the curve with the latest in workflow automation, AI tools, and business technology — curated and summarised for busy entrepreneurs.</p>
+    <div class="blog-meta-row">
+      <span><span class="live-dot"></span>Auto-updated feed</span>
+      <span>📍 Nairobi, Kenya focus</span>
+      <span>🤖 AI-curated summaries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAIN LAYOUT ══ -->
+<div class="blog-layout">
+
+  <!-- ── MAIN COLUMN ── -->
+  <main>
+
+    <!-- Top Ad Banner (AdSense slot) -->
+    <div class="ad-banner" id="ad-top">
+      <strong>Advertisement</strong>
+      <!-- Google AdSense: replace with your actual ad unit code -->
+      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+      Your ad could appear here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Advertise with us</a>
+    </div>
+
+    <!-- Update status bar -->
+    <div class="update-bar">
+      <span id="lastUpdated">🔄 Loading latest articles...</span>
+      <button class="refresh-btn" onclick="loadBlog()">↻ Refresh</button>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Automation">Automation</button>
+      <button class="filter-btn" data-filter="AI">AI</button>
+      <button class="filter-btn" data-filter="WhatsApp">WhatsApp</button>
+      <button class="filter-btn" data-filter="Finance">Finance</button>
+      <button class="filter-btn" data-filter="Sales">Sales</button>
+      <button class="filter-btn" data-filter="Tech">Tech</button>
+    </div>
+
+    <!-- Search bar -->
+    <div style="margin-bottom:2rem;">
+      <input type="text" id="searchInput" placeholder="🔍  Search articles..." style="width:100%;padding:0.75rem 1.25rem;border:1.5px solid #dde8d5;border-radius:2rem;font-family:'Inter Tight',sans-serif;font-size:0.95rem;outline:none;background:white;" oninput="filterArticles()">
+    </div>
+
+    <!-- Articles container -->
+    <div id="blogContainer">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading articles...</p>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-row" id="pagination"></div>
+
+    <!-- Mid-page Ad Banner (AdSense slot) -->
+    <div class="ad-banner" style="margin-top:2.5rem;" id="ad-mid">
+      <strong>Advertisement</strong>
+      <!-- Google AdSense mid-page unit goes here -->
+      Your ad could appear here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Advertise with us</a>
+    </div>
+
+  </main>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <!-- Newsletter Widget -->
+    <div class="sidebar-widget newsletter-widget">
+      <h3>📬 Newsletter</h3>
+      <p>Get the best automation tips and AI news delivered to your inbox every week.</p>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input type="text" placeholder="Your name" id="nl-name" required>
+        <input type="email" placeholder="Your email address" id="nl-email" required>
+        <button type="submit">Subscribe Free →</button>
+      </form>
+      <p id="nl-msg" style="color:var(--green);font-size:0.82rem;margin-top:0.5rem;display:none;"></p>
+    </div>
+
+    <!-- Categories Widget -->
+    <div class="sidebar-widget">
+      <h3>📂 Categories</h3>
+      <ul class="category-list" id="categoryList"></ul>
+    </div>
+
+    <!-- Automation CTA -->
+    <div class="sidebar-widget cta-widget">
+      <h3>⚡ Automate Your Business</h3>
+      <p>Ready to save time and grow faster? We build custom n8n workflows tailored to your business.</p>
+      <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20automate%20my%20business!" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
+
+    <!-- Popular Posts Widget -->
+    <div class="sidebar-widget">
+      <h3>🔥 Popular Posts</h3>
+      <div class="popular-list" id="popularList"></div>
+    </div>
+
+    <!-- Tags Cloud -->
+    <div class="sidebar-widget">
+      <h3>🏷️ Tags</h3>
+      <div class="tags-cloud">
+        <span class="tag-item" onclick="filterByTag('n8n')">n8n</span>
+        <span class="tag-item" onclick="filterByTag('AI')">AI</span>
+        <span class="tag-item" onclick="filterByTag('WhatsApp')">WhatsApp</span>
+        <span class="tag-item" onclick="filterByTag('M-Pesa')">M-Pesa</span>
+        <span class="tag-item" onclick="filterByTag('Automation')">Automation</span>
+        <span class="tag-item" onclick="filterByTag('Kenya')">Kenya</span>
+        <span class="tag-item" onclick="filterByTag('Sales')">Sales</span>
+        <span class="tag-item" onclick="filterByTag('Finance')">Finance</span>
+        <span class="tag-item" onclick="filterByTag('OpenAI')">OpenAI</span>
+        <span class="tag-item" onclick="filterByTag('Cloudflare')">Cloudflare</span>
+        <span class="tag-item" onclick="filterByTag('CRM')">CRM</span>
+        <span class="tag-item" onclick="filterByTag('Marketing')">Marketing</span>
+      </div>
+    </div>
+
+    <!-- Sidebar Ad -->
+    <div class="ad-banner" id="ad-sidebar">
+      <strong>Advertisement</strong>
+      <!-- Google AdSense sidebar unit goes here -->
+      Your ad here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Contact us</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="bs-footer">
+  <p>© 2025 <a href="index.html">Bobsave</a> — Workflow Automation · Nairobi, Kenya ·
+  <a href="mailto:bobomurithi@gmail.com">bobomurithi@gmail.com</a> ·
+  <a href="https://wa.me/254702505946" target="_blank">+254 702 505 946</a></p>
+</footer>
+
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ── STATE ──
+  let allArticles = [];
+  let filteredArticles = [];
+  let currentFilter = 'all';
+  let currentPage = 1;
+  const ARTICLES_PER_PAGE = 6;
+
+  // ── LOAD BLOG FEED ──
+  async function loadBlog() {
+    try {
+      // Cache-bust so Cloudflare always serves the latest JSON
+      const res = await fetch('assets/data/blog-feed.json?v=' + Date.now());
+      if (!res.ok) throw new Error('Feed unavailable');
+      allArticles = await res.json();
+      filteredArticles = [...allArticles];
+      renderBlog();
+      renderCategories();
+      renderPopular();
+      updateTimestamp();
+    } catch (e) {
+      document.getElementById('blogContainer').innerHTML =
+        '<div class="no-results"><p>⚠️ Could not load articles. Please refresh.</p></div>';
+    }
+  }
+
+  // ── RENDER ARTICLES ──
+  function renderBlog() {
+    const container = document.getElementById('blogContainer');
+    if (!filteredArticles.length) {
+      container.innerHTML = '<div class="no-results"><p>No articles found for that filter.</p></div>';
+      renderPagination(0);
+      return;
+    }
+
+    const featured = filteredArticles.find(a => a.featured && currentFilter === 'all' && currentPage === 1);
+    const regular = filteredArticles.filter(a => !a.featured || currentFilter !== 'all' || currentPage !== 1);
+    const start = (currentPage - 1) * ARTICLES_PER_PAGE;
+    const paginated = regular.slice(start, start + ARTICLES_PER_PAGE);
+
+    let html = '';
+
+    // Featured card (only on page 1, all filter)
+    if (featured && currentPage === 1 && currentFilter === 'all') {
+      html += `
+        <div class="featured-card">
+          <div class="fc-img"><img src="${featured.image}" alt="${featured.title}" loading="lazy"></div>
+          <div class="fc-body">
+            <div>
+              <div class="featured-label">⭐ Featured Article</div>
+              <span class="cat-tag" style="background:${featured.tag_color};color:${featured.tag_text}">${featured.category}</span>
+              <div class="card-title" style="font-size:1.5rem;margin-bottom:0.75rem">${featured.title}</div>
+              <p class="card-summary" style="font-size:0.95rem">${featured.summary}</p>
+            </div>
+            <div>
+              <div class="card-meta" style="margin-bottom:1rem">
+                <span>📰 ${featured.source}</span>
+                <span>📅 ${formatDate(featured.date)}</span>
+                <span>⏱ ${featured.read_time}</span>
+              </div>
+              <a href="${featured.url}" class="read-more">Read Article →</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // Regular grid
+    html += '<div class="articles-grid">';
+    paginated.forEach(article => {
+      html += `
+        <div class="article-card">
+          <div class="ac-img"><img src="${article.image}" alt="${article.title}" loading="lazy"></div>
+          <div class="ac-body">
+            <span class="cat-tag" style="background:${article.tag_color};color:${article.tag_text}">${article.category}</span>
+            <div class="card-title">${article.title}</div>
+            <p class="card-summary">${article.summary}</p>
+          </div>
+          <div class="ac-footer">
+            <div class="card-meta" style="margin-bottom:0.75rem">
+              <span>📰 ${article.source}</span>
+              <span>⏱ ${article.read_time}</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem">
+              <span style="font-size:0.78rem;color:#aaa">📅 ${formatDate(article.date)}</span>
+              <a href="${article.url}" class="read-more">Read →</a>
+            </div>
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+
+    container.innerHTML = html;
+    renderPagination(regular.length);
+  }
+
+  // ── PAGINATION ──
+  function renderPagination(total) {
+    const totalPages = Math.ceil(total / ARTICLES_PER_PAGE);
+    const container = document.getElementById('pagination');
+    if (totalPages <= 1) { container.innerHTML = ''; return; }
+    let html = '';
+    for (let i = 1; i <= totalPages; i++) {
+      html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+    }
+    container.innerHTML = html;
+  }
+
+  function goToPage(n) {
+    currentPage = n;
+    renderBlog();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── FILTER BY CATEGORY ──
+  document.getElementById('filterBar').addEventListener('click', function(e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+    currentPage = 1;
+    document.getElementById('searchInput').value = '';
+    if (currentFilter === 'all') {
+      filteredArticles = [...allArticles];
+    } else {
+      filteredArticles = allArticles.filter(a => a.category === currentFilter);
+    }
+    renderBlog();
+  });
+
+  // ── SEARCH ──
+  function filterArticles() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    if (!q) { filteredArticles = [...allArticles]; }
+    else {
+      filteredArticles = allArticles.filter(a =>
+        a.title.toLowerCase().includes(q) ||
+        a.summary.toLowerCase().includes(q) ||
+        a.category.toLowerCase().includes(q) ||
+        a.source.toLowerCase().includes(q)
+      );
+    }
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    currentPage = 1;
+    renderBlog();
+  }
+
+  // ── FILTER BY TAG ──
+  function filterByTag(tag) {
+    filteredArticles = allArticles.filter(a =>
+      a.title.toLowerCase().includes(tag.toLowerCase()) ||
+      a.summary.toLowerCase().includes(tag.toLowerCase()) ||
+      a.category.toLowerCase().includes(tag.toLowerCase())
+    );
+    currentPage = 1;
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    renderBlog();
+  }
+
+  // ── CATEGORIES SIDEBAR ──
+  function renderCategories() {
+    const counts = {};
+    allArticles.forEach(a => { counts[a.category] = (counts[a.category] || 0) + 1; });
+    const list = document.getElementById('categoryList');
+    list.innerHTML = Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([cat, n]) => `
+        <li onclick="document.querySelector('.filter-btn[data-filter=\\'${cat}\\']')?.click() || filterByTag('${cat}')">
+          <span>${cat}</span><span class="count">${n}</span>
+        </li>`).join('');
+  }
+
+  // ── POPULAR POSTS SIDEBAR ──
+  function renderPopular() {
+    const list = document.getElementById('popularList');
+    list.innerHTML = allArticles.slice(0, 4).map((a, i) => `
+      <div class="popular-item">
+        <span class="pop-num">0${i + 1}</span>
+        <div>
+          <div class="pop-title">${a.title}</div>
+          <div class="pop-meta">${formatDate(a.date)} · ${a.read_time}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  // ── TIMESTAMP ──
+  function updateTimestamp() {
+    const now = new Date();
+    document.getElementById('lastUpdated').innerHTML =
+      `✅ Last updated: ${now.toLocaleDateString('en-KE', { weekday:'short', day:'numeric', month:'short' })} at ${now.toLocaleTimeString('en-KE', { hour:'2-digit', minute:'2-digit' })}`;
+  }
+
+  // ── DATE FORMAT ──
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('en-KE', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  // ── NEWSLETTER ──
+  function subscribeNewsletter(e) {
+    e.preventDefault();
+    const msg = document.getElementById('nl-msg');
+    msg.textContent = '🎉 You\'re subscribed! Welcome to the Bobsave community.';
+    msg.style.display = 'block';
+    document.getElementById('nl-name').value = '';
+    document.getElementById('nl-email').value = '';
+    // TODO: Connect to n8n webhook: POST to your n8n webhook URL with {name, email}
+    // fetch('https://your-n8n-instance.com/webhook/newsletter', { method:'POST', body: JSON.stringify({name, email}), headers:{'Content-Type':'application/json'} })
+  }
+
+  // ── MOBILE NAV ──
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // ── INIT ──
+  loadBlog();
+
+  // Auto-refresh every 6 hours to pick up new content
+  setInterval(loadBlog, 6 * 60 * 60 * 1000);
+</script>
+</body>
+</html>

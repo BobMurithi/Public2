@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <defs>
+    <linearGradient id="shieldGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9fe870;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a0e2e1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer rounded square — green on dark bg -->
+  <rect x="2" y="2" width="56" height="56" rx="14" ry="14" fill="url(#shieldGradDark)" />
+
+  <!-- Workflow connector lines -->
+  <line x1="16" y1="30" x2="44" y2="30" stroke="#3a341c" stroke-width="2" stroke-opacity="0.4"/>
+  <line x1="30" y1="16" x2="30" y2="44" stroke="#3a341c" stroke-width="2" stroke-opacity="0.4"/>
+  <line x1="16" y1="16" x2="44" y2="44" stroke="#3a341c" stroke-width="1.5" stroke-opacity="0.2"/>
+  <line x1="44" y1="16" x2="16" y2="44" stroke="#3a341c" stroke-width="1.5" stroke-opacity="0.2"/>
+
+  <!-- Nodes -->
+  <circle cx="30" cy="30" r="7" fill="#3a341c"/>
+  <circle cx="30" cy="14" r="4" fill="#3a341c" fill-opacity="0.7"/>
+  <circle cx="30" cy="46" r="4" fill="#3a341c" fill-opacity="0.7"/>
+  <circle cx="14" cy="30" r="4" fill="#3a341c" fill-opacity="0.7"/>
+  <circle cx="46" cy="30" r="4" fill="#3a341c" fill-opacity="0.7"/>
+
+  <!-- Lightning bolt inside centre node -->
+  <path d="M31.5 26.5 L28.5 30.5 L31 30.5 L28.5 33.5 L32 29.5 L29.5 29.5 Z"
+        fill="#9fe870" stroke="none"/>
+
+  <!-- Wordmark — white on dark -->
+  <text x="68" y="37"
+        font-family="'Inter Tight', 'Segoe UI', sans-serif"
+        font-size="24"
+        font-weight="700"
+        fill="#ffffff"
+        letter-spacing="-0.5">Bob</text>
+
+  <text x="108" y="37"
+        font-family="'Inter Tight', 'Segoe UI', sans-serif"
+        font-size="24"
+        font-weight="700"
+        fill="#9fe870"
+        letter-spacing="-0.5">save</text>
+
+  <!-- Tagline -->
+  <text x="68" y="51"
+        font-family="'Inter Tight', 'Segoe UI', sans-serif"
+        font-size="9"
+        font-weight="400"
+        fill="#a0e2e1"
+        letter-spacing="1.5">WORKFLOW AUTOMATION</text>
+</svg>

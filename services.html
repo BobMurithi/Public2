@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <meta name="description" content="Bobsave Services — Full catalog of workflow automation services including sales, customer support, e-commerce, marketing, finance, and enterprise solutions.">
+  <meta name="keywords" content="workflow automation services Kenya, n8n workflows, WhatsApp automation, CRM integration, sales automation, e-commerce automation">
+  <meta property="og:title" content="Services — Bobsave Workflow Automation">
+  <meta property="og:description" content="Explore all Bobsave workflow automation services. Built on n8n, powered by AI.">
+  <title>Services — Bobsave</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=Zz6i8P">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=Zz6i8P" type="text/css">
+  <style>
+    :root {
+      --green: #9fe870;
+      --green-dark: #264d0c;
+      --pink: #ffd7ef;
+      --yellow: #ffea64;
+      --teal: #a0e2e1;
+      --dark: #232323;
+      --dark-brown: #3a341c;
+      --sage: #edefeb;
+      --white: #ffffff;
+    }
+    body { font-family: 'Inter Tight', sans-serif; color: var(--dark); }
+
+    /* ── NAVBAR ── */
+    .bs-navbar { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #e8ebe4; }
+    .bs-navbar .container { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; }
+    .bs-navbar .nav-logo img { height: 3.2rem; }
+    .bs-navbar .nav-links { display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .bs-navbar .nav-links a { text-decoration: none; color: var(--dark); font-size: 1rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 2rem; transition: background 0.2s; }
+    .bs-navbar .nav-links a:hover, .bs-navbar .nav-links a.active { background: rgba(159,232,112,0.15); color: var(--green-dark); }
+    .bs-navbar .nav-cta a { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.6rem 1.5rem; border-radius: 2rem; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+    .bs-navbar .nav-cta a:hover { background: #bcef9c; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--dark); border-radius: 2px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .bs-navbar .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 1rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+      .bs-navbar .nav-links.open { display: flex; }
+      .bs-navbar .nav-cta { display: none; }
+    }
+
+    /* ── HERO ── */
+    .services-hero { background: var(--sage); padding: 5rem 0 4rem; text-align: center; }
+    .services-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: var(--dark); line-height: 1.15; margin-bottom: 1rem; }
+    .services-hero h1 span { color: var(--green-dark); background: var(--green); padding: 0 0.3em; border-radius: 6px; }
+    .services-hero p { font-size: 1.2rem; color: #555; max-width: 640px; margin: 0 auto 2rem; }
+    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .hero-badge { background: white; border: 1.5px solid #dde8d5; padding: 0.35rem 1rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--dark-brown); }
+    .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .btn-primary-bs { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.85rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 1rem; transition: background 0.2s; display: inline-block; }
+    .btn-primary-bs:hover { background: #bcef9c; color: var(--green-dark); }
+    .btn-outline-bs { background: transparent; border: 2px solid var(--dark); color: var(--dark); font-weight: 700; padding: 0.85rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 1rem; transition: all 0.2s; display: inline-block; }
+    .btn-outline-bs:hover { background: var(--dark); color: white; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: white; padding: 5rem 0; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .section-sub { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 3.5rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .step-card { text-align: center; padding: 2rem 1.5rem; border-radius: 1.5rem; background: var(--sage); }
+    .step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: var(--green-dark); font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step-card h4 { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-card p { color: #666; font-size: 0.95rem; margin: 0; }
+
+    /* ── SERVICE CARDS ── */
+    .services-section { padding: 5rem 0; background: var(--sage); }
+    .service-card { background: white; border-radius: 2rem; overflow: hidden; margin-bottom: 3rem; box-shadow: 0 4px 24px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .service-card .card-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .service-card .card-img { height: 100%; min-height: 340px; overflow: hidden; }
+    .service-card .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .service-card .card-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .service-tag { display: inline-block; background: var(--green); color: var(--green-dark); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem; margin-bottom: 1rem; }
+    .service-card h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
+    .service-what { font-size: 1.05rem; color: #444; line-height: 1.65; margin-bottom: 1.5rem; }
+    .service-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .detail-block h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin-bottom: 0.5rem; }
+    .detail-block ul { list-style: none; padding: 0; margin: 0; }
+    .detail-block ul li { font-size: 0.92rem; color: var(--dark); padding: 0.2rem 0; padding-left: 1.2em; position: relative; }
+    .detail-block ul li::before { content: "✓"; color: var(--green-dark); font-weight: 700; position: absolute; left: 0; }
+    .tools-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .tool-chip { background: var(--sage); border: 1px solid #d4e8c8; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; color: var(--dark-brown); }
+    .for-who { background: var(--sage); border-radius: 1rem; padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.92rem; }
+    .for-who strong { color: var(--dark-brown); }
+    .outcome-box { background: var(--yellow); border-radius: 1rem; padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; font-weight: 500; color: var(--dark-brown); }
+    .card-footer-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-wa { background: #25d366; color: white; font-weight: 700; padding: 0.7rem 1.5rem; border-radius: 2rem; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .btn-wa:hover { background: #1da851; color: white; }
+    .btn-detail { background: var(--sage); border: 1.5px solid #c8dcc0; color: var(--dark-brown); font-weight: 600; padding: 0.7rem 1.5rem; border-radius: 2rem; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-detail:hover { background: var(--green); border-color: var(--green); color: var(--green-dark); }
+    /* Alternate card image side */
+    .service-card.reverse .card-inner { direction: rtl; }
+    .service-card.reverse .card-body { direction: ltr; }
+    @media (max-width: 900px) {
+      .service-card .card-inner { grid-template-columns: 1fr; }
+      .service-card .card-img { min-height: 220px; }
+      .service-card.reverse .card-inner { direction: ltr; }
+      .service-details { grid-template-columns: 1fr; }
+    }
+
+    /* ── TECH STACK ── */
+    .tech-section { background: var(--dark-brown); padding: 4rem 0; color: white; text-align: center; }
+    .tech-section h2 { color: white; margin-bottom: 0.5rem; }
+    .tech-section p { color: #c0b27c; margin-bottom: 2.5rem; }
+    .tech-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .tech-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 1rem 1.5rem; border-radius: 1rem; font-size: 0.95rem; font-weight: 600; color: var(--green); }
+
+    /* ── CTA SECTION ── */
+    .cta-section { background: var(--green); padding: 5rem 0; text-align: center; }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--green-dark); margin-bottom: 1rem; }
+    .cta-section p { color: var(--green-dark); font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; }
+    .btn-cta-dark { background: var(--dark-brown); color: white; font-weight: 700; padding: 1rem 2.5rem; border-radius: 2rem; text-decoration: none; font-size: 1.1rem; transition: background 0.2s; display: inline-block; margin: 0.4rem; }
+    .btn-cta-dark:hover { background: var(--dark); color: white; }
+    .btn-cta-light { background: white; color: var(--green-dark); font-weight: 700; padding: 1rem 2.5rem; border-radius: 2rem; text-decoration: none; font-size: 1.1rem; display: inline-block; margin: 0.4rem; }
+
+    /* ── FOOTER ── */
+    .bs-footer { background: var(--dark); color: #aaa; text-align: center; padding: 2rem; font-size: 0.9rem; }
+    .bs-footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="bs-navbar">
+  <div class="container">
+    <a class="nav-logo" href="index.html"><img src="assets/images/bobsave-logo.svg" alt="Bobsave"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="index.html#contacts">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank">Start Now!</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="services-hero">
+  <div class="container">
+    <h1>Smart Workflows.<br><span>Built for Your Business.</span></h1>
+    <p>Every service is a custom n8n automation — built, hosted, monitored, and maintained by Bobsave so you can focus on growing.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">⚡ n8n Powered</span>
+      <span class="hero-badge">🤖 AI Integrated</span>
+      <span class="hero-badge">💬 WhatsApp Ready</span>
+      <span class="hero-badge">📊 CRM Connected</span>
+      <span class="hero-badge">☁️ Cloud Hosted</span>
+      <span class="hero-badge">🔒 Secure &amp; Monitored</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank" class="btn-primary-bs">Get Started on WhatsApp</a>
+      <a href="index.html#pricing" class="btn-outline-bs">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how-section">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">From your first message to a live automation in 3 simple steps</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Consult</h4>
+        <p>Tell us about your business and what tasks are taking up your time. We listen, ask questions, and map out the best automation strategy for you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Build</h4>
+        <p>We design and build your custom n8n workflow — connecting your apps, integrating AI where needed, and testing everything thoroughly before launch.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Launch</h4>
+        <p>Your automation goes live. We host it, monitor it 24/7, and handle maintenance. You get a working system — and your time back.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Scale</h4>
+        <p>As your business grows, we add more automations, connect more tools, and upgrade your workflows to keep pace with demand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="services-section">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Click any service to explore what it does, who it's for, and how to get started</p>
+
+    <!-- ── 1. SALES & LEAD GENERATION ── -->
+    <div class="service-card" id="sales">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-artempodrez-6779339.jpg" alt="Sales & Lead Generation Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Sales</span>
+            <h2>Sales &amp; Lead Generation</h2>
+            <p class="service-what">Stop losing leads to slow follow-ups. This workflow captures every lead automatically the moment they interact with your business — from your website form, WhatsApp, social media, or ads — then qualifies them, sends a personalised follow-up, and logs them straight into your CRM. Your sales pipeline runs itself.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>Lead capture from web forms, ads &amp; WhatsApp</li>
+                  <li>Automatic personalised follow-up messages</li>
+                  <li>Lead qualification &amp; scoring</li>
+                  <li>CRM entry &amp; pipeline updates</li>
+                  <li>Reminder sequences for cold leads</li>
+                  <li>Sales report generation</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>WhatsApp Business API</li>
+                  <li>Gmail / Outlook</li>
+                  <li>Google Sheets / HubSpot</li>
+                  <li>Facebook Ads &amp; Forms</li>
+                  <li>Typeform / JotForm</li>
+                  <li>Slack notifications</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">WhatsApp API</span>
+              <span class="tool-chip">HubSpot CRM</span>
+              <span class="tool-chip">Gmail</span>
+              <span class="tool-chip">Google Sheets</span>
+              <span class="tool-chip">OpenAI</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Sales teams, freelancers, real estate agents, coaches, and any business that generates leads online or via WhatsApp.</div>
+            <div class="outcome-box">💡 Result: Respond to every lead in under 60 seconds — automatically. Close more deals without lifting a finger.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Sales%20%26%20Lead%20Generation%20automation!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. CUSTOMER SUPPORT ── -->
+    <div class="service-card reverse" id="support">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-pavel-danilyuk-7658383.jpg" alt="Customer Support Workflow Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Support</span>
+            <h2>Customer Support Workflows</h2>
+            <p class="service-what">Give every customer an instant, helpful response — even at 2am. This workflow powers an AI-driven support system that handles FAQs, routes complex tickets to the right person, sends status updates, and follows up automatically. Your customers feel heard. Your team spends less time on repetitive messages.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>AI-powered FAQ auto-replies</li>
+                  <li>Ticket creation &amp; routing</li>
+                  <li>Status update notifications</li>
+                  <li>Escalation to human agents</li>
+                  <li>Post-resolution follow-up</li>
+                  <li>Customer satisfaction surveys</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>WhatsApp Business API</li>
+                  <li>Gmail / Support email</li>
+                  <li>Freshdesk / Zendesk</li>
+                  <li>Google Sheets (ticket log)</li>
+                  <li>Telegram / Slack alerts</li>
+                  <li>OpenAI GPT-4</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">OpenAI GPT-4</span>
+              <span class="tool-chip">WhatsApp API</span>
+              <span class="tool-chip">Freshdesk</span>
+              <span class="tool-chip">Gmail</span>
+              <span class="tool-chip">Telegram</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> E-commerce stores, service businesses, clinics, SaaS products — any business with a high volume of customer enquiries.</div>
+            <div class="outcome-box">💡 Result: Cut support response time from hours to seconds. Handle 80% of tickets automatically without hiring more staff.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Customer%20Support%20automation!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. E-COMMERCE ── -->
+    <div class="service-card" id="ecommerce">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-mart-production-7667442.jpg" alt="E-commerce Workflow Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">E-Commerce</span>
+            <h2>E-commerce Workflows</h2>
+            <p class="service-what">Run your online store on autopilot. From the moment an order is placed to the moment it's delivered — and beyond — this workflow handles confirmations, inventory alerts, shipping updates, payment reconciliation, and customer re-engagement, so you can focus on sourcing great products instead of chasing logistics.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>Order confirmation messages</li>
+                  <li>Inventory level alerts</li>
+                  <li>Shipping &amp; delivery updates</li>
+                  <li>Payment reconciliation</li>
+                  <li>Abandoned cart recovery</li>
+                  <li>Review request follow-ups</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>WooCommerce / Shopify</li>
+                  <li>M-Pesa (Daraja API)</li>
+                  <li>WhatsApp Business API</li>
+                  <li>Google Sheets</li>
+                  <li>Sendinblue / Mailchimp</li>
+                  <li>DHL / Aramex webhooks</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">WooCommerce</span>
+              <span class="tool-chip">M-Pesa API</span>
+              <span class="tool-chip">WhatsApp API</span>
+              <span class="tool-chip">Mailchimp</span>
+              <span class="tool-chip">Google Sheets</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Online shops, dropshippers, marketplace sellers, and anyone selling physical or digital products.</div>
+            <div class="outcome-box">💡 Result: Reduce manual order management by 90%. Customers get instant updates and you get fewer "where is my order?" messages.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20E-commerce%20automation!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 4. DATA & INTEGRATIONS ── -->
+    <div class="service-card reverse" id="data">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-jakubzerdzicki-38984817.jpg" alt="Data & Integration Workflows">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Data &amp; Integration</span>
+            <h2>Data &amp; Integration Workflows</h2>
+            <p class="service-what">Your tools shouldn't live in silos. This workflow connects your apps, databases, spreadsheets, APIs, and business platforms — making data flow automatically between systems. No more manual copy-pasting between platforms, no more out-of-sync records, no more missed updates. One connected business engine.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>App-to-app data syncing</li>
+                  <li>API integrations &amp; webhooks</li>
+                  <li>Spreadsheet automation</li>
+                  <li>Database record updates</li>
+                  <li>Scheduled data reports</li>
+                  <li>Error alerts &amp; data validation</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>Google Sheets / Airtable</li>
+                  <li>REST APIs &amp; Webhooks</li>
+                  <li>MySQL / PostgreSQL</li>
+                  <li>Notion / Monday.com</li>
+                  <li>Zapier migration support</li>
+                  <li>Any API with auth tokens</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">REST APIs</span>
+              <span class="tool-chip">Airtable</span>
+              <span class="tool-chip">Google Sheets</span>
+              <span class="tool-chip">MySQL</span>
+              <span class="tool-chip">Webhooks</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Tech-forward businesses, startups, and organisations with multiple tools that don't talk to each other.</div>
+            <div class="outcome-box">💡 Result: All your systems in sync, all the time. Data flows where it needs to go — automatically, accurately, and instantly.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Data%20%26%20Integration%20workflows!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5. PRODUCTIVITY ── -->
+    <div class="service-card" id="productivity">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-rdne-10376172.jpg" alt="Productivity Workflow Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Productivity</span>
+            <h2>Productivity Workflows</h2>
+            <p class="service-what">The small daily tasks that eat your time add up to weeks every year. This workflow automates the repetitive stuff — scheduling, reminders, file handling, approvals, team notifications, and internal reporting — so your team spends their time on high-value work, not admin.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>Meeting &amp; task reminders</li>
+                  <li>File organisation &amp; routing</li>
+                  <li>Team notifications &amp; alerts</li>
+                  <li>Approval workflows</li>
+                  <li>Internal report generation</li>
+                  <li>Calendar &amp; scheduling sync</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>Google Calendar / Outlook</li>
+                  <li>Google Drive / Dropbox</li>
+                  <li>Slack / Microsoft Teams</li>
+                  <li>Trello / Asana / Notion</li>
+                  <li>Gmail auto-responders</li>
+                  <li>WhatsApp team alerts</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">Google Drive</span>
+              <span class="tool-chip">Slack</span>
+              <span class="tool-chip">Google Calendar</span>
+              <span class="tool-chip">Trello</span>
+              <span class="tool-chip">WhatsApp API</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Teams of any size, project managers, operations leads, and business owners drowning in daily admin tasks.</div>
+            <div class="outcome-box">💡 Result: Save 5–15 hours per week per team member. Focus on growth, not repetitive admin.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Productivity%20workflows!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 6. BUSINESS & FINANCE ── -->
+    <div class="service-card reverse" id="finance">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-leeloothefirst-8962458.jpg" alt="Business & Finance Workflow Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Finance</span>
+            <h2>Business &amp; Finance Workflows</h2>
+            <p class="service-what">Money management doesn't have to be manual. This workflow automates your invoicing, payment tracking, expense logging, M-Pesa reconciliation, financial alerts, and periodic reports — giving you a clear picture of your finances without the spreadsheet headaches.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>Invoice generation &amp; delivery</li>
+                  <li>M-Pesa payment confirmation</li>
+                  <li>Overdue payment reminders</li>
+                  <li>Expense logging &amp; categorisation</li>
+                  <li>Weekly / monthly financial reports</li>
+                  <li>Budget alerts &amp; notifications</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>M-Pesa Daraja API</li>
+                  <li>QuickBooks / Wave</li>
+                  <li>Google Sheets</li>
+                  <li>WhatsApp payment alerts</li>
+                  <li>Gmail invoice delivery</li>
+                  <li>Stripe / PayPal webhooks</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">M-Pesa API</span>
+              <span class="tool-chip">QuickBooks</span>
+              <span class="tool-chip">Google Sheets</span>
+              <span class="tool-chip">Stripe</span>
+              <span class="tool-chip">Gmail</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> SMEs, freelancers, accountants, and any business that handles invoices, payments, or financial reporting.</div>
+            <div class="outcome-box">💡 Result: Get paid faster. Know your numbers in real-time. Eliminate manual finance admin completely.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Business%20%26%20Finance%20workflows!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 7. MARKETING ── -->
+    <div class="service-card" id="marketing">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-walls-io-440716388.jpg" alt="Marketing Workflow Automation">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag">Marketing</span>
+            <h2>Marketing Workflows</h2>
+            <p class="service-what">Great marketing requires consistent, timely execution — and that's exactly what this workflow delivers. It automates your email campaigns, social media scheduling, content repurposing, audience segmentation, and performance tracking. Your marketing machine runs 24/7 without you having to manage every piece manually.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we automate</h5>
+                <ul>
+                  <li>Email campaign scheduling &amp; sending</li>
+                  <li>Social media post scheduling</li>
+                  <li>AI content generation &amp; rewriting</li>
+                  <li>Audience segmentation &amp; tagging</li>
+                  <li>Campaign performance reports</li>
+                  <li>WhatsApp broadcast messaging</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>Integrations</h5>
+                <ul>
+                  <li>Mailchimp / Brevo</li>
+                  <li>Buffer / Hootsuite</li>
+                  <li>OpenAI (content AI)</li>
+                  <li>WhatsApp broadcast</li>
+                  <li>Google Analytics</li>
+                  <li>Facebook / Instagram APIs</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">OpenAI</span>
+              <span class="tool-chip">Mailchimp</span>
+              <span class="tool-chip">Buffer</span>
+              <span class="tool-chip">WhatsApp API</span>
+              <span class="tool-chip">Google Analytics</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Marketing teams, content creators, digital agencies, and businesses that want consistent marketing output without a full team.</div>
+            <div class="outcome-box">💡 Result: Publish more content, reach more people, and track results — all with a fraction of the manual effort.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20interested%20in%20Marketing%20automation!" target="_blank" class="btn-wa">💬 Get Started</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 8. ENTERPRISE ── -->
+    <div class="service-card reverse" id="enterprise">
+      <div class="card-inner">
+        <div class="card-img">
+          <img src="assets/images/pexels-divinetechygirl-1181335.jpg" alt="Enterprise Workflow Solutions">
+        </div>
+        <div class="card-body">
+          <div>
+            <span class="service-tag" style="background: var(--dark-brown); color: white;">Enterprise</span>
+            <h2>Enterprise Solutions</h2>
+            <p class="service-what">For larger organisations with complex processes, multiple departments, or high-volume operations. We design a full automation architecture tailored to your business — integrating all your systems, handling thousands of transactions, and giving your teams the tools they need to operate at scale. Includes dedicated infrastructure, SLAs, and priority support.</p>
+            <div class="service-details">
+              <div class="detail-block">
+                <h5>What we build</h5>
+                <ul>
+                  <li>Multi-department automation systems</li>
+                  <li>Custom AI agents &amp; chatbots</li>
+                  <li>ERP &amp; CRM deep integrations</li>
+                  <li>High-volume data pipelines</li>
+                  <li>Staff onboarding workflows</li>
+                  <li>Executive dashboards &amp; reporting</li>
+                </ul>
+              </div>
+              <div class="detail-block">
+                <h5>What's included</h5>
+                <ul>
+                  <li>Dedicated n8n instance</li>
+                  <li>Custom domain &amp; branding</li>
+                  <li>99.9% uptime SLA</li>
+                  <li>Priority 24/7 support</li>
+                  <li>Staff training sessions</li>
+                  <li>Monthly optimisation reviews</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tools-row">
+              <span class="tool-chip">n8n Enterprise</span>
+              <span class="tool-chip">OpenAI</span>
+              <span class="tool-chip">SAP / ERPs</span>
+              <span class="tool-chip">Custom APIs</span>
+              <span class="tool-chip">PostgreSQL</span>
+              <span class="tool-chip">Cloudflare</span>
+            </div>
+            <div class="for-who"><strong>Who it's for:</strong> Large businesses, institutions, schools, clinics, NGOs, banks, and multi-branch organisations with complex automation needs.</div>
+            <div class="outcome-box" style="background: var(--teal);">💡 Result: A fully automated, interconnected organisation. Faster operations, fewer errors, and total visibility across every department.</div>
+          </div>
+          <div class="card-footer-btns">
+            <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20discuss%20an%20Enterprise%20solution!" target="_blank" class="btn-wa">💬 Talk to Us</a>
+            <a href="index.html#pricing" class="btn-detail">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TECH STACK ══ -->
+<section class="tech-section">
+  <div class="container">
+    <h2 class="section-title" style="color:white;">Built on World-Class Tools</h2>
+    <p>Every Bobsave workflow uses proven, enterprise-grade technology</p>
+    <div class="tech-grid">
+      <div class="tech-item">⚡ n8n Workflow Engine</div>
+      <div class="tech-item">🤖 OpenAI / GPT-4</div>
+      <div class="tech-item">💬 WhatsApp Business API</div>
+      <div class="tech-item">💳 M-Pesa Daraja API</div>
+      <div class="tech-item">☁️ Cloudflare Hosting</div>
+      <div class="tech-item">📊 Google Workspace</div>
+      <div class="tech-item">🔗 REST APIs &amp; Webhooks</div>
+      <div class="tech-item">🗄️ MySQL / PostgreSQL</div>
+      <div class="tech-item">📧 Mailchimp / Brevo</div>
+      <div class="tech-item">📦 WooCommerce / Shopify</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Automate Your Business?</h2>
+    <p>Tell us what you want to automate and we'll build it for you. Most workflows go live within 3–7 days.</p>
+    <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27m%20ready%20to%20automate%20my%20business!" target="_blank" class="btn-cta-dark">💬 Start on WhatsApp</a>
+    <a href="mailto:bobomurithi@gmail.com" class="btn-cta-light">✉️ Send an Email</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="bs-footer">
+  <p>© 2025 <a href="index.html">Bobsave</a> — Workflow Automation · Nairobi, Kenya · <a href="mailto:bobomurithi@gmail.com">bobomurithi@gmail.com</a> · <a href="https://wa.me/254702505946" target="_blank">+254 702 505 946</a></p>
+</footer>
+
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script>
+  // Mobile nav toggle
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
