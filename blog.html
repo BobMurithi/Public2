@@ -10,11 +10,18 @@
   <meta property="og:title" content="Blog — Bobsave Workflow Automation">
   <meta property="og:description" content="AI, automation and tech news — updated automatically every 6 hours.">
   <title>Blog — Bobsave</title>
+  <!-- Preconnect for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=Zz6i8P" type="text/css">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203726035557482" crossorigin="anonymous"></script>
   <style>
     :root {
       --green: #9fe870;
@@ -201,11 +208,13 @@
     <!-- Top Ad Banner (AdSense slot) -->
     <div class="ad-banner" id="ad-top">
       <strong>Advertisement</strong>
-      <!-- Google AdSense: replace with your actual ad unit code -->
-      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-      Your ad could appear here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Advertise with us</a>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6203726035557482"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <!-- Update status bar -->
@@ -241,11 +250,15 @@
     <!-- Pagination -->
     <div class="pagination-row" id="pagination"></div>
 
-    <!-- Mid-page Ad Banner (AdSense slot) -->
+    <!-- Mid-page Ad Banner -->
     <div class="ad-banner" style="margin-top:2.5rem;" id="ad-mid">
-      <strong>Advertisement</strong>
-      <!-- Google AdSense mid-page unit goes here -->
-      Your ad could appear here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Advertise with us</a>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6203726035557482"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
   </main>
@@ -305,9 +318,13 @@
 
     <!-- Sidebar Ad -->
     <div class="ad-banner" id="ad-sidebar">
-      <strong>Advertisement</strong>
-      <!-- Google AdSense sidebar unit goes here -->
-      Your ad here · <a href="mailto:bobomurithi@gmail.com" style="color:var(--green);">Contact us</a>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6203726035557482"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
   </aside>
@@ -542,8 +559,7 @@
   // ── INIT ──
   loadBlog();
 
-  // Auto-refresh every 6 hours to pick up new content
-  setInterval(loadBlog, 6 * 60 * 60 * 1000);
+  // No auto-refresh needed — n8n updates blog-feed.json and Cloudflare Pages redeploys
 </script>
 </body>
 </html>
