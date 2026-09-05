@@ -1,0 +1,303 @@
+/* =====================================================
+   Phase 4 — Industry / Niche / Package / Automation pages
+   Extends service-pages.css (reuses sp-hero, sp-section,
+   sp-flow, sp-steps, sp-related, sp-cta, sp-contact,
+   sp-footer, sp-mobile-cta, btn, tool-chip)
+   ===================================================== */
+
+/* ── CARDS ── */
+.p4-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 1.3rem;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow-sm);
+}
+
+.p4-head {
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+.p4-head h2 {
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.p4-head p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.p4-grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+}
+.p4-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+}
+.p4-grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+/* Problem card */
+.p4-prob {
+  position: relative;
+  padding-left: 3.2rem;
+}
+.p4-prob::before {
+  content: "\2717";
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  width: 28px;
+  height: 28px;
+  background: #f4f5f3;
+  color: #b44d2c;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p4-prob p {
+  font-size: 0.95rem;
+  color: var(--dark);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Solution card */
+.p4-sol {
+  position: relative;
+  padding-left: 3.2rem;
+}
+.p4-sol::before {
+  content: "\2713";
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  width: 28px;
+  height: 28px;
+  background: var(--green);
+  color: var(--green-dark);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p4-sol p {
+  font-size: 0.95rem;
+  color: var(--dark);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Niche / Package / Automation link cards */
+.p4-linkcard {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 1.3rem;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow-sm);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.p4-linkcard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-md);
+}
+.p4-linkcard .p4-tag {
+  display: inline-block;
+  background: var(--green);
+  color: var(--green-dark);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  margin-bottom: 0.7rem;
+}
+.p4-linkcard .p4-tag.p4-tag--outline {
+  background: transparent;
+  border: 1.5px solid var(--green);
+}
+.p4-linkcard b {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 0.3rem;
+}
+.p4-linkcard span:not(.p4-tag) {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.p4-linkcard .p4-price {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.p4-linkcard .p4-arrow {
+  color: var(--green-dark);
+  font-weight: 800;
+  font-size: 0.88rem;
+  margin-top: 0.7rem;
+  display: block;
+}
+
+/* Pricing box */
+.p4-pricingbox {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 1.3rem;
+  padding: 2rem;
+  box-shadow: var(--box-shadow-sm);
+}
+.p4-pricingbox h4 {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+.p4-price-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.p4-price-row .p4-price-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+.p4-price-row .p4-price-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  align-self: flex-end;
+}
+.p4-price-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+.p4-price-meta b {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+/* Included automations list */
+.p4-inc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.p4-inc-list li {
+  font-size: 0.95rem;
+  color: var(--dark);
+  padding: 0.45rem 0 0.45rem 1.6em;
+  position: relative;
+}
+.p4-inc-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+/* FAQ accordion */
+.p4-faq {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.p4-faq details {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  margin-bottom: 0.7rem;
+}
+.p4-faq summary {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2.4rem 0.9rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  color: var(--dark);
+}
+.p4-faq summary::-webkit-details-marker { display: none; }
+.p4-faq summary::after {
+  content: "\25B8";
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+.p4-faq details[open] summary::after {
+  content: "\25BE";
+}
+.p4-faq details[open] summary {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+.p4-faq details p {
+  padding: 1rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* SEO link banner (used on industry pages for internal linking) */
+.p4-intlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+.p4-intlinks a {
+  background: var(--sage);
+  border: 1px solid var(--line);
+  color: var(--green-dark);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.p4-intlinks a:hover {
+  background: var(--green);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .p4-grid3 { grid-template-columns: repeat(2, 1fr); }
+  .p4-grid4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .p4-grid3, .p4-grid2, .p4-grid4 { grid-template-columns: 1fr; }
+  .p4-pricingbox { padding: 1.4rem; }
+  .p4-price-row { flex-direction: column; gap: 0.3rem; }
+}

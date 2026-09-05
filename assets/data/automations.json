@@ -1,0 +1,409 @@
+{
+  "automations": [
+    {
+      "slug": "appointment-booking",
+      "name": "Appointment Booking Automation",
+      "category": "Appointments",
+      "tagline": "Let clients book appointments from WhatsApp or your website, 24/7.",
+      "description": "Replaces booking-by-call with a system that captures appointment requests from WhatsApp, your website form or social media, checks availability, confirms instantly, and adds the booking to your calendar - without a receptionist spending the day on the phone.",
+      "problem": "Staff spend hours answering the same booking messages, double-bookings happen, and clients who try to reach you after hours are lost to your competitors.",
+      "solution": "A booking workflow that receives requests from WhatsApp and your website, confirms availability automatically, sends instant confirmation, and syncs every appointment into your calendar, CRM or spreadsheet.",
+      "benefits": [
+        "Bookings captured 24/7 without extra staff",
+        "Instant confirmation builds client trust",
+        "Double-booking and missed calls eliminated",
+        "Every booking logged centrally for reporting"
+      ],
+      "features": [
+        "WhatsApp + web form booking intake",
+        "Automatic availability check",
+        "Instant confirmation message",
+        "Calendar sync (Google/Outlook)",
+        "Reminder hand-off to reminders workflow",
+        "Daily booking summary report"
+      ],
+      "workflow": {
+        "label": "Booking flow",
+        "steps": ["Client Sends Request", "AI Checks Availability", "Confirmation Sent", "Calendar Updated", "Reminder Scheduled"],
+        "ai": 1
+      },
+      "integrations": ["WhatsApp Business API", "Google Calendar", "Outlook", "Google Sheets", "Calendly", "OpenAI"],
+      "industries": ["healthcare", "hospitality", "professional-services", "sports", "real-estate"],
+      "niches": ["clinics", "dental-clinics", "medical-laboratories", "hotels", "restaurants", "training-centers"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-productivity.jpg",
+      "imgalt": "Professional handling bookings and scheduling on a laptop",
+      "seo": {
+        "title": "Appointment Booking Automation for Clinics, Salons & Hotels | Bobsave",
+        "desc": "Automate appointment booking from WhatsApp and your website. Instant confirmations, calendar sync and reminders - zero double-bookings.",
+        "keywords": "appointment booking automation, WhatsApp booking Kenya, clinic booking automation, salon booking system"
+      },
+      "faqs": [
+        ["Can clients really book from WhatsApp?", "Yes. Clients send a message, the workflow checks availability and confirms their booking - then adds it to your calendar automatically."],
+        ["What if we already use a booking app?", "We connect to your existing tool (Calendly, SimplePractice or a spreadsheet) so nothing gets replaced unless you want it to."],
+        ["Can it handle after-hours bookings?", "That is exactly where it shines. Every message gets answered instantly, even at midnight, so no enquiry is ever lost."]
+      ]
+    },
+    {
+      "slug": "appointment-reminders",
+      "name": "Appointment & No-Show Reminders",
+      "category": "Reminders",
+      "tagline": "Cut no-shows by reminding every client automatically before their appointment.",
+      "description": "A reminder workflow that sends personalised WhatsApp and SMS reminders 24 hours and 1 hour before each appointment, lets clients confirm or reschedule in one tap, and automatically re-opens the slot when someone cancels.",
+      "problem": "No-shows burn time and money. Manual reminder calls are tedious, get forgotten, and leave already-open slots empty.",
+      "solution": "Automatic WhatsApp and SMS reminders at the right moments, one-tap confirm or reschedule, and automatic slot re-opening when a client cancels.",
+      "benefits": [
+        "Fewer empty appointments",
+        "Staff stop making reminder calls",
+        "Clients confirm or reschedule in one tap",
+        "Clear picture of daily attendance"
+      ],
+      "features": [
+        "24-hour and 1-hour reminder messages",
+        "WhatsApp + SMS delivery",
+        "One-tap confirm / cancel",
+        "Cancellations open the slot automatically",
+        "Rescheduling requests routed to staff",
+        "Attendance rate report"
+      ],
+      "workflow": {
+        "label": "Reminder flow",
+        "steps": ["Appointment Logged", "24h Reminder Sent", "1h Reminder Sent", "Client Confirms", "Attendance Updated"],
+        "ai": 0
+      },
+      "integrations": ["WhatsApp Business API", "SMS Gateway", "Google Calendar", "Google Sheets", "Gmail", "Twilio"],
+      "industries": ["healthcare", "education", "hospitality", "professional-services"],
+      "niches": ["clinics", "dental-clinics", "medical-laboratories", "pharmacies", "training-centers"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-support.jpg",
+      "imgalt": "Support and reminders being sent to customers on a phone",
+      "seo": {
+        "title": "Appointment Reminder Automation - Stop No-Shows | Bobsave",
+        "desc": "Automatic WhatsApp and SMS appointment reminders with one-tap confirm or reschedule. Reduce no-shows and recover lost revenue.",
+        "keywords": "appointment reminders Kenya, no-show reduction, WhatsApp reminder automation, SMS appointment reminders"
+      },
+      "faqs": [
+        ["Do reminders work with SMS too?", "Yes. We can send on WhatsApp, SMS or both, so clients who are not on WhatsApp are still covered."],
+        ["Where do clients confirm?", "They simply reply in the WhatsApp chat - a confirmation is logged and your schedule updates automatically."],
+        ["Can reminders be branded for our business?", "Fully. Messages go out in your business name with your tone and wording."]
+      ]
+    },
+    {
+      "slug": "whatsapp-lead-followup",
+      "name": "WhatsApp Lead Follow-up",
+      "category": "Lead Follow-up",
+      "tagline": "Respond to every lead in under a minute - before they look elsewhere.",
+      "description": "Captures every lead from your website, ads, WhatsApp or social media, sends an instant personalised reply, qualifies the prospect, and follows up automatically until they respond - then logs everything into your CRM.",
+      "problem": "Slow follow-up loses sales. Most enquiries come in after hours and beat businesses to the punch because no one replies for hours, or says the same thing to every customer.",
+      "solution": "Instant AI-driven replies that qualify each lead, personalised follow-up sequences that keep the conversation warm, and automatic CRM logging so no lead ever slips through.",
+      "benefits": [
+        "Every lead answered in under a minute",
+        "No more forgotten or missed leads",
+        "Personalised follow-up, automatically",
+        "Full lead trail logged in your CRM"
+      ],
+      "features": [
+        "Lead capture from web, ads & WhatsApp",
+        "Instant AI first reply",
+        "Automatic qualification questions",
+        "Follow-up sequences for cold leads",
+        "CRM and spreadsheet logging",
+        "Sales-ready lead alerts to your team"
+      ],
+      "workflow": {
+        "label": "Lead flow",
+        "steps": ["Enquiry Arrives", "AI Qualification", "Instant Reply", "Follow-up Sequence", "CRM Entry"],
+        "ai": 1
+      },
+      "integrations": ["WhatsApp Business API", "Google Sheets", "HubSpot", "Typeform", "Facebook Ads", "OpenAI"],
+      "industries": ["real-estate", "education", "automotive", "events", "enterprise", "finance"],
+      "niches": ["real-estate-agencies", "car-dealers", "training-centers", "exhibition-organizers", "car-rentals"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-sales.jpg",
+      "imgalt": "Sales lead being captured from a phone",
+      "seo": {
+        "title": "WhatsApp Lead Follow-up Automation | Bobsave",
+        "desc": "Capture, qualify and follow up every lead from WhatsApp, website and ads automatically. Reply in under a minute and close more deals.",
+        "keywords": "WhatsApp lead follow-up, lead capture automation Kenya, instant lead response, sales follow-up automation"
+      },
+      "faqs": [
+        ["Does it replace our sales people?", "No - it helps them. The automation handles first contact, qualification and reminders, so your team focuses on closing ready buyers."],
+        ["Where do leads come from?", "Wherever they appear: WhatsApp, website forms, Facebook/Instagram ads or a Google Sheet you already use."],
+        ["What happens to old leads?", "Cold leads get a timed follow-up sequence, and everything is logged so you can see exactly what each contact received."]
+      ]
+    },
+    {
+      "slug": "school-fee-reminders",
+      "name": "School Fee & Payment Reminders",
+      "category": "Payments",
+      "tagline": "Get fees collected on time with automated payment reminders.",
+      "description": "Automates the awkward, time-consuming task of chasing fees. Parents receive polite, automatic WhatsApp reminders before and after due dates, payment confirmations flow back instantly, and admin always knows who has paid.",
+      "problem": "Chasing fees takes admin time and feels confrontational. Payments slip, statements are outdated, and the finance office is always playing catch-up.",
+      "solution": "Automated reminder sequences on WhatsApp, instant payment confirmation updates, and a live payment ledger that keeps admin permanently in the loop.",
+      "benefits": [
+        "Fewer late and missed payments",
+        "Admin stops chasing fees manually",
+        "Parents get timely, polite reminders",
+        "Live payment ledger, always accurate"
+      ],
+      "features": [
+        "Pre-due date reminder sequences",
+        "Overdue escalation messages",
+        "Instant payment confirmation for parents",
+        "Live payment ledger in Google Sheets",
+        "Parent account updates",
+        "Monthly collections report"
+      ],
+      "workflow": {
+        "label": "Fee flow",
+        "steps": ["Term Registered", "Reminder Sent", "Payment Received", "Receipt Sent", "Ledger Updated"],
+        "ai": 0
+      },
+      "integrations": ["WhatsApp Business API", "M-Pesa Daraja API", "Google Sheets", "Gmail", "SMS Gateway", "QuickBooks"],
+      "industries": ["education", "finance", "ngo"],
+      "niches": ["schools", "colleges", "universities", "training-centers"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-finance.jpg",
+      "imgalt": "School finance records being reconciled",
+      "seo": {
+        "title": "School Fee Reminder Automation | Bobsave",
+        "desc": "Automate school fee reminders on WhatsApp, confirm payments instantly and keep a live collections ledger. Reduce late payments.",
+        "keywords": "school fee reminders Kenya, school payment automation, fee collection WhatsApp, M-Pesa school fees"
+      },
+      "faqs": [
+        ["Which payment methods are supported?", "M-Pesa via the Daraja API, bank transfers and any gateway you already use. Confirmations are picked up automatically."],
+        ["How are parents reminded?", "Polite WhatsApp messages before and after the due date, with optional SMS fallback."],
+        ["Can it show who has not paid?", "Yes - the ledger view always reflects outstanding balances per student, per class or per term."]
+      ]
+    },
+    {
+      "slug": "exhibition-registration",
+      "name": "Event & Exhibition Registration",
+      "category": "Registrations",
+      "tagline": "Register exhibitors and visitors automatically, from enquiry to badge.",
+      "description": "Handles the end-to-end registration flow for exhibitions, conferences and events: captures registrations from WhatsApp and web forms, confirms details automatically, sends tickets and reminders, and builds a clean attendee list in real time.",
+      "problem": "Registration teams drown in WhatsApp messages and spreadsheets. Double entries, lost details and late confirmations frustrate exhibitors and slow down event day.",
+      "solution": "A registration workflow that captures, confirms, tickets and reminds every participant automatically, with one clean attendee list updated in real time.",
+      "benefits": [
+        "Exhibitors registered without back-and-forth",
+        "Tickets and confirmations delivered instantly",
+        "Real-time attendee list, zero duplicates",
+        "Team focuses on the event, not admin"
+      ],
+      "features": [
+        "WhatsApp + web registration form",
+        "Standard package selection",
+        "Automatic confirmation & e-ticket",
+        "Payment confirmation link-up",
+        "Booth/space assignment updates",
+        "Attendee list exports"
+      ],
+      "workflow": {
+        "label": "Registration flow",
+        "steps": ["Application Received", "Package Confirmed", "Payment Verified", "Ticket Sent", "Attendee List Updated"],
+        "ai": 1
+      },
+      "integrations": ["WhatsApp Business API", "Google Forms", "Google Sheets", "M-Pesa Daraja API", "Stripe", "Eventbrite"],
+      "industries": ["events", "ngo", "travel"],
+      "niches": ["exhibition-organizers", "conference-organizers", "event-venues", "wedding-planners"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-marketing.jpg",
+      "imgalt": "Event planning and registrations being managed",
+      "seo": {
+        "title": "Event & Exhibition Registration Automation | Bobsave",
+        "desc": "Automate exhibitor and visitor registration from WhatsApp and web. Instant tickets, payment link-up and real-time attendee lists.",
+        "keywords": "event registration automation, exhibition registration Kenya, conference registration WhatsApp, exhibitor management"
+      },
+      "faqs": [
+        ["Can exhibitors register different booth sizes?", "Yes - your packages can be selected in the flow, and pricing is confirmed automatically before the booking is locked in."],
+        ["What about payments?", "We verify payment confirmations from M-Pesa or your gateway and release the ticket automatically."],
+        ["Do attendees get reminders before the event?", "They do, including date, venue and what to bring - all automatic."]
+      ]
+    },
+    {
+      "slug": "real-estate-lead-followup",
+      "name": "Real Estate Lead Follow-up",
+      "category": "Lead Follow-up",
+      "tagline": "Every property enquiry answered instantly and followed up until the viewing.",
+      "description": "Catches every property enquiry from listing sites, WhatsApp, ads and referrals, sends the right property details instantly, qualifies the buyer's budget and zone, books viewings, and keeps every lead warm with automatic follow-ups.",
+      "problem": "Property enquiries are hot for 24 hours - agents who reply late lose the buyer. Messages from different listings pile up, and follow-ups are forgotten.",
+      "solution": "Instant, relevant property responses per enquiry, automatic qualification of budget and area, viewing booking, and timed follow-ups that keep every buyer engaged.",
+      "benefits": [
+        "Reply to enquiries in under a minute",
+        "Buyers matched to the right properties",
+        "Viewings booked automatically",
+        "Cold leads warmed up with follow-ups"
+      ],
+      "features": [
+        "Enquiry intake from listings & WhatsApp",
+        "Instant property details response",
+        "Budget / zone qualification questions",
+        "Viewing booking hand-off",
+        "Follow-up sequences for cold leads",
+        "CRM and sheet logging of every lead"
+      ],
+      "workflow": {
+        "label": "Lead flow",
+        "steps": ["Enquiry Arrives", "AI Qualification", "Property Match Sent", "Viewing Booked", "CRM Updated"],
+        "ai": 1
+      },
+      "integrations": ["WhatsApp Business API", "Google Sheets", "HubSpot", "Property24 RSS", "Typeform", "Google Calendar"],
+      "industries": ["real-estate"],
+      "niches": ["real-estate-agencies", "property-managers", "property-developers"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-data.jpg",
+      "imgalt": "Property listings and data being reviewed",
+      "seo": {
+        "title": "Real Estate Lead Follow-up Automation | Bobsave",
+        "desc": "Automate property enquiry responses, buyer qualification and viewing bookings on WhatsApp. Never miss a buyer again.",
+        "keywords": "real estate lead follow-up Kenya, property enquiry automation, WhatsApp real estate, buyer qualification automation"
+      },
+      "faqs": [
+        ["Can every listing get its own flow?", "Yes - each project or listing can send its tailored details while sharing the same qualification and follow-up engine."],
+        ["How is a viewing booked?", "The flow finds a slot with your agents and confirms it in both the buyer chat and your calendar."],
+        ["What about buyers who go quiet?", "They enter a gentle follow-up sequence so you stay top of mind when they are ready to move."]
+      ]
+    },
+    {
+      "slug": "delivery-notifications",
+      "name": "Delivery & Order Notifications",
+      "category": "Delivery",
+      "tagline": "Keep every customer updated from order to door - automatically.",
+      "description": "Sends automatic order and delivery updates at every milestone - order received, packed, dispatched, out for delivery, delivered - straight to the customer's WhatsApp, with tracking links and a delivery confirmation flow.",
+      "problem": "Customers constantly ask 'where is my order?'. Manual status updates eat driver and dispatch time, and vague updates damage trust in your delivery promise.",
+      "solution": "Automatic status messages at every milestone, tracking links, and a confirmation loop that closes the loop - so customers always know exactly where their order is.",
+      "benefits": [
+        "Fewer 'where is my order?' messages",
+        "Customers trust your delivery promise",
+        "Drivers stop reporting statuses manually",
+        "Full delivery trail recorded"
+      ],
+      "features": [
+        "Milestone status messages on WhatsApp",
+        "Tracking link delivery",
+        "Out-for-delivery alerts",
+        "Delivery confirmation requests",
+        "Failed delivery re-attempt handling",
+        "Orders synced with your logistics system"
+      ],
+      "workflow": {
+        "label": "Delivery flow",
+        "steps": ["Order Placed", "Packed", "Dispatched", "Out for Delivery", "Delivered & Confirmed"],
+        "ai": 0
+      },
+      "integrations": ["WhatsApp Business API", "WooCommerce", "Google Sheets", "SMS Gateway", "Google Maps API", "n8n"],
+      "industries": ["logistics", "ecommerce", "manufacturing"],
+      "niches": ["courier-companies", "delivery-companies", "online-stores", "wholesalers", "warehouses"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-ecommerce.jpg",
+      "imgalt": "Orders being packed and shipped from a warehouse",
+      "seo": {
+        "title": "Delivery & Order Notification Automation | Bobsave",
+        "desc": "Automatic order and delivery status updates on WhatsApp from order to door. Reduce 'where is my order?' calls by 90%.",
+        "keywords": "delivery notifications Kenya, order status automation, courier WhatsApp updates, parcel tracking notifications"
+      },
+      "faqs": [
+        ["Does it work with our courier partner?", "Yes - we connect to your dispatch sheet or logistics system and send updates exactly when milestones are reached."],
+        ["Can customers reply or give feedback?", "They can. Delivery confirmations and feedback messages flow back into your records."],
+        ["What if a delivery fails?", "The automation raises a re-delivery request and notifies your team so nothing is left hanging."]
+      ]
+    },
+    {
+      "slug": "whatsapp-customer-support",
+      "name": "WhatsApp Customer Support Auto-Reply",
+      "category": "Support",
+      "tagline": "Instant answers to customer questions, night and day.",
+      "description": "An AI-powered auto-reply system for WhatsApp that answers the common questions instantly - prices, hours, locations, order status - routes complex requests to the right person, and follows up after resolution.",
+      "problem": "Customers expect instant replies on WhatsApp. Support inboxes flood with the same questions, and response time balloons every time you post a promotion or open a store.",
+      "solution": "Your trained knowledge base answers instantly and consistently, tricky issues escalate to the right staff member, and every conversation is logged.",
+      "benefits": [
+        "Reply to customers in seconds, 24/7",
+        "Team handles real issues, not repeat questions",
+        "Consistent answers across every chat",
+        "Every conversation logged and analysed"
+      ],
+      "features": [
+        "AI answers from your knowledge base",
+        "Order / service status lookups",
+        "Smart escalation to human agents",
+        "Business-hours hand-off messages",
+        "Conversation logging",
+        "Weekly support summary report"
+      ],
+      "workflow": {
+        "label": "Support flow",
+        "steps": ["Customer Message", "AI Instant Answer", "Complex -> Ticket", "Human Replies", "Follow-up & Log"],
+        "ai": 1
+      },
+      "integrations": ["WhatsApp Business API", "OpenAI", "Google Sheets", "Freshdesk", "Telegram", "Gmail"],
+      "industries": ["ecommerce", "hospitality", "local-services", "logistics", "finance"],
+      "niches": ["online-stores", "hotels", "restaurants", "courier-companies", "pharmacies", "clinics"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-support.jpg",
+      "imgalt": "Customer support agent answering customer enquiries",
+      "seo": {
+        "title": "WhatsApp Customer Support Auto-Reply | Bobsave",
+        "desc": "AI auto-replies that answer customer questions on WhatsApp instantly, route complex issues and log conversations. 24/7 support.",
+        "keywords": "WhatsApp auto-reply Kenya, AI customer support, WhatsApp chatbot business, automated replies Kenya"
+      },
+      "faqs": [
+        ["Will it answer our questions correctly?", "We train it on your actual information - prices, hours, policy - and it only answers from what you provide."],
+        ["What happens to hard questions?", "They escalate to the right person automatically, and the customer gets a clear 'someone will help now' message."],
+        ["Does it use AI responsibly?", "Yes - answers are grounded in your content, and every AI conversation can be reviewed by your team."]
+      ]
+    },
+    {
+      "slug": "invoice-and-payment-reminders",
+      "name": "Invoice & Payment Reminders",
+      "category": "Payments",
+      "tagline": "Send invoices and chase payments without chasing people.",
+      "description": "Generates and delivers invoices automatically, detects payment confirmations, sends polite reminders before and after due dates, and keeps your books in sync - so cash flow stops depending on memory.",
+      "problem": "Invoices get delayed, reminders are awkward, and overdue payments sit unnoticed until someone remembers. Cash flow suffers quietly.",
+      "solution": "Automatic invoice delivery, payment detection, timed reminder sequences and an always-current records view - professional and polite, on schedule.",
+      "benefits": [
+        "Invoices sent the moment work is done",
+        "Fewer overdue payments",
+        "No awkward 'are you ever paying?' calls",
+        "Books always in sync"
+      ],
+      "features": [
+        "Automatic invoice generation & sending",
+        "Delivery on WhatsApp + email",
+        "Payment confirmation detection",
+        "Pre- and post-due reminders",
+        "Partially-paid follow-ups",
+        "Monthly receivables report"
+      ],
+      "workflow": {
+        "label": "Payment flow",
+        "steps": ["Invoice Sent", "Payment Detected", "Receipt Sent", "Overdue Reminder", "Records Updated"],
+        "ai": 0
+      },
+      "integrations": ["WhatsApp Business API", "Gmail", "QuickBooks", "Google Sheets", "M-Pesa Daraja API", "Stripe"],
+      "industries": ["finance", "professional-services", "construction", "ecommerce", "recruitment"],
+      "niches": ["accounting-firms", "law-firms", "consulting-firms", "contractors", "wholesalers"],
+      "pricing": { "setup": "KSh 3,500", "monthly": "KSh 1,500/mo" },
+      "delivery": "Typically live in 3-7 days after a short consultation.",
+      "image": "../assets/home/svc-enterprise.jpg",
+      "imgalt": "Invoices and payments being processed",
+      "seo": {
+        "title": "Invoice & Payment Reminder Automation | Bobsave",
+        "desc": "Automate invoice delivery and payment reminders on WhatsApp and email. Get paid faster without awkward chasing.",
+        "keywords": "invoice automation Kenya, payment reminder WhatsApp, overdue invoice automation, M-Pesa invoice"
+      },
+      "faqs": [
+        ["Can it send invoices on WhatsApp?", "Yes - professionally formatted invoices go to clients on WhatsApp or email, whichever you prefer."],
+        ["How does it know a payment arrived?", "It watches M-Pesa confirmations or your gateway webhooks and updates the records in real time."],
+        ["What tone do reminders use?", "Your tone. Reminders stay polite and professional across the whole sequence."]
+      ]
+    }
+  ]
+}

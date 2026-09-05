@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="canonical" href="https://bobsave.com/dashboard.html">
   <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
-  <meta name="description" content="Bobsave Client Dashboard — Monitor your workflow activity, executions, billing and support.">
-  <title>My Dashboard — Bobsave</title>
+  <meta name="description" content="Bobsave Client Dashboard â€” Monitor your workflow activity, executions, billing and support.">
+  <title>My Dashboard â€” Bobsave</title>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap"></noscript>
   <style>
@@ -19,7 +20,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter Tight', sans-serif; background: #f4f6f1; color: var(--dark); min-height: 100vh; }
 
-    /* ── LOGIN SCREEN ── */
+    /* â”€â”€ LOGIN SCREEN â”€â”€ */
     .login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--sage); padding: 1.5rem; }
     .login-card { background: white; border-radius: 2rem; padding: 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
     .login-card .logo { text-align: center; margin-bottom: 1.5rem; }
@@ -36,11 +37,11 @@
     .login-footer { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #aaa; }
     .login-footer a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
 
-    /* ── DASHBOARD LAYOUT ── */
+    /* â”€â”€ DASHBOARD LAYOUT â”€â”€ */
     .dashboard { display: none; min-height: 100vh; }
     .dashboard.visible { display: flex; }
 
-    /* ── SIDEBAR ── */
+    /* â”€â”€ SIDEBAR â”€â”€ */
     .sidebar { width: var(--sidebar-w); background: var(--dark-brown); min-height: 100vh; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; z-index: 200; transition: transform 0.3s; }
     .sidebar-logo { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .sidebar-logo img { height: 2.5rem; }
@@ -63,11 +64,11 @@
       .sidebar.open { transform: translateX(0); }
     }
 
-    /* ── MAIN CONTENT ── */
+    /* â”€â”€ MAIN CONTENT â”€â”€ */
     .main-content { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-width: 0; }
     @media (max-width: 768px) { .main-content { margin-left: 0; } }
 
-    /* ── TOP BAR ── */
+    /* â”€â”€ TOP BAR â”€â”€ */
     .topbar { background: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eaede6; position: sticky; top: 0; z-index: 100; }
     .topbar-left { display: flex; align-items: center; gap: 1rem; }
     .menu-toggle { background: none; border: none; cursor: pointer; font-size: 1.3rem; display: none; color: var(--dark); }
@@ -78,12 +79,12 @@
     .notif-badge { position: absolute; top: -2px; right: -2px; background: #e53e3e; color: white; width: 16px; height: 16px; border-radius: 50%; font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
     .topbar-wa { background: #25d366; color: white; font-weight: 700; padding: 0.45rem 1.1rem; border-radius: 2rem; text-decoration: none; font-size: 0.85rem; white-space: nowrap; }
 
-    /* ── PAGE CONTENT ── */
+    /* â”€â”€ PAGE CONTENT â”€â”€ */
     .page-body { padding: 2rem; flex: 1; }
     .section { display: none; }
     .section.active { display: block; }
 
-    /* ── STAT CARDS ── */
+    /* â”€â”€ STAT CARDS â”€â”€ */
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
     .stat-card { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
     .stat-card .stat-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
@@ -95,20 +96,20 @@
     .stat-card.accent-teal { border-top: 3px solid var(--teal); }
     .stat-card.accent-pink { border-top: 3px solid var(--pink); }
 
-    /* ── EXECUTION BAR ── */
+    /* â”€â”€ EXECUTION BAR â”€â”€ */
     .exec-bar-wrap { background: white; border-radius: 1.5rem; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
     .exec-bar-wrap h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 1rem; }
     .exec-bar-track { background: var(--sage); border-radius: 2rem; height: 14px; overflow: hidden; margin-bottom: 0.5rem; }
     .exec-bar-fill { height: 100%; border-radius: 2rem; background: linear-gradient(90deg, var(--green), var(--teal)); transition: width 1s ease; }
     .exec-bar-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: #888; }
 
-    /* ── CARD WIDGET ── */
+    /* â”€â”€ CARD WIDGET â”€â”€ */
     .widget { background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
     .widget-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
     .widget-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; }
     .widget-badge { background: var(--sage); color: var(--dark-brown); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 2rem; }
 
-    /* ── WORKFLOW TABLE ── */
+    /* â”€â”€ WORKFLOW TABLE â”€â”€ */
     .wf-table { width: 100%; border-collapse: collapse; }
     .wf-table th { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 0 0 0.75rem; text-align: left; border-bottom: 1.5px solid var(--sage); }
     .wf-table td { padding: 0.9rem 0; border-bottom: 1px solid var(--sage); font-size: 0.88rem; vertical-align: middle; }
@@ -119,7 +120,7 @@
     .status-pill.error { background: rgba(229,62,62,0.1); color: #c53030; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 
-    /* ── ACTIVITY FEED ── */
+    /* â”€â”€ ACTIVITY FEED â”€â”€ */
     .activity-list { display: flex; flex-direction: column; gap: 0.85rem; }
     .activity-item { display: flex; align-items: flex-start; gap: 0.9rem; }
     .activity-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
@@ -129,7 +130,7 @@
     .activity-body .activity-text { font-size: 0.88rem; font-weight: 500; color: var(--dark); }
     .activity-body .activity-time { font-size: 0.75rem; color: #aaa; margin-top: 0.15rem; }
 
-    /* ── BILLING ── */
+    /* â”€â”€ BILLING â”€â”€ */
     .billing-plan { background: var(--dark-brown); border-radius: 1.5rem; padding: 1.5rem; color: white; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .billing-plan .plan-name { font-size: 1.3rem; font-weight: 700; }
     .billing-plan .plan-price { font-size: 1rem; color: #c0b27c; margin-top: 0.2rem; }
@@ -142,7 +143,7 @@
     .invoice-table tr:last-child td { border-bottom: none; }
     .paid-tag { background: rgba(159,232,112,0.2); color: var(--green-dark); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 2rem; }
 
-    /* ── SUPPORT ── */
+    /* â”€â”€ SUPPORT â”€â”€ */
     .support-form .form-group { margin-bottom: 1rem; }
     .support-form label { display: block; font-size: 0.82rem; font-weight: 700; color: #888; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .support-form input, .support-form select, .support-form textarea { width: 100%; padding: 0.7rem 1rem; border: 1.5px solid #e0e7d8; border-radius: 1rem; font-family: 'Inter Tight', sans-serif; font-size: 0.9rem; outline: none; transition: border 0.2s; }
@@ -151,14 +152,20 @@
     .submit-btn { background: var(--green); color: var(--green-dark); font-weight: 700; padding: 0.75rem 2rem; border: none; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; }
     .submit-btn:hover { background: #bcef9c; }
 
-    /* ── TWO-COL ── */
+    /* â”€â”€ TWO-COL â”€â”€ */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
-  </style>
+  .pl-dot { flex:1; max-width:44px; height:8px; border-radius:4px; background:#e3e6ec; margin-right:4px; }
+.pl-dot.on { background: var(--green); }
+.pl-dot.cur { background: var(--green-dark); }
+</style>
+  <link rel="stylesheet" href="assets/theme/css/bobsave-dark.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203726035557482" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- ══ LOGIN SCREEN ══ -->
+<!-- â•â• LOGIN SCREEN â•â• -->
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
     <div class="logo"><img src="assets/images/bobsave-logo.svg" alt="Bobsave"></div>
@@ -172,16 +179,16 @@
       <label>Client ID / Password</label>
       <input type="password" id="loginPass" placeholder="Your client ID" autocomplete="current-password">
     </div>
-    <button class="login-btn" onclick="doLogin()">Access Dashboard →</button>
+    <button class="login-btn" onclick="doLogin()">Access Dashboard â†’</button>
     <div class="login-error" id="loginError">Invalid credentials. Please check your details.</div>
     <div class="login-footer">
-      Don't have an account? <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank">Get Started</a> ·
+      Don't have an account? <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20get%20started!" target="_blank">Get Started</a> Â·
       <a href="index.html">Back to Home</a>
     </div>
   </div>
 </div>
 
-<!-- ══ DASHBOARD ══ -->
+<!-- â•â• DASHBOARD â•â• -->
 <div class="dashboard" id="dashboard">
 
   <!-- SIDEBAR -->
@@ -198,19 +205,19 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
-      <a href="#" class="active" onclick="showSection('overview',this)"><span class="nav-icon">📊</span> Overview</a>
-      <a href="#" onclick="showSection('workflows',this)"><span class="nav-icon">⚡</span> My Workflows</a>
-      <a href="#" onclick="showSection('activity',this)"><span class="nav-icon">📋</span> Activity Log</a>
+      <a href="#" class="active" onclick="showSection('overview',this)"><span class="nav-icon">ðŸ“Š</span> Overview</a>
+      <a href="#" onclick="showSection('workflows',this)"><span class="nav-icon">âš¡</span> My Workflows</a>
+      <a href="#" onclick="showSection('activity',this)"><span class="nav-icon">ðŸ“‹</span> Activity Log</a>
       <div class="nav-section-label">Account</div>
-      <a href="#" onclick="showSection('billing',this)"><span class="nav-icon">💳</span> Billing</a>
-      <a href="#" onclick="showSection('support',this)"><span class="nav-icon">🎧</span> Support</a>
-      <a href="#" onclick="showSection('settings',this)"><span class="nav-icon">⚙️</span> Settings</a>
+      <a href="#" onclick="showSection('billing',this)"><span class="nav-icon">ðŸ’³</span> Billing</a>
+      <a href="#" onclick="showSection('support',this)"><span class="nav-icon">ðŸŽ§</span> Support</a>
+      <a href="#" onclick="showSection('settings',this)"><span class="nav-icon">âš™ï¸</span> Settings</a>
       <div class="nav-section-label">Resources</div>
-      <a href="services.html"><span class="nav-icon">🛒</span> Add Services</a>
-      <a href="blog.html"><span class="nav-icon">📰</span> Blog</a>
+      <a href="services.html"><span class="nav-icon">ðŸ›’</span> Add Services</a>
+      <a href="blog.html"><span class="nav-icon">ðŸ“°</span> Blog</a>
     </nav>
     <div class="sidebar-bottom">
-      <button class="logout-btn" onclick="doLogout()"><span>🚪</span> Sign Out</button>
+      <button class="logout-btn" onclick="doLogout()"><span>ðŸšª</span> Sign Out</button>
     </div>
   </nav>
 
@@ -219,20 +226,20 @@
     <!-- TOPBAR -->
     <div class="topbar">
       <div class="topbar-left">
-        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">â˜°</button>
         <span class="page-title" id="pageTitle">Overview</span>
       </div>
       <div class="topbar-right">
         <button class="notif-btn" title="Notifications">
-          🔔<span class="notif-badge">2</span>
+          ðŸ””<span class="notif-badge">2</span>
         </button>
-        <a class="topbar-wa" href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%20need%20help!" target="_blank">💬 Support</a>
+        <a class="topbar-wa" href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%20need%20help!" target="_blank">ðŸ’¬ Support</a>
       </div>
     </div>
 
     <div class="page-body">
 
-      <!-- ── OVERVIEW SECTION ── -->
+      <!-- â”€â”€ OVERVIEW SECTION â”€â”€ -->
       <div class="section active" id="section-overview">
         <div class="stats-grid" id="statsGrid"></div>
         <div class="exec-bar-wrap">
@@ -249,7 +256,7 @@
           <div class="widget">
             <div class="widget-header">
               <span class="widget-title">Active Workflows</span>
-              <span class="widget-badge" id="wfCount">—</span>
+              <span class="widget-badge" id="wfCount">â€”</span>
             </div>
             <table class="wf-table" id="wfTableOverview"><tbody></tbody></table>
           </div>
@@ -260,9 +267,17 @@
             <div class="activity-list" id="activityOverview"></div>
           </div>
         </div>
+      
+        <div class="widget" id="myRequestsWrap">
+          <div class="widget-header">
+            <span class="widget-title">My Requests and Delivery Progress</span>
+            <a href="get-started.html" style="background:var(--green);color:var(--green-dark);font-weight:700;padding:0.4rem 1rem;border-radius:2rem;text-decoration:none;font-size:0.82rem;">+ New Request</a>
+          </div>
+          <div id="myRequests"></div>
+        </div>
       </div>
 
-      <!-- ── WORKFLOWS SECTION ── -->
+      <!-- â”€â”€ WORKFLOWS SECTION â”€â”€ -->
       <div class="section" id="section-workflows">
         <div class="widget">
           <div class="widget-header">
@@ -278,7 +293,7 @@
         </div>
       </div>
 
-      <!-- ── ACTIVITY SECTION ── -->
+      <!-- â”€â”€ ACTIVITY SECTION â”€â”€ -->
       <div class="section" id="section-activity">
         <div class="widget">
           <div class="widget-header">
@@ -288,7 +303,7 @@
         </div>
       </div>
 
-      <!-- ── BILLING SECTION ── -->
+      <!-- â”€â”€ BILLING SECTION â”€â”€ -->
       <div class="section" id="section-billing">
         <div class="billing-plan">
           <div>
@@ -296,19 +311,19 @@
             <div class="plan-price" id="billingPlanPrice">KSh 3,500 / month</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-            <span class="plan-badge">✓ Active</span>
+            <span class="plan-badge">âœ“ Active</span>
             <a href="https://wa.me/254702505946?text=Hi%20Bobsave%2C%20I%27d%20like%20to%20upgrade%20my%20plan!" target="_blank" class="upgrade-btn">Upgrade Plan</a>
           </div>
         </div>
         <div class="two-col">
           <div class="widget">
             <div class="widget-header"><span class="widget-title">Next Payment</span></div>
-            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="nextPayment">—</p>
+            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="nextPayment">â€”</p>
             <p style="color:#888;font-size:0.85rem;">Auto-reminder sent 3 days before due date via WhatsApp</p>
           </div>
           <div class="widget">
             <div class="widget-header"><span class="widget-title">Total Paid (2025)</span></div>
-            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="totalPaid">—</p>
+            <p style="font-size:1.5rem;font-weight:700;margin-bottom:0.3rem;" id="totalPaid">â€”</p>
             <p style="color:#888;font-size:0.85rem;">All payments processed via M-Pesa or card</p>
           </div>
         </div>
@@ -321,7 +336,7 @@
         </div>
       </div>
 
-      <!-- ── SUPPORT SECTION ── -->
+      <!-- â”€â”€ SUPPORT SECTION â”€â”€ -->
       <div class="section" id="section-support">
         <div class="two-col">
           <div class="widget">
@@ -340,17 +355,17 @@
               <div class="form-group">
                 <label>Priority</label>
                 <select>
-                  <option>Low — General question</option>
-                  <option>Medium — Workflow not running</option>
-                  <option>High — Business impacted</option>
-                  <option>Critical — Complete outage</option>
+                  <option>Low â€” General question</option>
+                  <option>Medium â€” Workflow not running</option>
+                  <option>High â€” Business impacted</option>
+                  <option>Critical â€” Complete outage</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Details</label>
-                <textarea placeholder="Describe the issue in detail — what happened, when, and what you expected..."></textarea>
+                <textarea placeholder="Describe the issue in detail â€” what happened, when, and what you expected..."></textarea>
               </div>
-              <button type="submit" class="submit-btn">Submit Ticket →</button>
+              <button type="submit" class="submit-btn">Submit Ticket â†’</button>
               <p id="ticketMsg" style="color:var(--green-dark);font-size:0.85rem;margin-top:0.75rem;display:none;"></p>
             </form>
           </div>
@@ -361,21 +376,21 @@
               </div>
               <div style="display:flex;flex-direction:column;gap:1rem;">
                 <a href="https://wa.me/254702505946" target="_blank" style="display:flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.06);padding:1rem;border-radius:1rem;text-decoration:none;color:white;transition:background 0.2s;">
-                  <span style="font-size:1.5rem;">💬</span>
+                  <span style="font-size:1.5rem;">ðŸ’¬</span>
                   <div><div style="font-weight:700;">WhatsApp</div><div style="font-size:0.8rem;color:#c0b27c;">+254 702 505 946</div></div>
                 </a>
                 <a href="mailto:bobomurithi@gmail.com" style="display:flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.06);padding:1rem;border-radius:1rem;text-decoration:none;color:white;transition:background 0.2s;">
-                  <span style="font-size:1.5rem;">✉️</span>
+                  <span style="font-size:1.5rem;">âœ‰ï¸</span>
                   <div><div style="font-weight:700;">Email</div><div style="font-size:0.8rem;color:#c0b27c;">bobomurithi@gmail.com</div></div>
                 </a>
               </div>
-              <p style="color:#c0b27c;font-size:0.82rem;margin-top:1.25rem;">Response time: under 2 hours on business days · 24hr for critical issues</p>
+              <p style="color:#c0b27c;font-size:0.82rem;margin-top:1.25rem;">Response time: under 2 hours on business days Â· 24hr for critical issues</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ── SETTINGS SECTION ── -->
+      <!-- â”€â”€ SETTINGS SECTION â”€â”€ -->
       <div class="section" id="section-settings">
         <div class="widget" style="max-width:560px;">
           <div class="widget-header"><span class="widget-title">Account Settings</span></div>
@@ -404,7 +419,7 @@
                 <option>Email only</option>
               </select>
             </div>
-            <button type="submit" class="submit-btn">Save Changes →</button>
+            <button type="submit" class="submit-btn">Save Changes â†’</button>
             <p id="settingsMsg" style="color:var(--green-dark);font-size:0.85rem;margin-top:0.75rem;display:none;"></p>
           </form>
         </div>
@@ -415,7 +430,7 @@
 </div><!-- /dashboard -->
 
 <script>
-  // ── DEMO CLIENT DATA ──
+  // â”€â”€ DEMO CLIENT DATA â”€â”€
   // In production this comes from: fetch('https://your-n8n.com/webhook/client-data?id=' + clientId)
   const CLIENT_DATA = {
     name: 'Jane Wanjiku',
@@ -432,24 +447,24 @@
       { name: 'Invoice Auto-Send',          status: 'running', executions: 1108, last: '1 hr ago'  },
     ],
     activity: [
-      { icon: '⚡', type: 'success', text: 'WhatsApp Lead Follow-Up executed successfully', time: '2 minutes ago' },
-      { icon: '💳', type: 'success', text: 'M-Pesa payment of KSh 4,500 confirmed & receipt sent', time: '14 minutes ago' },
-      { icon: '📄', type: 'success', text: 'Invoice #INV-0042 generated and emailed to client', time: '1 hour ago' },
-      { icon: '⚠️', type: 'warn',    text: 'WhatsApp API rate limit approached (80% of hourly cap)', time: '3 hours ago' },
-      { icon: '⚡', type: 'success', text: 'Lead captured from website form — follow-up sent', time: '4 hours ago' },
-      { icon: '📊', type: 'info',    text: 'Monthly execution report generated and sent to email', time: 'Yesterday' },
-      { icon: '✅', type: 'success', text: 'All 3 workflows passed health check', time: 'Yesterday' },
-      { icon: '🔁', type: 'info',    text: 'Workflow schedules refreshed — next run at midnight', time: '2 days ago' },
+      { icon: 'âš¡', type: 'success', text: 'WhatsApp Lead Follow-Up executed successfully', time: '2 minutes ago' },
+      { icon: 'ðŸ’³', type: 'success', text: 'M-Pesa payment of KSh 4,500 confirmed & receipt sent', time: '14 minutes ago' },
+      { icon: 'ðŸ“„', type: 'success', text: 'Invoice #INV-0042 generated and emailed to client', time: '1 hour ago' },
+      { icon: 'âš ï¸', type: 'warn',    text: 'WhatsApp API rate limit approached (80% of hourly cap)', time: '3 hours ago' },
+      { icon: 'âš¡', type: 'success', text: 'Lead captured from website form â€” follow-up sent', time: '4 hours ago' },
+      { icon: 'ðŸ“Š', type: 'info',    text: 'Monthly execution report generated and sent to email', time: 'Yesterday' },
+      { icon: 'âœ…', type: 'success', text: 'All 3 workflows passed health check', time: 'Yesterday' },
+      { icon: 'ðŸ”', type: 'info',    text: 'Workflow schedules refreshed â€” next run at midnight', time: '2 days ago' },
     ],
     invoices: [
-      { date: 'Jul 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
-      { date: 'Jun 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
-      { date: 'May 1, 2025',  desc: 'Business Plan — Monthly',   amount: 'KSh 3,500', status: 'paid' },
-      { date: 'Apr 10, 2025', desc: 'Business Plan — Setup Fee', amount: 'KSh 10,000', status: 'paid' },
+      { date: 'Jul 1, 2025',  desc: 'Business Plan â€” Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'Jun 1, 2025',  desc: 'Business Plan â€” Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'May 1, 2025',  desc: 'Business Plan â€” Monthly',   amount: 'KSh 3,500', status: 'paid' },
+      { date: 'Apr 10, 2025', desc: 'Business Plan â€” Setup Fee', amount: 'KSh 10,000', status: 'paid' },
     ]
   };
 
-  // ── LOGIN ──
+  // â”€â”€ LOGIN â”€â”€
   function doLogin() {
     const email = document.getElementById('loginEmail').value.trim();
     const pass  = document.getElementById('loginPass').value.trim();
@@ -472,7 +487,7 @@
     el.style.display = 'block';
   }
 
-  // ── LOAD DASHBOARD ──
+  // â”€â”€ LOAD DASHBOARD â”€â”€
   function loadDashboard() {
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('dashboard').classList.add('visible');
@@ -488,25 +503,25 @@
     const pct = Math.round((d.execUsed / d.execLimit) * 100);
     document.getElementById('statsGrid').innerHTML = `
       <div class="stat-card accent-green">
-        <div class="stat-icon">⚡</div>
+        <div class="stat-icon">âš¡</div>
         <div class="stat-value">${d.execUsed.toLocaleString()}</div>
         <div class="stat-label">Executions Used</div>
         <div class="stat-sub">${pct}% of monthly limit</div>
       </div>
       <div class="stat-card accent-teal">
-        <div class="stat-icon">🔄</div>
+        <div class="stat-icon">ðŸ”„</div>
         <div class="stat-value">${d.workflows.length}</div>
         <div class="stat-label">Active Workflows</div>
         <div class="stat-sub">All running normally</div>
       </div>
       <div class="stat-card accent-yellow">
-        <div class="stat-icon">📅</div>
+        <div class="stat-icon">ðŸ“…</div>
         <div class="stat-value" style="font-size:1.3rem">${d.nextPayment}</div>
         <div class="stat-label">Next Payment</div>
         <div class="stat-sub">${d.planPrice}</div>
       </div>
       <div class="stat-card accent-pink">
-        <div class="stat-icon">✅</div>
+        <div class="stat-icon">âœ…</div>
         <div class="stat-value">100%</div>
         <div class="stat-label">Uptime This Month</div>
         <div class="stat-sub">No outages recorded</div>
@@ -564,15 +579,47 @@
         <td>${inv.date}</td>
         <td>${inv.desc}</td>
         <td><strong>${inv.amount}</strong></td>
-        <td><span class="paid-tag">✓ Paid</span></td>
+        <td><span class="paid-tag">âœ“ Paid</span></td>
       </tr>`).join('');
 
-    // Settings pre-fill
+// Settings pre-fill
     document.getElementById('settingName').value  = d.name;
     document.getElementById('settingEmail').value = d.email;
+
+    renderMyRequests();
   }
 
-  // ── NAV ──
+  // — MY REQUESTS & DELIVERY PROGRESS —
+  function renderMyRequests() {
+    const box = document.getElementById('myRequests');
+    if (!box) return;
+    const u = (() => { try { return JSON.parse(sessionStorage.getItem('bs_user') || '{}'); } catch (e) { return {}; } })();
+    const myEmail = (u.email || '').toLowerCase().trim();
+    let leads = [];
+    try { leads = JSON.parse(localStorage.getItem('bs_leads') || '[]'); } catch (e) { leads = []; }
+    if (myEmail) leads = leads.filter(x => (x.email || '').toLowerCase().trim() === myEmail);
+    if (!leads.length) {
+      box.innerHTML = '<p style="color:#888;text-align:center;padding:1.5rem 0;margin:0;">No requests yet. <a href="get-started.html" style="color:var(--green-dark);font-weight:700;">Start a new automation request</a> and track it here.</p>';
+      return;
+    }
+    const stages = ['New', 'Contacted', 'Paid', 'Configuring', 'Testing', 'Delivered'];
+    box.innerHTML = leads.map(x => {
+      const idx = stages.indexOf(x.status || 'New');
+      const cur = idx === -1 ? 0 : idx;
+      const dots = stages.map((s, i) => '<span class="pl-dot' + (i <= cur ? ' on' : '') + (i === cur ? ' cur' : '') + '" title="' + s + '"></span>').join('');
+      const when = (x.date || '').slice(0, 10);
+      return '<div style="border-bottom:1px solid #e8ebf0;padding:1rem 0;margin:0;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.6rem;">' +
+          '<div><strong>' + (x.interest || 'General enquiry') + '</strong><div style="color:#888;font-size:0.82rem;margin-top:0.2rem;">Requested ' + when + ' &nbsp;|&nbsp; Ref ' + (x.id || '') + '</div></div>' +
+          '<span class="status-pill running" style="background:' + (cur >= stages.length - 1 ? 'var(--green)' : 'var(--sage)') + ';">' + (x.status || 'New') + '</span>' +
+        '</div>' +
+        '<div style="display:flex;gap:0px;margin-top:1rem;">' + dots + '</div>' +
+        '<div style="color:#888;font-size:0.82rem;margin-top:0.6rem;">' + (x.goal || '') + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // â”€â”€ NAV â”€â”€
   function showSection(id, el) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
@@ -585,11 +632,11 @@
     return false;
   }
 
-  // ── FORMS ──
+  // â”€â”€ FORMS â”€â”€
   function submitTicket(e) {
     e.preventDefault();
     const msg = document.getElementById('ticketMsg');
-    msg.textContent = '✅ Ticket submitted! We\'ll respond within 2 hours via WhatsApp or email.';
+    msg.textContent = 'âœ… Ticket submitted! We\'ll respond within 2 hours via WhatsApp or email.';
     msg.style.display = 'block';
     e.target.reset();
   }
@@ -597,12 +644,12 @@
   function saveSettings(e) {
     e.preventDefault();
     const msg = document.getElementById('settingsMsg');
-    msg.textContent = '✅ Settings saved!';
+    msg.textContent = 'âœ… Settings saved!';
     msg.style.display = 'block';
     setTimeout(() => msg.style.display = 'none', 3000);
   }
 
-  // ── LOGOUT ──
+  // â”€â”€ LOGOUT â”€â”€
   function doLogout() {
     sessionStorage.removeItem('bs_user');
     document.getElementById('dashboard').classList.remove('visible');
@@ -611,11 +658,12 @@
     document.getElementById('loginPass').value = '';
   }
 
-  // ── AUTO-LOGIN if session exists ──
+  // â”€â”€ AUTO-LOGIN if session exists â”€â”€
   if (sessionStorage.getItem('bs_user')) loadDashboard();
 
-  // ── ENTER KEY on login ──
+  // â”€â”€ ENTER KEY on login â”€â”€
   document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 </script>
+<script src="assets/theme/js/bobsave-darkmode.js"></script>
 </body>
 </html>

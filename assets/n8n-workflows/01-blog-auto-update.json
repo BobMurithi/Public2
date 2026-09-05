@@ -1,105 +1,247 @@
 {
-  "name": "01 — Blog Auto Update",
+  "name": "Bobsave — AI Blog Auto Update V2",
   "nodes": [
     {
       "parameters": {
-        "rule": { "interval": [{ "field": "hours", "hoursInterval": 6 }] }
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
       },
+      "id": "schedule-trigger",
       "name": "Every 6 Hours",
       "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
-      "position": [240, 300],
-      "id": "schedule-trigger"
+      "typeVersion": 1.2,
+      "position": [
+        -1200,
+        300
+      ]
     },
     {
       "parameters": {
         "url": "https://feeds.feedburner.com/TechCrunch",
         "options": {}
       },
+      "id": "rss-techcrunch",
       "name": "TechCrunch RSS",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [460, 180],
-      "id": "rss-techcrunch"
+      "position": [
+        -980,
+        100
+      ]
     },
     {
       "parameters": {
         "url": "https://www.theverge.com/rss/index.xml",
         "options": {}
       },
+      "id": "rss-verge",
       "name": "The Verge RSS",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [460, 300],
-      "id": "rss-verge"
+      "position": [
+        -980,
+        300
+      ]
     },
     {
       "parameters": {
         "url": "https://www.wired.com/feed/rss",
         "options": {}
       },
+      "id": "rss-wired",
       "name": "Wired RSS",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1,
-      "position": [460, 420],
-      "id": "rss-wired"
+      "position": [
+        -980,
+        500
+      ]
     },
     {
       "parameters": {
-        "mode": "combine",
-        "mergeByFields": { "values": [] },
+        "mode": "append",
         "options": {}
       },
+      "id": "merge-feeds",
       "name": "Merge All Feeds",
       "type": "n8n-nodes-base.merge",
-      "typeVersion": 2.1,
-      "position": [680, 300],
-      "id": "merge-feeds"
+      "typeVersion": 3.2,
+      "position": [
+        -760,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map((item, index) => {\n  const j = item.json;\n\n  const title = String(j.title || '').trim();\n  const description = String(j.contentSnippet || j.content || j.description || '').trim();\n  const url = String(j.link || '').trim();\n  const date = j.isoDate || j.pubDate || new Date().toISOString();\n\n  let source = 'External';\n\n  if (url.includes('techcrunch.com')) source = 'TechCrunch';\n  else if (url.includes('theverge.com')) source = 'The Verge';\n  else if (url.includes('wired.com')) source = 'WIRED';\n  else if (j.creator) source = String(j.creator);\n\n  const image =\n    j.enclosure?.url ||\n    j.enclosure?.link ||\n    j.image?.url ||\n    'assets/images/pexels-jakubzerdzicki-38984817.jpg';\n\n  return {\n    json: {\n      originalIndex: index,\n      title,\n      description,\n      url,\n      source,\n      author: j.creator || 'External',\n      published: new Date(date).toISOString(),\n      image\n    }\n  };\n});"
+      },
+      "id": "normalize-articles",
+      "name": "Normalize Articles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        300
+      ]
     },
     {
       "parameters": {
         "conditions": {
-          "string": [
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
             {
-              "value1": "={{ $json.title + ' ' + $json.contentSnippet }}",
-              "operation": "contains",
-              "value2": "AI"
+              "id": "ai-keywords",
+              "leftValue": "={{ ($json.title + ' ' + $json.description).toLowerCase() }}",
+              "rightValue": "ai|artificial intelligence|automation|automate|n8n|agent|agents|llm|large language model|chatgpt|openai|claude|gemini|machine learning|generative ai|genai|workflow|productivity|cybersecurity|cloud|digital transformation",
+              "operator": {
+                "type": "string",
+                "operation": "regex"
+              }
             }
-          ]
-        },
-        "combineOperation": "any"
-      },
-      "name": "Filter AI & Automation",
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 1,
-      "position": [900, 300],
-      "id": "filter-keywords"
-    },
-    {
-      "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "number": [{ "name": "id", "value": "={{ $itemIndex + 1 }}" }],
-          "string": [
-            { "name": "title", "value": "={{ $json.title }}" },
-            { "name": "source", "value": "={{ $json.creator || 'External' }}" },
-            { "name": "author", "value": "External" },
-            { "name": "date", "value": "={{ $json.isoDate ? $json.isoDate.split('T')[0] : new Date().toISOString().split('T')[0] }}" },
-            { "name": "url", "value": "={{ $json.link }}" },
-            { "name": "image", "value": "={{ $json.enclosure?.url || 'assets/images/pexels-jakubzerdzicki-38984817.jpg' }}" },
-            { "name": "read_time", "value": "5 min read" },
-            { "name": "tag_color", "value": "#a0e2e1" },
-            { "name": "tag_text", "value": "#1f6463" }
           ],
-          "boolean": [{ "name": "featured", "value": false }]
+          "combinator": "and"
         },
         "options": {}
       },
-      "name": "Shape Article Data",
-      "type": "n8n-nodes-base.set",
+      "id": "filter-topics",
+      "name": "Filter AI & Automation",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/BobMurithi/Public2/contents/assets/data/blog-feed.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "github-get-file",
+      "name": "Get Existing Blog Feed",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "2",
+          "name": "GitHub Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\n\nlet existing = [];\n\ntry {\n  if (input.content) {\n    const decoded = Buffer.from(input.content, 'base64').toString('utf8');\n    const parsed = JSON.parse(decoded);\n\n    if (Array.isArray(parsed)) {\n      existing = parsed;\n    } else if (Array.isArray(parsed.articles)) {\n      existing = parsed.articles;\n    } else if (Array.isArray(parsed.data)) {\n      existing = parsed.data;\n    }\n  }\n} catch (error) {\n  existing = [];\n}\n\nreturn [\n  {\n    json: {\n      existingArticles: existing,\n      currentSha: input.sha || '',\n      githubPath: 'assets/data/blog-feed.json'\n    }\n  }\n];"
+      },
+      "id": "parse-existing",
+      "name": "Parse Existing Blog Feed",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 300],
-      "id": "shape-data"
+      "position": [
+        120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const existing = $json.existingArticles || [];\n\nconst existingUrls = new Set(\n  existing\n    .map(a => String(a.url || '').trim().toLowerCase())\n    .filter(Boolean)\n);\n\nreturn [\n  {\n    json: {\n      ...$json,\n      existingUrls: Array.from(existingUrls)\n    }\n  }\n];"
+      },
+      "id": "prepare-dedupe",
+      "name": "Prepare Duplicate Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const context = $input.first().json;\nconst existingUrls = new Set(context.existingUrls || []);\nconst existingArticles = context.existingArticles || [];\nconst sha = context.currentSha;\n\nconst allInputItems = $('Filter AI & Automation').all();\n\nconst newArticles = [];\nconst seen = new Set();\n\nfor (const item of allInputItems) {\n  const article = item.json;\n  const url = String(article.url || '').trim();\n  const normalizedUrl = url.toLowerCase();\n\n  if (!url) continue;\n  if (existingUrls.has(normalizedUrl)) continue;\n  if (seen.has(normalizedUrl)) continue;\n\n  seen.add(normalizedUrl);\n  newArticles.push(article);\n}\n\nreturn [\n  {\n    json: {\n      existingArticles,\n      currentSha: sha,\n      newArticles,\n      newArticleCount: newArticles.length\n    }\n  }\n];"
+      },
+      "id": "deduplicate",
+      "name": "Remove Existing Articles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-new",
+              "leftValue": "={{ $json.newArticleCount }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "has-new-articles",
+      "name": "Any New Articles?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $json;\nconst articles = data.newArticles || [];\n\nreturn articles.map(article => ({\n  json: {\n    ...article,\n    currentSha: data.currentSha,\n    existingArticles: data.existingArticles\n  }\n}));"
+      },
+      "id": "split-new-articles",
+      "name": "Prepare New Articles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        200
+      ]
     },
     {
       "parameters": {
@@ -109,93 +251,373 @@
           "values": [
             {
               "role": "system",
-              "content": "You are a content writer for Bobsave, a workflow automation company in Nairobi, Kenya. Rewrite article summaries in a friendly, helpful, business-focused tone that appeals to African entrepreneurs. Keep it to 2-3 sentences max. Focus on practical business value."
+              "content": "You are the Bobsave Editorial AI. Bobsave is a workflow automation and AI solutions company serving entrepreneurs, SMEs and organizations, with a focus on practical technology adoption in Africa. Analyze the supplied technology article and create an ORIGINAL editorial summary. Never copy the source article. Do not invent facts that are not supported by the supplied title and description. Focus on practical business value. Return ONLY valid JSON with exactly these fields: title, slug, summary, business_takeaway, category, tags, target_keyword, seo_title, seo_description. The category must be one of: AI & Automation, Business Technology, Cybersecurity, Cloud, Productivity, Digital Transformation. The summary should be 2-3 sentences. business_takeaway should explain why the story matters to a business owner. tags should be an array of 3-5 short tags. slug must be lowercase URL-safe text."
             },
             {
               "role": "user",
-              "content": "=Rewrite this article summary for our blog: Title: {{ $json.title }}. Original snippet: {{ $json.contentSnippet || $json.title }}"
+              "content": "=Analyze this article for Bobsave.\n\nTitle: {{ $json.title }}\n\nDescription: {{ $json.description }}\n\nSource: {{ $json.source }}\n\nURL: {{ $json.url }}"
             }
           ]
         },
-        "options": {}
+        "options": {
+          "temperature": 0.4
+        }
       },
-      "name": "OpenAI Rewrite Summary",
+      "name": "Bobsave AI Editorial Agent",
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1,
-      "position": [1340, 300],
-      "id": "openai-rewrite",
-      "credentials": { "openAiApi": { "id": "1", "name": "OpenAI API" } }
+      "position": [
+        1220,
+        200
+      ],
+      "id": "openai-editorial",
+      "credentials": {
+        "openAiApi": {
+          "id": "1",
+          "name": "OpenAI API"
+        }
+      }
     },
     {
       "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "string": [
-            { "name": "summary", "value": "={{ $json.message.content }}" }
-          ]
-        },
-        "options": { "dotNotation": false }
+        "jsCode": "const input = $input.first().json;\nconst original = $('Prepare New Articles').item.json;\n\nlet raw = '';\n\nif (input.message?.content) raw = input.message.content;\nelse if (input.content) raw = input.content;\nelse if (typeof input.output === 'string') raw = input.output;\nelse raw = JSON.stringify(input);\n\nraw = String(raw).trim();\n\nraw = raw.replace(/^```json\\s*/i, '').replace(/^```\\s*/i, '').replace(/```$/i, '').trim();\n\nlet ai;\n\ntry {\n  ai = JSON.parse(raw);\n} catch (error) {\n  ai = {\n    title: original.title,\n    slug: original.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),\n    summary: original.description || original.title,\n    business_takeaway: 'This technology development may create new opportunities for businesses adopting AI and automation.',\n    category: 'AI & Automation',\n    tags: ['AI', 'Automation', 'Technology'],\n    target_keyword: 'AI automation',\n    seo_title: original.title,\n    seo_description: original.description || original.title\n  };\n}\n\nconst slug = String(ai.slug || ai.title || original.title)\n  .toLowerCase()\n  .replace(/[^a-z0-9]+/g, '-')\n  .replace(/^-+|-+$/g, '')\n  .slice(0, 90);\n\nreturn [\n  {\n    json: {\n      title: ai.title || original.title,\n      slug,\n      summary: ai.summary || original.description || original.title,\n      business_takeaway: ai.business_takeaway || '',\n      category: ai.category || 'AI & Automation',\n      tags: Array.isArray(ai.tags) ? ai.tags.slice(0, 5) : ['AI', 'Automation'],\n      target_keyword: ai.target_keyword || 'AI automation',\n      seo_title: ai.seo_title || ai.title || original.title,\n      seo_description: ai.seo_description || ai.summary || original.description,\n      source: original.source,\n      author: original.author,\n      published: original.published,\n      url: original.url,\n      image: original.image,\n      read_time: '4 min read',\n      featured: false,\n      tag_color: '#a0e2e1',\n      tag_text: '#1f6463',\n      currentSha: original.currentSha,\n      existingArticles: original.existingArticles\n    }\n  }\n];"
       },
-      "name": "Extract Summary",
-      "type": "n8n-nodes-base.set",
+      "id": "build-article",
+      "name": "Build Bobsave Article",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1560, 300],
-      "id": "extract-summary"
+      "position": [
+        1440,
+        200
+      ]
     },
     {
       "parameters": {
-        "aggregate": "aggregateAllItemData",
-        "options": {}
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all();\n\nconst validCategories = new Set([\n  'AI & Automation',\n  'Business Technology',\n  'Cybersecurity',\n  'Cloud',\n  'Productivity',\n  'Digital Transformation'\n]);\n\nreturn items\n  .filter(item => {\n    const a = item.json;\n    return a.title && a.url && a.summary && a.slug;\n  })\n  .map(item => {\n    const a = item.json;\n    return {\n      json: {\n        ...a,\n        category: validCategories.has(a.category) ? a.category : 'AI & Automation'\n      }\n    };\n  });"
       },
-      "name": "Collect All Articles",
-      "type": "n8n-nodes-base.aggregate",
-      "typeVersion": 1,
-      "position": [1780, 300],
-      "id": "aggregate"
+      "id": "validate-articles",
+      "name": "Validate Articles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1660,
+        200
+      ]
     },
     {
       "parameters": {
-        "method": "POST",
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all();\n\nif (items.length === 0) {\n  return [];\n}\n\nconst existing = items[0].json.existingArticles || [];\nconst sha = items[0].json.currentSha || '';\n\nconst newArticles = items.map(i => {\n  const a = { ...i.json };\n  delete a.existingArticles;\n  delete a.currentSha;\n  return a;\n});\n\nconst combined = [...newArticles, ...existing];\n\nconst unique = [];\nconst seen = new Set();\n\nfor (const article of combined) {\n  const key = String(article.url || article.slug || '').toLowerCase();\n  if (!key || seen.has(key)) continue;\n  seen.add(key);\n  unique.push(article);\n}\n\nunique.sort((a, b) => {\n  return new Date(b.published || 0).getTime() - new Date(a.published || 0).getTime();\n});\n\nconst latest = unique.slice(0, 50);\n\nreturn [\n  {\n    json: {\n      articles: latest,\n      currentSha: sha,\n      articleCount: latest.length\n    }\n  }\n];"
+      },
+      "id": "combine-limit",
+      "name": "Combine & Keep Latest 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1880,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $json;\n\nreturn [\n  {\n    json: {\n      githubPayload: {\n        message: `Bobsave AI blog update — ${new Date().toISOString()}`,\n        content: Buffer.from(JSON.stringify(data.articles, null, 2)).toString('base64'),\n        sha: data.currentSha,\n        branch: 'main'\n      },\n      articleCount: data.articleCount\n    }\n  }\n];"
+      },
+      "id": "prepare-github",
+      "name": "Prepare GitHub Update",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
         "url": "https://api.github.com/repos/BobMurithi/Public2/contents/assets/data/blog-feed.json",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Accept", "value": "application/vnd.github.v3+json" },
-            { "name": "X-GitHub-Api-Version", "value": "2022-11-28" }
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
           ]
         },
         "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "message", "value": "Auto-update blog feed via n8n" },
-            { "name": "content", "value": "={{ Buffer.from(JSON.stringify($json.data, null, 2)).toString('base64') }}" },
-            { "name": "sha", "value": "={{ $json.currentSha }}" }
-          ]
-        },
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.githubPayload) }}",
         "options": {}
       },
-      "name": "Push to GitHub",
+      "id": "github-update",
+      "name": "Publish to GitHub",
       "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [2000, 300],
-      "id": "github-push",
-      "credentials": { "httpHeaderAuth": { "id": "2", "name": "GitHub Token" } }
+      "typeVersion": 4.2,
+      "position": [
+        2320,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "2",
+          "name": "GitHub Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      status: 'success',\n      message: 'Bobsave blog feed updated successfully.',\n      updatedAt: new Date().toISOString(),\n      githubFile: 'assets/data/blog-feed.json'\n    }\n  }\n];"
+      },
+      "id": "success",
+      "name": "Update Successful",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2540,
+        200
+      ]
     }
   ],
   "connections": {
-    "Every 6 Hours": { "main": [[{ "node": "TechCrunch RSS", "type": "main", "index": 0 }, { "node": "The Verge RSS", "type": "main", "index": 0 }, { "node": "Wired RSS", "type": "main", "index": 0 }]] },
-    "TechCrunch RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 0 }]] },
-    "The Verge RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 1 }]] },
-    "Wired RSS": { "main": [[{ "node": "Merge All Feeds", "type": "main", "index": 2 }]] },
-    "Merge All Feeds": { "main": [[{ "node": "Filter AI & Automation", "type": "main", "index": 0 }]] },
-    "Filter AI & Automation": { "main": [[{ "node": "Shape Article Data", "type": "main", "index": 0 }]] },
-    "Shape Article Data": { "main": [[{ "node": "OpenAI Rewrite Summary", "type": "main", "index": 0 }]] },
-    "OpenAI Rewrite Summary": { "main": [[{ "node": "Extract Summary", "type": "main", "index": 0 }]] },
-    "Extract Summary": { "main": [[{ "node": "Collect All Articles", "type": "main", "index": 0 }]] },
-    "Collect All Articles": { "main": [[{ "node": "Push to GitHub", "type": "main", "index": 0 }]] }
+    "Every 6 Hours": {
+      "main": [
+        [
+          {
+            "node": "TechCrunch RSS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "The Verge RSS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Wired RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TechCrunch RSS": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "The Verge RSS": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wired RSS": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge All Feeds": {
+      "main": [
+        [
+          {
+            "node": "Normalize Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Articles": {
+      "main": [
+        [
+          {
+            "node": "Filter AI & Automation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter AI & Automation": {
+      "main": [
+        [
+          {
+            "node": "Get Existing Blog Feed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Get Existing Blog Feed": {
+      "main": [
+        [
+          {
+            "node": "Parse Existing Blog Feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Existing Blog Feed": {
+      "main": [
+        [
+          {
+            "node": "Prepare Duplicate Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Duplicate Check": {
+      "main": [
+        [
+          {
+            "node": "Remove Existing Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Existing Articles": {
+      "main": [
+        [
+          {
+            "node": "Any New Articles?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any New Articles?": {
+      "main": [
+        [
+          {
+            "node": "Prepare New Articles",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Prepare New Articles": {
+      "main": [
+        [
+          {
+            "node": "Bobsave AI Editorial Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bobsave AI Editorial Agent": {
+      "main": [
+        [
+          {
+            "node": "Build Bobsave Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Bobsave Article": {
+      "main": [
+        [
+          {
+            "node": "Validate Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Articles": {
+      "main": [
+        [
+          {
+            "node": "Combine & Keep Latest 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine & Keep Latest 50": {
+      "main": [
+        [
+          {
+            "node": "Prepare GitHub Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare GitHub Update": {
+      "main": [
+        [
+          {
+            "node": "Publish to GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publish to GitHub": {
+      "main": [
+        [
+          {
+            "node": "Update Successful",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "tags": [{ "name": "Bobsave" }]
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Bobsave"
+    }
+  ],
+  "active": false,
+  "versionId": "bobsave-blog-v2"
 }

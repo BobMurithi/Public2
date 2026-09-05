@@ -1,0 +1,1641 @@
+﻿{
+    "industries":  [
+                       {
+                           "slug":  "healthcare",
+                           "name":  "Healthcare",
+                           "tagline":  "Automate patient bookings, reminders and communications so care comes first.",
+                           "description":  "Healthcare businesses lose patients to missed calls and administrative friction. Bobsave automates appointment booking, patient reminders, follow-up communications and billing - so your team focuses on patients, not phone calls.",
+                           "problems":  [
+                                            "Front-desk staff overwhelmed by phone-based booking traffic",
+                                            "No-shows create expensive empty appointment slots",
+                                            "Patient follow-up messages forgotten or delayed",
+                                            "Admin time stealing from patient care",
+                                            "After-hours enquiries lost entirely"
+                                        ],
+                           "solutions":  [
+                                             "WhatsApp booking that confirms instantly, even after hours",
+                                             "Automatic reminders that reduce no-shows dramatically",
+                                             "Post-visit follow-up sequences delivered automatically",
+                                             "Centralised message routing to the right department",
+                                             "Live reports showing bookings and attendance patterns"
+                                         ],
+                           "niches":  [
+                                          "clinics",
+                                          "dental-clinics",
+                                          "pharmacies",
+                                          "medical-laboratories"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "EMR / HMS",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "OpenAI"
+                                            ],
+                           "seo":  {
+                                       "title":  "Healthcare Automation for Clinics and Hospitals in Kenya | Bobsave",
+                                       "desc":  "Automate patient bookings, payment reminders and follow-up messages for clinics, dental practices, pharmacies and labs.",
+                                       "keywords":  "healthcare automation Kenya, clinic automation, hospital booking WhatsApp, patient reminder automation"
+                                   }
+                       },
+                       {
+                           "slug":  "education",
+                           "name":  "Education",
+                           "tagline":  "Automate fee collection, parent communication and admissions for better results.",
+                           "description":  "Schools and colleges spend too much time chasing fees and answering repetitive queries. Bobsave automates parent communications, fee reminders, admission follow-up and results delivery - on WhatsApp where parents actually engage.",
+                           "problems":  [
+                                            "Fee chasing consumes admin hours and creates awkward conversations",
+                                            "Parents say they did not receive important notifications",
+                                            "Admission follow-up falls behind during peak periods",
+                                            "Results and report communication is slow",
+                                            "Admin lacks a real-time fee collection overview"
+                                        ],
+                           "solutions":  [
+                                             "Polite automatic fee reminders sent on WhatsApp at the right time",
+                                             "Central announcements that reach every parent simultaneously",
+                                             "Admission enquiry follow-up handled instantly",
+                                             "Results delivered directly to parents when ready",
+                                             "Live fee collection ledger always in sync"
+                                         ],
+                           "niches":  [
+                                          "schools",
+                                          "colleges",
+                                          "training-centers",
+                                          "universities"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "M-Pesa Daraja API",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "SMS Gateway",
+                                                "QuickBooks"
+                                            ],
+                           "seo":  {
+                                       "title":  "School \u0026 College Automation for Fee Collection and Parent Communication | Bobsave",
+                                       "desc":  "Automate fee reminders, parent notifications and admission follow-up for schools, colleges and universities in Kenya.",
+                                       "keywords":  "school automation Kenya, education fee automation, parent communication WhatsApp, school fee reminders"
+                                   }
+                       },
+                       {
+                           "slug":  "logistics",
+                           "name":  "Logistics \u0026 Transportation",
+                           "tagline":  "Real-time delivery updates, automated dispatch tracking and fewer customer calls.",
+                           "description":  "Logistics businesses thrive on reliability, but most of that reliability gets eaten by manual status reporting and customer chasing. Bobsave automates delivery notifications, dispatch tracking and customer support - keeping everyone in the loop without extra effort.",
+                           "problems":  [
+                                            "Customers constantly ask where their order is",
+                                            "Drivers update dispatch status manually, sometimes not at all",
+                                            "Failed deliveries reported late, delaying re-attempts",
+                                            "No live overview of delivery performance",
+                                            "Dispatch admin scales poorly as volume grows"
+                                        ],
+                           "solutions":  [
+                                             "Automatic WhatsApp updates at every delivery milestone",
+                                             "Real-time tracking fed from your dispatch system",
+                                             "Failed delivery alerts routed to drivers and supervisors",
+                                             "A centralised delivery dashboard with daily summaries",
+                                             "Workflow that scales as order volume increases"
+                                         ],
+                           "niches":  [
+                                          "courier-companies",
+                                          "delivery-companies",
+                                          "fleet-management",
+                                          "warehouses"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "Google Maps API",
+                                                "SMS Gateway",
+                                                "WooCommerce",
+                                                "n8n"
+                                            ],
+                           "seo":  {
+                                       "title":  "Logistics and Delivery Automation for Courier Companies | Bobsave",
+                                       "desc":  "Automate delivery notifications, dispatch tracking and customer updates for courier, delivery and fleet businesses.",
+                                       "keywords":  "logistics automation Kenya, delivery notifications WhatsApp, courier dispatch automation, fleet tracking"
+                                   }
+                       },
+                       {
+                           "slug":  "events",
+                           "name":  "Events \u0026 Exhibitions",
+                           "tagline":  "Automate registrations, exhibitor management and event reminders.",
+                           "description":  "Events demand timing and communication perfection, yet most of it runs on WhatsApp messages and spreadsheets. Bobsave automates exhibitor and visitor registration, ticketing, pre-event reminders and post-event follow-up - so the team runs the event, not the admin.",
+                           "problems":  [
+                                            "Registration teams overwhelmed by WhatsApp message volume",
+                                            "Exhibitors miss updates because information is scattered",
+                                            "Payment confirmations get lost in email",
+                                            "Visitor no-shows waste marketing spend",
+                                            "Post-event feedback rarely collected systematically"
+                                        ],
+                           "solutions":  [
+                                             "One registration workflow capturing all exhibitor details in one place",
+                                             "Exhibitor updates delivered consistently on WhatsApp",
+                                             "Payment confirmed automatically, releases ticket or briefing",
+                                             "Visitor reminder sequence dramatically improves turnout",
+                                             "Post-event feedback collected on WhatsApp within 24 hours"
+                                         ],
+                           "niches":  [
+                                          "exhibition-organizers",
+                                          "conference-organizers",
+                                          "wedding-planners",
+                                          "event-venues"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Forms",
+                                                "Google Sheets",
+                                                "M-Pesa Daraja API",
+                                                "Stripe",
+                                                "Eventbrite"
+                                            ],
+                           "seo":  {
+                                       "title":  "Exhibition and Event Registration Automation | Bobsave",
+                                       "desc":  "Automate exhibitor and visitor registration, ticketing, reminders and feedback collection for events and exhibitions.",
+                                       "keywords":  "event registration automation Kenya, exhibition WhatsApp registration, conference management automation"
+                                   }
+                       },
+                       {
+                           "slug":  "hospitality",
+                           "name":  "Hospitality \u0026 Tourism",
+                           "tagline":  "Instant booking replies, guest communication and feedback automation.",
+                           "description":  "Guests book and enquire around the clock, but most hospitality businesses have staff working fixed hours. Bobsave automates reservation booking, guest communication, review requests and loyalty messaging - so every guest gets a great experience, regardless of when they reach out.",
+                           "problems":  [
+                                            "Booking enquiries after hours go unanswered for hours",
+                                            "Staff overwhelmed by repetitive guest questions",
+                                            "Review and feedback requests rarely sent",
+                                            "WhatsApp messages from guests pile up",
+                                            "No systematic way to upsell returning guests"
+                                        ],
+                           "solutions":  [
+                                             "Instant WhatsApp booking replies, even at midnight",
+                                             "AI handling of common guest questions",
+                                             "Automatic review request after checkout",
+                                             "Every guest message logged and tracked",
+                                             "Return-guest loyalty sequences sent on schedule"
+                                         ],
+                           "niches":  [
+                                          "hotels",
+                                          "restaurants",
+                                          "tour-operators",
+                                          "travel-agencies"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "OpenAI",
+                                                "Google Sheets",
+                                                "TripAdvisor API",
+                                                "Gmail"
+                                            ],
+                           "seo":  {
+                                       "title":  "Hotel and Restaurant Automation for Guest Communication | Bobsave",
+                                       "desc":  "Automate booking replies, guest communication, review requests and loyalty messaging for hotels, restaurants and tour operators.",
+                                       "keywords":  "hospitality automation Kenya, hotel WhatsApp booking, restaurant automation, tour operator automation"
+                                   }
+                       },
+                       {
+                           "slug":  "real-estate",
+                           "name":  "Real Estate \u0026 Property",
+                           "tagline":  "Capture every property enquiry and book viewings automatically.",
+                           "description":  "Property enquiries come from listing sites, WhatsApp and referrals at all hours. Bobsave responds to every enquiry instantly, qualifies the buyer\u0027s needs, books viewings and follows up with cold leads - so no potential buyer is ever lost.",
+                           "problems":  [
+                                            "Property enquiries answered too late, buyers go elsewhere",
+                                            "Agents manually respond to the same listing questions",
+                                            "Viewing bookings lost in WhatsApp message history",
+                                            "Follow-up with cold leads forgotten entirely",
+                                            "CRM full of stale, unorganised contacts"
+                                        ],
+                           "solutions":  [
+                                             "Instant property details sent on WhatsApp for every enquiry",
+                                             "Automatic budget and location qualification",
+                                             "Viewing booking synced to agent calendars",
+                                             "Timed follow-up sequences that warm cold leads",
+                                             "Every enquiry logged and organised in your CRM"
+                                         ],
+                           "niches":  [
+                                          "real-estate-agencies",
+                                          "property-managers",
+                                          "property-developers"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "HubSpot",
+                                                "Google Calendar",
+                                                "Property24",
+                                                "Typeform"
+                                            ],
+                           "seo":  {
+                                       "title":  "Real Estate Lead Follow-up and Property Enquiry Automation | Bobsave",
+                                       "desc":  "Automate property enquiry responses, buyer qualification, viewing bookings and follow-up for real estate agencies and developers.",
+                                       "keywords":  "real estate automation Kenya, property enquiry WhatsApp, real estate lead follow-up, viewing booking automation"
+                                   }
+                       },
+                       {
+                           "slug":  "ecommerce",
+                           "name":  "E-commerce \u0026 Retail",
+                           "tagline":  "Orders, payments, delivery updates and customer support on autopilot.",
+                           "description":  "E-commerce businesses run on speed and trust. Bobsave automates order confirmations, payment reconciliation, delivery updates and customer support - so customers always know their order is in good hands, and your team spends less time on the phone.",
+                           "problems":  [
+                                            "Orders confirmed manually, creating delays",
+                                            "Customers constantly ask about delivery status",
+                                            "Payment reconciliation against orders takes hours",
+                                            "Support inbox flooded with the same questions",
+                                            "Cart recovery opportunities lost"
+                                        ],
+                           "solutions":  [
+                                             "Instant order confirmation on WhatsApp with payment details",
+                                             "Automatic delivery status updates at every milestone",
+                                             "M-Pesa or gateway payment matched to orders automatically",
+                                             "AI answering common product and order questions",
+                                             "Abandoned cart follow-up sequences"
+                                         ],
+                           "niches":  [
+                                          "online-stores",
+                                          "retailers",
+                                          "wholesalers"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "WooCommerce",
+                                                "Shopify",
+                                                "M-Pesa Daraja API",
+                                                "Google Sheets",
+                                                "OpenAI"
+                                            ],
+                           "seo":  {
+                                       "title":  "E-commerce and Retail Business Automation | Bobsave",
+                                       "desc":  "Automate order confirmations, payment reconciliation, delivery updates and customer support for online stores and retailers.",
+                                       "keywords":  "ecommerce automation Kenya, online store WhatsApp, order confirmation automation, retail business automation"
+                                   }
+                       },
+                       {
+                           "slug":  "professional-services",
+                           "name":  "Professional Services",
+                           "tagline":  "Client intake, scheduling and communication on autopilot.",
+                           "description":  "Law firms, accounting firms and consultancies spend disproportionate time on intake and scheduling. Bobsave automates client enquiry handling, appointment booking, document follow-up and payment reminders - so professionals spend time on client work, not admin.",
+                           "problems":  [
+                                            "Client intake responses delayed by billable-hour pressure",
+                                            "Scheduling meetings requires multiple back-and-forth messages",
+                                            "Document and invoice follow-up feels unprofessional when manual",
+                                            "Payment reminders create awkward client conversations",
+                                            "After-hours enquiries disappear"
+                                        ],
+                           "solutions":  [
+                                             "Instant client intake responses on WhatsApp",
+                                             "Appointment booking with availability matching",
+                                             "Automated document and information requests",
+                                             "Polite payment reminders sent on schedule",
+                                             "Every enquiry logged with full conversation history"
+                                         ],
+                           "niches":  [
+                                          "law-firms",
+                                          "accounting-firms",
+                                          "consulting-firms",
+                                          "marketing-agencies"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "Google Sheets",
+                                                "QuickBooks",
+                                                "Gmail",
+                                                "OpenAI"
+                                            ],
+                           "seo":  {
+                                       "title":  "Professional Services Automation for Law Firms and Accounting | Bobsave",
+                                       "desc":  "Automate client intake, appointment booking, payment reminders and follow-up for law firms, accounting firms and consultancies.",
+                                       "keywords":  "professional services automation, law firm WhatsApp, accounting firm automation, client intake automation Kenya"
+                                   }
+                       },
+                       {
+                           "slug":  "construction",
+                           "name":  "Construction \u0026 Engineering",
+                           "tagline":  "Automate project updates, procurement and payment collection.",
+                           "description":  "Construction companies manage complex projects with many moving parts. Bobsave automates client progress updates, procurement follow-ups, invoice reminders and staff notifications - keeping projects on track and cash flowing.",
+                           "problems":  [
+                                            "Client update calls take project managers away from site",
+                                            "Procurement follow-up scattered across phone and email",
+                                            "Progress payment reminders are slow and awkward",
+                                            "Staff schedules managed manually, causing confusion",
+                                            "Site daily reports submitted inconsistently"
+                                        ],
+                           "solutions":  [
+                                             "Automatic WhatsApp project update messages to clients",
+                                             "Procurement follow-up sequences sent on schedule",
+                                             "Polite payment reminders that keep cash flow healthy",
+                                             "Site report submission workflows on WhatsApp",
+                                             "Daily and weekly summary reports generated automatically"
+                                         ],
+                           "niches":  [
+                                          "contractors",
+                                          "solar-companies",
+                                          "engineering-firms"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "QuickBooks",
+                                                "Gmail",
+                                                "Google Calendar",
+                                                "SMS Gateway"
+                                            ],
+                           "seo":  {
+                                       "title":  "Construction and Engineering Business Automation | Bobsave",
+                                       "desc":  "Automate project updates, procurement follow-ups, payment reminders and site reporting for construction and engineering firms.",
+                                       "keywords":  "construction automation Kenya, engineering firm WhatsApp, project update automation, construction payment reminders"
+                                   }
+                       },
+                       {
+                           "slug":  "automotive",
+                           "name":  "Automotive",
+                           "tagline":  "Automate test drive bookings, service reminders and customer follow-ups.",
+                           "description":  "Automotive businesses rely on timely communication - from sales leads to service reminders. Bobsave automates test drive bookings, vehicle service reminders, payment follow-ups and sales lead nurture - keeping customers engaged throughout their ownership journey.",
+                           "problems":  [
+                                            "Sales leads from ads answered too slowly, buyers move on",
+                                            "Service reminders made manually, most are forgotten",
+                                            "After-hours enquiries lost, no booking occurs",
+                                            "Payment follow-up for vehicle finance or parts is delayed",
+                                            "Customer loyalty depends on sporadic manual effort"
+                                        ],
+                           "solutions":  [
+                                             "Instant sales enquiry response on WhatsApp from ads and website",
+                                             "Automatic service due reminders sent months and weeks before",
+                                             "Test drive booking without the phone call",
+                                             "Payment follow-up for finance, deposits and parts invoices",
+                                             "Post-purchase loyalty sequences"
+                                         ],
+                           "niches":  [
+                                          "car-dealers",
+                                          "garages",
+                                          "car-rentals",
+                                          "car-washes"
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "SMS Gateway",
+                                                "Facebook Ads"
+                                            ],
+                           "seo":  {
+                                       "title":  "Automotive Sales and Service Automation | Bobsave",
+                                       "desc":  "Automate test drive bookings, sales follow-ups, service reminders and payment collection for car dealers, garages and rental businesses.",
+                                       "keywords":  "automotive automation Kenya, car dealer WhatsApp, garage service reminders, car rental booking automation"
+                                   }
+                       },
+                       {
+                           "slug":  "agriculture",
+                           "name":  "Agriculture \u0026 Agribusiness",
+                           "tagline":  "Market updates, buyer follow-up and supply chain communication on autopilot.",
+                           "description":  "Agricultural businesses need fast communication across wide networks. Bobsave automates buyer enquiry responses, supply chain updates, market price notifications and logistics coordination - keeping farmers and buyers connected.",
+                           "problems":  [
+                                            "Market price updates manually sent, often too late",
+                                            "Buyer enquiries after hours missed entirely",
+                                            "Supply chain coordination requires constant phone calls",
+                                            "Order confirmations to smallholder farmers delayed",
+                                            "Staff notifications of harvest updates slow"
+                                        ],
+                           "solutions":  [
+                                             "Automatic market price notifications on WhatsApp",
+                                             "Instant buyer enquiry responses with availability",
+                                             "Supply chain milestone updates to all parties",
+                                             "Order confirmations and delivery details sent automatically",
+                                             "Staff alerts for harvest, delivery and procurement events"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "SMS Gateway",
+                                                "Google Calendar",
+                                                "n8n"
+                                            ],
+                           "seo":  {
+                                       "title":  "Agriculture and Agribusiness Automation | Bobsave",
+                                       "desc":  "Automate market price updates, buyer follow-ups, supply chain notifications and logistics for agriculture and agribusiness.",
+                                       "keywords":  "agriculture automation Kenya, farm WhatsApp, buyer follow-up agriculture, supply chain notification automation"
+                                   }
+                       },
+                       {
+                           "slug":  "ngo",
+                           "name":  "NGOs \u0026 Organizations",
+                           "tagline":  "Automate beneficiary communication, reporting and programme coordination.",
+                           "description":  "NGOs juggle donor communication, beneficiary engagement and field reporting. Bobsave automates intake forms, appointment scheduling, donation acknowledgements and programme reporting - so staff focus on impact, not admin.",
+                           "problems":  [
+                                            "Beneficiary enquiry follow-up falls behind during field work",
+                                            "Donor acknowledgement messages sent inconsistently",
+                                            "Programme reporting takes hours of manual compilation",
+                                            "Field staff struggle to coordinate without a central system",
+                                            "Beneficiary appointment reminders never sent"
+                                        ],
+                           "solutions":  [
+                                             "Automatic beneficiary intake and enquiry acknowledgement on WhatsApp",
+                                             "Donor thank-you and tax receipt workflows",
+                                             "Field report compilation from WhatsApp-submitted data",
+                                             "Appointment and outreach scheduling automation",
+                                             "Central log of every beneficiary interaction"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "Google Forms",
+                                                "Gmail",
+                                                "OpenAI",
+                                                "Google Calendar"
+                                            ],
+                           "seo":  {
+                                       "title":  "NGO and Organisation Automation for Beneficiary Communication | Bobsave",
+                                       "desc":  "Automate beneficiary intake, donor acknowledgement, appointment reminders and field reporting for NGOs and non-profits.",
+                                       "keywords":  "NGO automation Kenya, non-profit WhatsApp, beneficiary communication automation, donor acknowledgement automation"
+                                   }
+                       },
+                       {
+                           "slug":  "sports",
+                           "name":  "Sports \u0026 Fitness",
+                           "tagline":  "Automate class bookings, membership renewals and event communication.",
+                           "description":  "Sports facilities and fitness businesses run on membership and class schedules. Bobsave automates class bookings, membership renewal reminders, payment collection and event communication - keeping members engaged and revenue predictable.",
+                           "problems":  [
+                                            "Class bookings taken manually via WhatsApp, double-bookings happen",
+                                            "Membership renewals forgotten, members lapse quietly",
+                                            "Payment reminders feel awkward for staff",
+                                            "Event and fixture information scattered across channels",
+                                            "New member onboarding slow and inconsistent"
+                                        ],
+                           "solutions":  [
+                                             "Instant class booking confirmation on WhatsApp",
+                                             "Automatic membership renewal reminders before expiry",
+                                             "Polite payment reminders sent at the right time",
+                                             "Event and fixture notifications to all members",
+                                             "New member welcome sequences delivered automatically"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "M-Pesa Daraja API",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "Stripe"
+                                            ],
+                           "seo":  {
+                                       "title":  "Sports and Fitness Business Automation | Bobsave",
+                                       "desc":  "Automate class bookings, membership renewal reminders, payment collection and event communication for gyms and sports facilities.",
+                                       "keywords":  "fitness automation Kenya, gym WhatsApp booking, membership renewal reminders, sports facility automation"
+                                   }
+                       },
+                       {
+                           "slug":  "recruitment",
+                           "name":  "Recruitment \u0026 HR",
+                           "tagline":  "Automate candidate screening, interview scheduling and HR communication.",
+                           "description":  "Recruitment moves fast and candidates form impressions in the first hour. Bobsave automates candidate intake responses, interview scheduling, offer communication and onboarding sequences - so your team makes decisions while the system handles the communication.",
+                           "problems":  [
+                                            "Candidate enquiries unanswered for hours or days",
+                                            "Interview scheduling takes 5+ back-and-forth messages",
+                                            "Onboarding communication inconsistent across new hires",
+                                            "Payment reminders for placement fees awkward and delayed",
+                                            "HR admin time spent on repetitive communication"
+                                        ],
+                           "solutions":  [
+                                             "Instant candidate acknowledgement on WhatsApp",
+                                             "Interview scheduling with availability matching",
+                                             "Automatic onboarding document and information requests",
+                                             "Placement fee payment reminder sequences",
+                                             "Centralised candidate communication log"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "OpenAI",
+                                                "Trello"
+                                            ],
+                           "seo":  {
+                                       "title":  "Recruitment and HR Automation for Candidate Communication | Bobsave",
+                                       "desc":  "Automate candidate screening, interview scheduling, onboarding communication and fee reminders for recruitment and HR teams.",
+                                       "keywords":  "recruitment automation Kenya, HR WhatsApp automation, candidate screening automation, interview scheduling"
+                                   }
+                       },
+                       {
+                           "slug":  "manufacturing",
+                           "name":  "Manufacturing",
+                           "tagline":  "Production updates, supplier follow-up and order management on autopilot.",
+                           "description":  "Manufacturers manage complex supply chains and production schedules. Bobsave automates supplier communication, production status updates, customer order notifications and delivery coordination - keeping factory, office and customers in sync.",
+                           "problems":  [
+                                            "Supplier order follow-up requires constant manual phone calls",
+                                            "Customer production status updates delivered slowly",
+                                            "Delivery scheduling conflicts due to poor communication",
+                                            "Quality report distribution is manual and slow",
+                                            "Shift and production schedule changes cause confusion"
+                                        ],
+                           "solutions":  [
+                                             "Automatic supplier follow-up messages on WhatsApp",
+                                             "Customer production milestone updates sent automatically",
+                                             "Delivery scheduling notifications to logistics and customers",
+                                             "Quality reports delivered to relevant teams instantly",
+                                             "Shift and schedule alerts to staff on WhatsApp"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "Google Calendar",
+                                                "SMS Gateway",
+                                                "n8n"
+                                            ],
+                           "seo":  {
+                                       "title":  "Manufacturing Business Automation for Production and Supply Chain | Bobsave",
+                                       "desc":  "Automate supplier follow-up, production updates, order notifications and delivery coordination for manufacturers.",
+                                       "keywords":  "manufacturing automation Kenya, production notification, supplier communication WhatsApp, factory automation"
+                                   }
+                       },
+                       {
+                           "slug":  "security",
+                           "name":  "Security",
+                           "tagline":  "Shift alerts, incident reporting and client communication on autopilot.",
+                           "description":  "Security companies manage shifting rosters, incident reports and client communication. Bobsave automates guard schedule notifications, incident report submission, client updates and payment reminders - keeping operations responsive and accountable.",
+                           "problems":  [
+                                            "Guard shift schedules communicated manually, causing confusion",
+                                            "Incident reports compiled from handwritten notes, inconsistent",
+                                            "Client update calls take supervisors away from oversight",
+                                            "Payment reminders for security contracts delayed",
+                                            "Site attendance reported inaccurately"
+                                        ],
+                           "solutions":  [
+                                             "Automatic shift schedule alerts to guards on WhatsApp",
+                                             "WhatsApp incident report submission with photo support",
+                                             "Scheduled client status update messages",
+                                             "Polite payment reminder sequences for contracts",
+                                             "Attendance check-in and check-out via WhatsApp"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Sheets",
+                                                "Google Calendar",
+                                                "Gmail",
+                                                "SMS Gateway",
+                                                "Google Forms"
+                                            ],
+                           "seo":  {
+                                       "title":  "Security Company Automation for Shift Management and Reporting | Bobsave",
+                                       "desc":  "Automate guard shift schedules, incident reporting, client communication and payment reminders for security companies.",
+                                       "keywords":  "security company automation Kenya, guard shift automation, incident reporting WhatsApp, security business automation"
+                                   }
+                       },
+                       {
+                           "slug":  "travel",
+                           "name":  "Travel \u0026 Immigration",
+                           "tagline":  "Visa processing, travel booking and client communication on autopilot.",
+                           "description":  "Travel and immigration consultants handle complex documentation processes with tight deadlines. Bobsave automates document collection, appointment booking, status updates and payment reminders - keeping cases on track and clients informed.",
+                           "problems":  [
+                                            "Document checklists incomplete, cases delayed",
+                                            "Appointment and submission slot bookings chaotic",
+                                            "Client status update calls overwhelm consultants",
+                                            "Payment reminders for processing fees feel awkward",
+                                            "Follow-up with incomplete applications forgotten"
+                                        ],
+                           "solutions":  [
+                                             "Automatic document request sequences on WhatsApp",
+                                             "Appointment booking for submissions and interviews",
+                                             "Client status updates sent at key case milestones",
+                                             "Payment reminder sequences for processing fees",
+                                             "Follow-up with incomplete applications on schedule"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "Google Forms",
+                                                "OpenAI"
+                                            ],
+                           "seo":  {
+                                       "title":  "Travel and Immigration Business Automation | Bobsave",
+                                       "desc":  "Automate document collection, appointment booking, client updates and payment reminders for travel and immigration consultancies.",
+                                       "keywords":  "travel agency automation Kenya, immigration WhatsApp automation, visa processing automation, document collection automation"
+                                   }
+                       },
+                       {
+                           "slug":  "local-services",
+                           "name":  "Local Services",
+                           "tagline":  "Book, confirm and manage local service appointments automatically.",
+                           "description":  "Local service businesses - salons, plumbers, electricians, cleaning services - live and die by appointment bookings. Bobsave automates booking from WhatsApp, confirmation messages, payment reminders and review requests - so every slot is filled and no enquiry is missed.",
+                           "problems":  [
+                                            "Booking taken by phone, missed when busy on-site",
+                                            "Customers ask for confirmation that never comes",
+                                            "Payment after work is delayed or forgotten",
+                                            "Review requests never sent, limiting reputation growth",
+                                            "After-hours enquiries go to voicemail"
+                                        ],
+                           "solutions":  [
+                                             "WhatsApp booking captured even when you are on a job",
+                                             "Instant confirmation with appointment details and location",
+                                             "Polite payment reminder sent after service is complete",
+                                             "Review request on WhatsApp after delivery",
+                                             "Follow-up sequences for repeat bookings"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "Google Calendar",
+                                                "Google Sheets",
+                                                "M-Pesa Daraja API",
+                                                "Gmail",
+                                                "OpenAI"
+                                            ],
+                           "seo":  {
+                                       "title":  "Local Service Business Automation for Booking and Communication | Bobsave",
+                                       "desc":  "Automate WhatsApp booking, confirmations, payment reminders and review requests for salons, plumbers and local service businesses.",
+                                       "keywords":  "local service automation Kenya, salon WhatsApp booking, plumber booking automation, local business communication"
+                                   }
+                       },
+                       {
+                           "slug":  "finance",
+                           "name":  "Finance \u0026 Business Services",
+                           "tagline":  "Invoice automation, payment collection and client communication on autopilot.",
+                           "description":  "Financial service businesses depend on timely communication and accurate record-keeping. Bobsave automates invoice delivery, payment follow-up, client onboarding and report distribution - keeping operations professional and cash flow healthy.",
+                           "problems":  [
+                                            "Invoices sent manually, sometimes days late",
+                                            "Payment follow-up inconsistent, hurting cash flow",
+                                            "Client onboarding documents requested by email, often ignored",
+                                            "Monthly and quarterly reports compiled manually",
+                                            "Regulatory reminder communications missed"
+                                        ],
+                           "solutions":  [
+                                             "Automatic invoice generation and delivery on WhatsApp",
+                                             "Payment reminder sequences before and after due dates",
+                                             "Onboarding document request sequences on WhatsApp",
+                                             "Scheduled report delivery to clients and management",
+                                             "Regulatory deadline reminders for staff"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "WhatsApp Business API",
+                                                "QuickBooks",
+                                                "Google Sheets",
+                                                "Gmail",
+                                                "M-Pesa Daraja API",
+                                                "Stripe"
+                                            ],
+                           "seo":  {
+                                       "title":  "Finance and Business Service Automation for Invoicing and Client Communication | Bobsave",
+                                       "desc":  "Automate invoice delivery, payment follow-up, onboarding document requests and reporting for financial and business service firms.",
+                                       "keywords":  "finance automation Kenya, invoice automation WhatsApp, payment follow-up automation, client onboarding automation"
+                                   }
+                       },
+                       {
+                           "slug":  "enterprise",
+                           "name":  "Enterprise",
+                           "tagline":  "Multi-department workflows, custom AI agents and high-volume automation.",
+                           "description":  "Large organisations need automation at scale - across departments, systems and thousands of daily transactions. Bobsave designs bespoke automation architectures with dedicated infrastructure, custom AI agents and SLA-backed support for enterprise operations.",
+                           "problems":  [
+                                            "Manual processes across departments create bottlenecks and errors",
+                                            "Systems do not talk to each other, data is always outdated",
+                                            "Reporting takes days, slowing business decisions",
+                                            "Staff onboarding and offboarding inconsistent",
+                                            "High-volume processes fail under manual handling"
+                                        ],
+                           "solutions":  [
+                                             "Multi-department automation architecture with dedicated instance",
+                                             "Custom AI agents for specific business functions",
+                                             "System integration connecting ERP, CRM and operations",
+                                             "Automated reporting and dashboard generation",
+                                             "Staff lifecycle workflows from onboarding to exit"
+                                         ],
+                           "niches":  [
+
+                                      ],
+                           "integrations":  [
+                                                "n8n Enterprise",
+                                                "SAP / ERP",
+                                                "OpenAI",
+                                                "PostgreSQL",
+                                                "Cloudflare",
+                                                "Custom APIs"
+                                            ],
+                           "seo":  {
+                                       "title":  "Enterprise Automation for Large Organisation Workflows | Bobsave",
+                                       "desc":  "Bespoke multi-department automation with dedicated infrastructure, custom AI agents and high-volume workflow management for enterprises.",
+                                       "keywords":  "enterprise automation Kenya, large business workflow automation, ERP integration n8n, enterprise AI agents"
+                                   }
+                       }
+                   ],
+    "niches":  [
+                   {
+                       "slug":  "clinics",
+                       "name":  "Clinics",
+                       "industry":  "healthcare",
+                       "tagline":  "Bookings, reminders and patient follow-up on autopilot.",
+                       "description":  "Private clinics lose revenue to no-shows and missed booking calls. Automate patient booking, appointment reminders, post-visit follow-ups and billing so your clinical team focuses on patients.",
+                       "problems":  [
+                                        "Receptionist spends hours on booking calls each morning",
+                                        "No-shows create empty appointment slots that cost money",
+                                        "Patient follow-up reminders never sent",
+                                        "After-hours WhatsApp messages answered next day"
+                                    ],
+                       "solutions":  [
+                                         "Patients book directly on WhatsApp, confirmation instant",
+                                         "Automatic 24h and 1h reminders slash no-shows",
+                                         "Post-visit follow-up sent automatically",
+                                         "Every enquiry answered, even at 2am"
+                                     ],
+                       "seo":  {
+                                   "title":  "Clinic Automation for Appointment Booking and Patient Reminders | Bobsave",
+                                   "desc":  "Automate clinic appointment booking, patient reminders and follow-up messages on WhatsApp.",
+                                   "keywords":  "clinic automation Kenya, clinic WhatsApp booking, patient reminders Kenya, clinic appointment automation"
+                               }
+                   },
+                   {
+                       "slug":  "dental-clinics",
+                       "name":  "Dental Clinics",
+                       "tagline":  "Appointment scheduling, treatment reminders and patient communication.",
+                       "description":  "Dental practices rely on regular scheduling and treatment plan follow-through. Automate appointment booking, treatment reminders, payment collection and patient recall to keep chairs full and patients on schedule.",
+                       "problems":  [
+                                        "Treatment plans forgotten, patients do not book follow-ups",
+                                        "Cleaning and check-up reminders never sent",
+                                        "Appointment scheduling takes reception away from patients",
+                                        "Payment for staged treatments difficult to track"
+                                    ],
+                       "solutions":  [
+                                         "Automatic treatment follow-up sequences on WhatsApp",
+                                         "Cleaning and check-up reminders sent before due dates",
+                                         "Instant appointment booking from patient\u0027s phone",
+                                         "Staged payment reminders for treatment plans"
+                                     ],
+                       "seo":  {
+                                   "title":  "Dental Clinic Automation for Booking and Treatment Follow-up | Bobsave",
+                                   "desc":  "Automate dental appointment scheduling, treatment reminders, payment follow-up and patient communication.",
+                                   "keywords":  "dental clinic automation Kenya, dental appointment WhatsApp, dental patient reminders, dental practice automation"
+                               },
+                       "industry":  "healthcare"
+                   },
+                   {
+                       "slug":  "pharmacies",
+                       "name":  "Pharmacies",
+                       "tagline":  "Medication reminders, stock alerts and prescription notifications.",
+                       "description":  "Pharmacies benefit from patient loyalty and consistent communication. Automate prescription readiness alerts, medication refill reminders, stock notifications and loyalty messaging to keep patients engaged.",
+                       "problems":  [
+                                        "Patients forget to collect prescriptions",
+                                        "Medication refill reminders never sent, patients lapse",
+                                        "Stock availability communicated manually",
+                                        "Loyalty and promotion messages unsent"
+                                    ],
+                       "solutions":  [
+                                         "Prescription ready notification sent automatically on WhatsApp",
+                                         "Medication refill reminders before supply runs out",
+                                         "Stock availability alerts to patients waiting",
+                                         "Promotion and loyalty messages sent on schedule"
+                                     ],
+                       "seo":  {
+                                   "title":  "Pharmacy Automation for Prescription and Medication Reminders | Bobsave",
+                                   "desc":  "Automate prescription readiness alerts, medication refills, stock notifications and patient communication for pharmacies.",
+                                   "keywords":  "pharmacy automation Kenya, medication reminders WhatsApp, prescription notification automation, pharmacy patient communication"
+                               },
+                       "industry":  "healthcare"
+                   },
+                   {
+                       "slug":  "medical-laboratories",
+                       "name":  "Medical Laboratories",
+                       "tagline":  "Test booking, result notifications and sample collection coordination.",
+                       "description":  "Medical labs manage high volumes of test bookings and result delivery. Automate test booking, sample collection scheduling, result notifications and payment follow-up to reduce admin and improve patient experience.",
+                       "problems":  [
+                                        "Test bookings taken by phone, creating queues",
+                                        "Result notifications delayed, patients keep calling",
+                                        "Sample collection coordination scattered across messages",
+                                        "Payment follow-up after tests inconsistent"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp test booking with preparation instructions sent",
+                                         "Automatic result notification when available",
+                                         "Sample collection scheduling with reminders",
+                                         "Payment reminders for outstanding test fees"
+                                     ],
+                       "seo":  {
+                                   "title":  "Medical Laboratory Automation for Test Booking and Result Notification | Bobsave",
+                                   "desc":  "Automate test booking, result delivery, sample collection scheduling and payment follow-up for medical laboratories.",
+                                   "keywords":  "medical laboratory automation, lab test booking Kenya, result notification WhatsApp, laboratory patient communication"
+                               },
+                       "industry":  "healthcare"
+                   },
+                   {
+                       "slug":  "schools",
+                       "name":  "Schools",
+                       "tagline":  "Fee reminders, parent communication and admission follow-up.",
+                       "description":  "Schools spend too much administrative time chasing fees and answering repetitive parent queries. Automate fee reminders, admission follow-up, results delivery and announcements so staff focus on education, not paperwork.",
+                       "problems":  [
+                                        "Fee reminders consume admin hours and feel personal",
+                                        "Parents say they did not receive school announcements",
+                                        "Admission follow-up falls behind during intake periods",
+                                        "Results delivery to parents slow and inconsistent"
+                                    ],
+                       "solutions":  [
+                                         "Automatic polite fee reminders sent on WhatsApp",
+                                         "Announcements that reach every parent at once",
+                                         "Admission enquiry follow-up handled instantly",
+                                         "Results delivered to parents when published"
+                                     ],
+                       "seo":  {
+                                   "title":  "School Automation for Fee Collection and Parent Communication | Bobsave",
+                                   "desc":  "Automate fee reminders, parent announcements, admission follow-up and results delivery for schools.",
+                                   "keywords":  "school automation Kenya, school fee reminders WhatsApp, parent communication school, school admin automation"
+                               },
+                       "industry":  "education"
+                   },
+                   {
+                       "slug":  "colleges",
+                       "name":  "Colleges",
+                       "tagline":  "Enrolment, fee collection and student communication on autopilot.",
+                       "description":  "Colleges manage diverse programmes with complex fee structures. Automate enrolment follow-up, fee reminders, course notifications and graduation communications to keep students engaged and revenue on track.",
+                       "problems":  [
+                                        "Enrolment enquiry follow-up delayed during intake periods",
+                                        "Fee reminders scattered, collections poor",
+                                        "Course schedule changes not communicated effectively",
+                                        "Graduation logistics communicated last minute"
+                                    ],
+                       "solutions":  [
+                                         "Instant enrolment enquiry acknowledgement on WhatsApp",
+                                         "Fee reminder sequences before and after due dates",
+                                         "Course and schedule updates sent to students automatically",
+                                         "Graduation planning reminders sent early and consistently"
+                                     ],
+                       "seo":  {
+                                   "title":  "College Automation for Enrolment and Fee Collection | Bobsave",
+                                   "desc":  "Automate enrolment follow-up, fee reminders, course notifications and student communication for colleges.",
+                                   "keywords":  "college automation Kenya, college fee reminders, enrolment automation, college student communication"
+                               },
+                       "industry":  "education"
+                   },
+                   {
+                       "slug":  "training-centers",
+                       "name":  "Training Centers",
+                       "tagline":  "Course booking, payment collection and participant communication.",
+                       "description":  "Training centers run on course bookings and participant engagement. Automate course registration, payment follow-up, pre-training preparation messages and certificate delivery to fill courses and delight participants.",
+                       "problems":  [
+                                        "Course bookings taken manually, slots lost",
+                                        "Payment for upcoming courses not collected on time",
+                                        "Pre-training preparation instructions sent late",
+                                        "Certificate delivery delayed after course completion"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp course booking with instant confirmation",
+                                         "Payment reminder sequences before course start",
+                                         "Pre-training info pack sent automatically",
+                                         "Certificate delivery notification on completion"
+                                     ],
+                       "seo":  {
+                                   "title":  "Training Center Automation for Course Booking and Participant Communication | Bobsave",
+                                   "desc":  "Automate course registration, payment collection, pre-training communication and certificate delivery for training centers.",
+                                   "keywords":  "training center automation Kenya, course booking WhatsApp, training payment automation, participant communication"
+                               },
+                       "industry":  "education"
+                   },
+                   {
+                       "slug":  "universities",
+                       "name":  "Universities",
+                       "tagline":  "Admissions, fee collection and student lifecycle communication.",
+                       "description":  "Universities manage thousands of student interactions across admissions, fees, academics and welfare. Automate application follow-up, fee reminders, exam notifications and graduation communication at scale.",
+                       "problems":  [
+                                        "Application follow-up overwhelmed during peak intake",
+                                        "Fee collection reminders sent inconsistently",
+                                        "Exam and result notifications delayed",
+                                        "Student welfare check-ins not systematic"
+                                    ],
+                       "solutions":  [
+                                         "Automatic application acknowledgement and follow-up on WhatsApp",
+                                         "Fee reminder sequences tailored to payment schedules",
+                                         "Exam and result notifications delivered to students directly",
+                                         "Wellbeing and support check-in sequences"
+                                     ],
+                       "seo":  {
+                                   "title":  "University Automation for Admissions, Fees and Student Communication | Bobsave",
+                                   "desc":  "Automate application follow-up, fee collection reminders, exam notifications and student lifecycle communication for universities.",
+                                   "keywords":  "university automation Kenya, university admissions WhatsApp, student fee reminders, university communication automation"
+                               },
+                       "industry":  "education"
+                   },
+                   {
+                       "slug":  "courier-companies",
+                       "name":  "Courier Companies",
+                       "tagline":  "Milestone delivery updates, driver alerts and customer support on autopilot.",
+                       "description":  "Courier companies live and die by delivery communication. Automate milestone notifications, driver dispatch alerts, customer support and delivery confirmation to keep parcels moving and customers happy.",
+                       "problems":  [
+                                        "Customers ask \u0027where is my parcel?\u0027 constantly",
+                                        "Drivers notified of deliveries by phone, slow and unreliable",
+                                        "Failed deliveries sit unreported",
+                                        "No overview of daily delivery performance"
+                                    ],
+                       "solutions":  [
+                                         "Automatic WhatsApp updates at every parcel milestone",
+                                         "Driver alerts with delivery details sent instantly",
+                                         "Failed delivery escalation and re-attempt handling",
+                                         "Daily delivery performance reports"
+                                     ],
+                       "seo":  {
+                                   "title":  "Courier Company Automation for Delivery Updates and Driver Alerts | Bobsave",
+                                   "desc":  "Automate delivery milestone notifications, driver dispatch alerts, customer updates and performance reporting for courier companies.",
+                                   "keywords":  "courier company automation Kenya, parcel tracking WhatsApp, delivery notification courier, driver alert automation"
+                               },
+                       "industry":  "logistics"
+                   },
+                   {
+                       "slug":  "delivery-companies",
+                       "name":  "Delivery Companies",
+                       "tagline":  "Real-time customer delivery updates and dispatch coordination.",
+                       "description":  "Delivery companies handle high volumes with tight windows. Automate customer delivery notifications, dispatch coordination and proof-of-delivery confirmation to reduce calls and improve reliability.",
+                       "problems":  [
+                                        "Delivery status updates sent manually by drivers",
+                                        "Customer calls about delivery times overwhelm call centre",
+                                        "Proof of delivery not collected systematically",
+                                        "Failed delivery reporting delayed"
+                                    ],
+                       "solutions":  [
+                                         "Milestone WhatsApp notifications for every delivery",
+                                         "Dispatch coordination alerts to drivers and coordinators",
+                                         "Delivery confirmation with photo collected on WhatsApp",
+                                         "Failed delivery re-attempt handling automation"
+                                     ],
+                       "seo":  {
+                                   "title":  "Delivery Company Automation for Customer Updates and Dispatch | Bobsave",
+                                   "desc":  "Automate customer delivery status updates, dispatch coordination and proof-of-delivery confirmation for delivery companies.",
+                                   "keywords":  "delivery company automation Kenya, delivery WhatsApp updates, dispatch automation, proof of delivery automation"
+                               },
+                       "industry":  "logistics"
+                   },
+                   {
+                       "slug":  "fleet-management",
+                       "name":  "Fleet Management",
+                       "tagline":  "Vehicle scheduling, driver alerts and maintenance reminders on autopilot.",
+                       "description":  "Fleet operators need vehicles on the road and drivers informed. Automate vehicle scheduling, driver shift alerts, maintenance reminders and trip reporting to keep your fleet productive and accountable.",
+                       "problems":  [
+                                        "Vehicle schedules managed manually, causing conflicts",
+                                        "Driver shift changes communicated late, creating confusion",
+                                        "Maintenance due dates missed, leading to breakdowns",
+                                        "Trip reports compiled hours after completion"
+                                    ],
+                       "solutions":  [
+                                         "Automatic vehicle scheduling with driver notification",
+                                         "Driver shift alerts sent on WhatsApp before each shift",
+                                         "Maintenance reminders sent at correct mileage and date intervals",
+                                         "Trip reports submitted on WhatsApp after each run"
+                                     ],
+                       "seo":  {
+                                   "title":  "Fleet Management Automation for Scheduling and Driver Communication | Bobsave",
+                                   "desc":  "Automate vehicle scheduling, driver alerts, maintenance reminders and trip reporting for fleet management operations.",
+                                   "keywords":  "fleet management automation Kenya, vehicle scheduling WhatsApp, driver alert automation, fleet maintenance reminders"
+                               },
+                       "industry":  "logistics"
+                   },
+                   {
+                       "slug":  "warehouses",
+                       "name":  "Warehouses",
+                       "tagline":  "Stock alerts, dispatch notifications and inventory coordination.",
+                       "description":  "Warehouses need inventory visible and staff coordinated. Automate stock level alerts, dispatch notifications, incoming delivery coordination and order readiness messages to keep the warehouse floor running efficiently.",
+                       "problems":  [
+                                        "Stock levels checked manually, shortages discovered late",
+                                        "Dispatch status updates scattered across messages",
+                                        "Incoming supplier deliveries unannounced",
+                                        "Order readiness messages to customers sent manually"
+                                    ],
+                       "solutions":  [
+                                         "Automatic low-stock and reorder alerts",
+                                         "Dispatch status updated in real time and shared with customers",
+                                         "Supplier delivery notifications coordinated automatically",
+                                         "Order ready for collection or dispatch messages sent on WhatsApp"
+                                     ],
+                       "seo":  {
+                                   "title":  "Warehouse Automation for Stock Alerts and Dispatch Coordination | Bobsave",
+                                   "desc":  "Automate stock level alerts, dispatch notifications, supplier delivery coordination and order readiness messaging for warehouses.",
+                                   "keywords":  "warehouse automation Kenya, stock alert automation, warehouse dispatch WhatsApp, inventory coordination automation"
+                               },
+                       "industry":  "logistics"
+                   },
+                   {
+                       "slug":  "exhibition-organizers",
+                       "name":  "Exhibition Organizers",
+                       "tagline":  "Exhibitor registration, payment verification and visitor communication.",
+                       "description":  "Exhibition organizers juggle exhibitors, visitors and logistics. Automate exhibitor registration, payment verification, brief delivery and visitor reminder sequences so the team focuses on creating a great event.",
+                       "problems":  [
+                                        "Exhibitor registration messages overwhelm the team",
+                                        "Payment verifications take days to confirm",
+                                        "Exhibitors do not receive briefs and updates in time",
+                                        "Visitor turnout lower than expected"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp exhibitor registration capturing all details in one flow",
+                                         "Automatic payment verification and exhibitor confirmation",
+                                         "Exhibitor brief and deadline reminders sent on schedule",
+                                         "Visitor reminder sequences before and during the event"
+                                     ],
+                       "seo":  {
+                                   "title":  "Exhibition Organizer Automation for Exhibitor Registration and Visitor Communication | Bobsave",
+                                   "desc":  "Automate exhibitor registration, payment verification, brief delivery and visitor reminders for exhibition organizers.",
+                                   "keywords":  "exhibition automation Kenya, exhibitor registration WhatsApp, exhibition visitor reminders, event organizer automation"
+                               },
+                       "industry":  "events"
+                   },
+                   {
+                       "slug":  "conference-organizers",
+                       "name":  "Conference Organizers",
+                       "tagline":  "Speaker coordination, attendee registration and session reminders.",
+                       "description":  "Conferences run on tight schedules with many moving parts. Automate attendee registration, speaker coordination, session reminders and post-conference feedback to keep everyone on the same page.",
+                       "problems":  [
+                                        "Attendee registration followed up manually",
+                                        "Speaker information requests scattered across messages",
+                                        "Session reminders never sent, attendees miss key talks",
+                                        "Post-conference feedback rarely collected"
+                                    ],
+                       "solutions":  [
+                                         "Attendee registration with instant confirmation on WhatsApp",
+                                         "Speaker brief and information coordination automated",
+                                         "Session reminder notifications before each talk",
+                                         "Post-conference feedback collected on WhatsApp within 24 hours"
+                                     ],
+                       "seo":  {
+                                   "title":  "Conference Organizer Automation for Attendee and Speaker Management | Bobsave",
+                                   "desc":  "Automate attendee registration, speaker coordination, session reminders and feedback collection for conference organizers.",
+                                   "keywords":  "conference automation Kenya, conference registration WhatsApp, speaker coordination, conference attendee management"
+                               },
+                       "industry":  "events"
+                   },
+                   {
+                       "slug":  "wedding-planners",
+                       "name":  "Wedding Planners",
+                       "tagline":  "Client coordination, supplier reminders and guest communication on autopilot.",
+                       "description":  "Wedding planners coordinate many suppliers and guests on one of the most emotional days. Automate client booking, supplier coordination, guest reminders and post-wedding feedback to ensure perfection.",
+                       "problems":  [
+                                        "Supplier coordination messages scattered and forgotten",
+                                        "Guest reminder information sent inconsistently",
+                                        "Client updates on planning progress missed",
+                                        "Post-wedding review requests rarely sent"
+                                    ],
+                       "solutions":  [
+                                         "Supplier coordination sequences sent on schedule",
+                                         "Guest information and reminders delivered on WhatsApp",
+                                         "Client progress updates sent at planning milestones",
+                                         "Post-wedding review request sent automatically"
+                                     ],
+                       "seo":  {
+                                   "title":  "Wedding Planner Automation for Client and Supplier Communication | Bobsave",
+                                   "desc":  "Automate client booking, supplier coordination, guest communication and review requests for wedding planners.",
+                                   "keywords":  "wedding planner automation Kenya, wedding supplier coordination, wedding guest WhatsApp, wedding planning automation"
+                               },
+                       "industry":  "events"
+                   },
+                   {
+                       "slug":  "event-venues",
+                       "name":  "Event Venues",
+                       "tagline":  "Booking enquiries, event coordination and post-event follow-up on autopilot.",
+                       "description":  "Event venues juggle enquiries, bookings and on-the-day coordination. Automate booking enquiries, event brief distribution, post-event review collection and repeat booking follow-up to keep the venue calendar full.",
+                       "problems":  [
+                                        "Booking enquiries go unanswered after hours",
+                                        "Event briefs and setup details scattered across messages",
+                                        "Post-event feedback never collected systematically",
+                                        "Repeat booking opportunities missed"
+                                    ],
+                       "solutions":  [
+                                         "Instant booking enquiry acknowledgement on WhatsApp",
+                                         "Event brief and coordination details delivered on schedule",
+                                         "Post-event review request sent within 24 hours",
+                                         "Repeat booking follow-up sequences for returning clients"
+                                     ],
+                       "seo":  {
+                                   "title":  "Event Venue Automation for Booking and Event Coordination | Bobsave",
+                                   "desc":  "Automate booking enquiry responses, event brief delivery, post-event feedback and repeat booking follow-up for event venues.",
+                                   "keywords":  "event venue automation Kenya, venue booking WhatsApp, event coordination automation, venue client follow-up"
+                               },
+                       "industry":  "events"
+                   },
+                   {
+                       "slug":  "hotels",
+                       "name":  "Hotels",
+                       "tagline":  "Booking replies, guest communication and review requests on autopilot.",
+                       "description":  "Hotels thrive on guest experience from first enquiry to departure. Automate booking replies, pre-arrival communication, in-stay support requests and post-checkout review requests to deliver consistently great experiences.",
+                       "problems":  [
+                                        "Booking enquiries after hours answered next morning",
+                                        "Guest questions during stay pile up on WhatsApp",
+                                        "Pre-arrival information not sent consistently",
+                                        "Post-checkout reviews rarely requested"
+                                    ],
+                       "solutions":  [
+                                         "Instant WhatsApp booking replies, 24/7",
+                                         "AI guest support answering common in-stay questions",
+                                         "Pre-arrival information sent automatically",
+                                         "Post-checkout review request on WhatsApp within 24 hours"
+                                     ],
+                       "seo":  {
+                                   "title":  "Hotel Automation for Booking Replies and Guest Communication | Bobsave",
+                                   "desc":  "Automate booking enquiry responses, guest communication, pre-arrival information and review requests for hotels.",
+                                   "keywords":  "hotel automation Kenya, hotel WhatsApp booking, guest communication automation, hotel review requests"
+                               },
+                       "industry":  "hospitality"
+                   },
+                   {
+                       "slug":  "restaurants",
+                       "name":  "Restaurants",
+                       "tagline":  "Reservation replies, order updates and review collection on autopilot.",
+                       "description":  "Restaurants need fast reservation handling and consistent customer communication. Automate reservation replies, takeaway order updates, event promotion and review collection to keep tables full and customers coming back.",
+                       "problems":  [
+                                        "Reservation messages answered late, customers book elsewhere",
+                                        "Takeaway order status updates sent manually",
+                                        "Special event and menu promotion messages rarely sent",
+                                        "Review collection after meals is inconsistent"
+                                    ],
+                       "solutions":  [
+                                         "Instant reservation confirmation on WhatsApp",
+                                         "Takeaway order status updates at preparation and collection milestones",
+                                         "Event and promotion messages sent to customer list",
+                                         "Review request sent within hours of the meal"
+                                     ],
+                       "seo":  {
+                                   "title":  "Restaurant Automation for Reservations and Customer Communication | Bobsave",
+                                   "desc":  "Automate reservation replies, takeaway order updates, event promotions and review collection for restaurants.",
+                                   "keywords":  "restaurant automation Kenya, restaurant reservation WhatsApp, takeaway order updates, restaurant review automation"
+                               },
+                       "industry":  "hospitality"
+                   },
+                   {
+                       "slug":  "tour-operators",
+                       "name":  "Tour Operators",
+                       "tagline":  "Booking replies, pre-trip communication and post-tour follow-up.",
+                       "description":  "Tour operators sell experiences that begin long before the trip. Automate booking acknowledgements, pre-trip preparation messaging, during-trip updates and post-tour review requests to deliver a seamless experience.",
+                       "problems":  [
+                                        "Booking enquiries from different time zones answered late",
+                                        "Pre-trip preparation information scattered",
+                                        "During-trip communication managed manually",
+                                        "Post-tour review requests rarely sent"
+                                    ],
+                       "solutions":  [
+                                         "Instant booking acknowledgement on WhatsApp regardless of time zone",
+                                         "Pre-trip information pack delivered on schedule",
+                                         "During-trip updates and check-ins automated",
+                                         "Post-tour review and loyalty follow-up sequences"
+                                     ],
+                       "seo":  {
+                                   "title":  "Tour Operator Automation for Booking and Guest Communication | Bobsave",
+                                   "desc":  "Automate tour booking replies, pre-trip communication, during-trip updates and post-tour review collection for tour operators.",
+                                   "keywords":  "tour operator automation Kenya, tour booking WhatsApp, tour guest communication, safari booking automation"
+                               },
+                       "industry":  "hospitality"
+                   },
+                   {
+                       "slug":  "travel-agencies",
+                       "name":  "Travel Agencies",
+                       "tagline":  "Visa processing updates, booking coordination and payment reminders.",
+                       "description":  "Travel agencies manage complex bookings with tight deadlines. Automate visa processing updates, booking coordination, payment reminders and travel document delivery to keep clients confident and trips on track.",
+                       "problems":  [
+                                        "Visa status update calls overwhelm consultants",
+                                        "Booking confirmation details scattered",
+                                        "Payment reminders for travel bookings feel awkward",
+                                        "Travel documents delivered last minute"
+                                    ],
+                       "solutions":  [
+                                         "Visa processing status updates sent to clients on WhatsApp",
+                                         "Booking confirmation details delivered in one message",
+                                         "Polite payment reminder sequences for bookings",
+                                         "Travel documents delivered on schedule with reminders"
+                                     ],
+                       "seo":  {
+                                   "title":  "Travel Agency Automation for Visa Processing and Booking Communication | Bobsave",
+                                   "desc":  "Automate visa status updates, booking coordination, payment reminders and travel document delivery for travel agencies.",
+                                   "keywords":  "travel agency automation Kenya, visa processing WhatsApp, travel booking automation, travel document delivery"
+                               },
+                       "industry":  "hospitality"
+                   },
+                   {
+                       "slug":  "real-estate-agencies",
+                       "name":  "Real Estate Agencies",
+                       "tagline":  "Property enquiry responses, viewing bookings and follow-up on autopilot.",
+                       "description":  "Real estate agencies need instant response and persistent follow-up. Automate property enquiry responses, viewing bookings, buyer qualification and follow-up sequences to convert enquiries into viewings.",
+                       "problems":  [
+                                        "Property enquiry answered hours late, buyer moved on",
+                                        "Viewing scheduling takes multiple messages per buyer",
+                                        "Budget and location qualification done manually",
+                                        "Cold leads never followed up"
+                                    ],
+                       "solutions":  [
+                                         "Instant property details sent on WhatsApp for every enquiry",
+                                         "Viewing booked and confirmed in one flow",
+                                         "Automatic budget and location qualification",
+                                         "Timed follow-up sequences warm cold leads back"
+                                     ],
+                       "seo":  {
+                                   "title":  "Real Estate Agency Automation for Property Enquiry Follow-up | Bobsave",
+                                   "desc":  "Automate property enquiry responses, viewing bookings, buyer qualification and lead follow-up for real estate agencies.",
+                                   "keywords":  "real estate agency automation Kenya, property enquiry WhatsApp, viewing booking automation, real estate follow-up"
+                               },
+                       "industry":  "real-estate"
+                   },
+                   {
+                       "slug":  "property-managers",
+                       "name":  "Property Managers",
+                       "tagline":  "Tenant communication, maintenance coordination and rent reminders.",
+                       "description":  "Property managers handle tenants, maintenance and rent collection across multiple properties. Automate tenant enquiry responses, maintenance request acknowledgement, rent reminders and lease renewal communication.",
+                       "problems":  [
+                                        "Tenant enquiries answered after hours, causing frustration",
+                                        "Maintenance requests lost in WhatsApp messages",
+                                        "Rent reminders sent inconsistently",
+                                        "Lease renewal follow-up forgotten"
+                                    ],
+                       "solutions":  [
+                                         "Instant tenant enquiry acknowledgement on WhatsApp",
+                                         "Maintenance request logged and routed automatically",
+                                         "Rent reminder sequences before and after due dates",
+                                         "Lease renewal follow-up sent on schedule"
+                                     ],
+                       "seo":  {
+                                   "title":  "Property Management Automation for Tenant Communication and Rent Reminders | Bobsave",
+                                   "desc":  "Automate tenant enquiry responses, maintenance requests, rent reminders and lease renewal communication for property managers.",
+                                   "keywords":  "property management automation Kenya, tenant communication WhatsApp, rent reminder automation, maintenance request automation"
+                               },
+                       "industry":  "real-estate"
+                   },
+                   {
+                       "slug":  "property-developers",
+                       "name":  "Property Developers",
+                       "tagline":  "Off-plan buyer follow-up, launch communication and payment collection.",
+                       "description":  "Property developers need efficient buyer communication from launch to handover. Automate off-plan buyer enquiry follow-up, launch notifications, payment collection reminders and handover scheduling to keep projects funded and delivered.",
+                       "problems":  [
+                                        "Off-plan buyer enquiries answered inconsistently",
+                                        "Launch event communication scattered across channels",
+                                        "Payment milestone reminders missed, delaying projects",
+                                        "Handover coordination requires excessive manual effort"
+                                    ],
+                       "solutions":  [
+                                         "Instant off-plan enquiry response on WhatsApp",
+                                         "Launch event and unit availability notifications sent on schedule",
+                                         "Payment milestone reminder sequences before due dates",
+                                         "Handover coordination and scheduling automated"
+                                     ],
+                       "seo":  {
+                                   "title":  "Property Developer Automation for Buyer Follow-up and Payment Collection | Bobsave",
+                                   "desc":  "Automate off-plan buyer follow-up, launch notifications, payment reminders and handover coordination for property developers.",
+                                   "keywords":  "property developer automation Kenya, off-plan buyer follow-up, property payment reminders, launch notification automation"
+                               },
+                       "industry":  "real-estate"
+                   },
+                   {
+                       "slug":  "online-stores",
+                       "name":  "Online Stores",
+                       "tagline":  "Order confirmations, delivery updates and support on autopilot.",
+                       "description":  "Online stores live and die by post-purchase experience. Automate order confirmations, delivery status updates, returns handling and customer support to keep buyers confident and reduce support load.",
+                       "problems":  [
+                                        "Order confirmations sent manually, creating delays",
+                                        "Customers ask \u0027where is my order?\u0027 constantly",
+                                        "Returns process initiated by email, slow and unclear",
+                                        "Support inbox flooded with product questions"
+                                    ],
+                       "solutions":  [
+                                         "Instant order confirmation on WhatsApp with payment details",
+                                         "Automatic delivery status updates at every milestone",
+                                         "Returns process initiated on WhatsApp with clear steps",
+                                         "AI product and order support answering common questions"
+                                     ],
+                       "seo":  {
+                                   "title":  "Online Store Automation for Order Confirmations and Customer Support | Bobsave",
+                                   "desc":  "Automate order confirmations, delivery updates, returns handling and customer support for online stores.",
+                                   "keywords":  "online store automation Kenya, order confirmation WhatsApp, ecommerce support automation, delivery updates online"
+                               },
+                       "industry":  "ecommerce"
+                   },
+                   {
+                       "slug":  "retailers",
+                       "name":  "Retailers",
+                       "tagline":  "Inventory alerts, customer updates and loyalty communication.",
+                       "description":  "Retailers need inventory visibility and consistent customer engagement. Automate stock alerts, new product notifications, loyalty messaging and customer support to keep shelves full and customers returning.",
+                       "problems":  [
+                                        "New product and promotion messages sent ad hoc",
+                                        "Customer enquiries about availability unanswered after hours",
+                                        "Loyalty rewards never communicated consistently",
+                                        "Reorder and restock signals missed"
+                                    ],
+                       "solutions":  [
+                                         "Automatic new product and promotion messages to customer list",
+                                         "Instant availability responses on WhatsApp",
+                                         "Loyalty reward notifications sent on schedule",
+                                         "Reorder alerts generated when stock reaches threshold"
+                                     ],
+                       "seo":  {
+                                   "title":  "Retailer Automation for Inventory Alerts and Customer Communication | Bobsave",
+                                   "desc":  "Automate inventory alerts, product notifications, loyalty messaging and customer support for retail businesses.",
+                                   "keywords":  "retailer automation Kenya, retail inventory WhatsApp, loyalty automation, retail customer communication"
+                               },
+                       "industry":  "ecommerce"
+                   },
+                   {
+                       "slug":  "wholesalers",
+                       "name":  "Wholesalers",
+                       "tagline":  "Order processing, delivery coordination and payment reminders.",
+                       "description":  "Wholesalers manage high-volume orders with tight payment cycles. Automate order acknowledgement, delivery coordination, payment reminders and stock availability notifications to keep cash flowing and customers confident.",
+                       "problems":  [
+                                        "Orders confirmed manually, creating delays",
+                                        "Payment follow-up inconsistent, hurting cash flow",
+                                        "Delivery coordination requires constant phone calls",
+                                        "Stock availability communicated to buyers manually"
+                                    ],
+                       "solutions":  [
+                                         "Automatic order acknowledgement on WhatsApp",
+                                         "Payment reminder sequences before and after due dates",
+                                         "Delivery coordination notifications to drivers and buyers",
+                                         "Stock availability alerts sent to regular buyers"
+                                     ],
+                       "seo":  {
+                                   "title":  "Wholesaler Automation for Order Processing and Payment Collection | Bobsave",
+                                   "desc":  "Automate order acknowledgements, payment reminders, delivery coordination and stock notifications for wholesalers.",
+                                   "keywords":  "wholesaler automation Kenya, wholesale order WhatsApp, payment reminder automation, wholesale delivery coordination"
+                               },
+                       "industry":  "ecommerce"
+                   },
+                   {
+                       "slug":  "law-firms",
+                       "name":  "Law Firms",
+                       "tagline":  "Client intake, scheduling and payment communication on autopilot.",
+                       "description":  "Law firms juggle client intake, case scheduling and billing. Automate client enquiry acknowledgement, appointment booking, document requests and payment reminders so lawyers focus on law, not admin.",
+                       "problems":  [
+                                        "Client intake enquiry unanswered for hours during court days",
+                                        "Scheduling requires multiple messages per client",
+                                        "Document requests from clients slow, delaying cases",
+                                        "Payment follow-up awkward and inconsistent"
+                                    ],
+                       "solutions":  [
+                                         "Instant client enquiry acknowledgement on WhatsApp",
+                                         "Appointment booking with lawyer availability matching",
+                                         "Automatic document request sequences",
+                                         "Polite payment reminder sequences for legal fees"
+                                     ],
+                       "seo":  {
+                                   "title":  "Law Firm Automation for Client Intake and Scheduling | Bobsave",
+                                   "desc":  "Automate client enquiry acknowledgement, appointment booking, document requests and payment reminders for law firms.",
+                                   "keywords":  "law firm automation Kenya, law firm WhatsApp, client intake automation, legal scheduling automation"
+                               },
+                       "industry":  "professional-services"
+                   },
+                   {
+                       "slug":  "accounting-firms",
+                       "name":  "Accounting Firms",
+                       "tagline":  "Client onboarding, document collection and payment follow-up.",
+                       "description":  "Accounting firms manage cyclical client demands and document-heavy onboarding. Automate client onboarding, document collection, fee reminders and reporting distribution to keep clients compliant and cash flowing.",
+                       "problems":  [
+                                        "Client onboarding takes weeks due to slow document collection",
+                                        "Tax deadline reminders sent manually, sometimes missed",
+                                        "Fee reminders sent inconsistently across clients",
+                                        "Report distribution requires manual email batches"
+                                    ],
+                       "solutions":  [
+                                         "Automatic document collection sequences on WhatsApp",
+                                         "Tax deadline and filing reminders sent on schedule",
+                                         "Fee reminder sequences before and after engagement dates",
+                                         "Report distribution automated to each client on delivery"
+                                     ],
+                       "seo":  {
+                                   "title":  "Accounting Firm Automation for Client Onboarding and Fee Collection | Bobsave",
+                                   "desc":  "Automate client onboarding, document collection, fee reminders and report distribution for accounting firms.",
+                                   "keywords":  "accounting firm automation Kenya, accounting WhatsApp, client onboarding automation, tax deadline reminders"
+                               },
+                       "industry":  "professional-services"
+                   },
+                   {
+                       "slug":  "consulting-firms",
+                       "name":  "Consulting Firms",
+                       "tagline":  "Proposal follow-up, scheduling and engagement management.",
+                       "description":  "Consulting firms thrive on timely client engagement. Automate proposal follow-up, engagement scheduling, milestone reminders and payment collection to keep projects moving and clients confident.",
+                       "problems":  [
+                                        "Proposal follow-up forgotten, opportunities lost",
+                                        "Scheduling discovery calls requires multiple messages",
+                                        "Project milestone reminders not sent",
+                                        "Payment delays for consulting fees unresolved"
+                                    ],
+                       "solutions":  [
+                                         "Automatic proposal follow-up sequences on WhatsApp",
+                                         "Discovery call booking with consultant availability",
+                                         "Milestone and deliverable reminder notifications",
+                                         "Polite payment reminder sequences for consulting fees"
+                                     ],
+                       "seo":  {
+                                   "title":  "Consulting Firm Automation for Proposal Follow-up and Scheduling | Bobsave",
+                                   "desc":  "Automate proposal follow-up, discovery call booking, milestone reminders and payment collection for consulting firms.",
+                                   "keywords":  "consulting firm automation Kenya, consulting WhatsApp, proposal follow-up automation, consulting payment reminders"
+                               },
+                       "industry":  "professional-services"
+                   },
+                   {
+                       "slug":  "marketing-agencies",
+                       "name":  "Marketing Agencies",
+                       "tagline":  "Lead intake, onboarding and campaign update communication.",
+                       "description":  "Marketing agencies manage multiple clients and campaigns. Automate lead intake, client onboarding, campaign milestone updates and payment reminders so account managers focus on creative work, not chasing.",
+                       "problems":  [
+                                        "New lead enquiries responded to too slowly",
+                                        "Client onboarding documents requested by email, incomplete",
+                                        "Campaign progress updates delivered manually",
+                                        "Retainer payment reminders inconsistent"
+                                    ],
+                       "solutions":  [
+                                         "Instant lead acknowledgement on WhatsApp",
+                                         "Onboarding document collection sequences",
+                                         "Campaign milestone updates sent to clients automatically",
+                                         "Retainer payment reminder sequences on schedule"
+                                     ],
+                       "seo":  {
+                                   "title":  "Marketing Agency Automation for Lead Intake and Client Communication | Bobsave",
+                                   "desc":  "Automate lead intake, client onboarding, campaign updates and payment reminders for marketing agencies.",
+                                   "keywords":  "marketing agency automation Kenya, agency WhatsApp, lead intake automation, client onboarding marketing"
+                               },
+                       "industry":  "professional-services"
+                   },
+                   {
+                       "slug":  "contractors",
+                       "name":  "Contractors",
+                       "tagline":  "Project updates, payment collection and client communication.",
+                       "description":  "Construction contractors manage site work and client expectations simultaneously. Automate project updates, payment reminders, procurement follow-up and site reporting to keep builds on time and clients confident.",
+                       "problems":  [
+                                        "Client update calls take contractors off-site",
+                                        "Payment reminders delayed, cash flow suffers",
+                                        "Procurement follow-up done manually, slow",
+                                        "Site reports compiled inconsistently"
+                                    ],
+                       "solutions":  [
+                                         "Automatic project progress updates to clients on WhatsApp",
+                                         "Polite payment reminder sequences for progress payments",
+                                         "Procurement follow-up messages sent on schedule",
+                                         "Site report submission on WhatsApp, automatically compiled"
+                                     ],
+                       "seo":  {
+                                   "title":  "Contractor Automation for Project Updates and Payment Collection | Bobsave",
+                                   "desc":  "Automate project updates, payment reminders, procurement follow-up and site reporting for construction contractors.",
+                                   "keywords":  "contractor automation Kenya, project update WhatsApp, construction payment reminders, site reporting automation"
+                               },
+                       "industry":  "construction"
+                   },
+                   {
+                       "slug":  "solar-companies",
+                       "name":  "Solar Companies",
+                       "tagline":  "Site survey booking, installation updates and payment follow-up.",
+                       "description":  "Solar companies manage sales, installation and after-sales service. Automate site survey booking, installation status updates, payment collection and maintenance reminders to keep projects smooth and customers satisfied.",
+                       "problems":  [
+                                        "Site survey bookings taken by phone, missed when busy",
+                                        "Installation progress updates sent manually",
+                                        "Payment milestone follow-up inconsistent",
+                                        "Post-installation maintenance reminders never sent"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp site survey booking with instant confirmation",
+                                         "Automatic installation progress updates to customers",
+                                         "Payment milestone reminder sequences",
+                                         "Post-installation maintenance reminders on schedule"
+                                     ],
+                       "seo":  {
+                                   "title":  "Solar Company Automation for Site Booking and Installation Updates | Bobsave",
+                                   "desc":  "Automate site survey booking, installation updates, payment follow-up and maintenance reminders for solar companies.",
+                                   "keywords":  "solar company automation Kenya, solar site booking WhatsApp, solar installation updates, solar payment automation"
+                               },
+                       "industry":  "construction"
+                   },
+                   {
+                       "slug":  "engineering-firms",
+                       "name":  "Engineering Firms",
+                       "tagline":  "Project coordination, report delivery and client communication.",
+                       "description":  "Engineering firms manage technical projects with precise communication needs. Automate project coordination, report delivery, client updates and payment follow-up to keep engineering projects on specification and on time.",
+                       "problems":  [
+                                        "Project coordination messages scattered across email and WhatsApp",
+                                        "Technical reports delivered late, delaying decisions",
+                                        "Client update calls take engineers away from project work",
+                                        "Payment follow-up for project milestones delayed"
+                                    ],
+                       "solutions":  [
+                                         "Project coordination updates routed to the right team automatically",
+                                         "Report delivery notifications sent on WhatsApp when ready",
+                                         "Client progress updates on schedule",
+                                         "Milestone payment reminders before and after due dates"
+                                     ],
+                       "seo":  {
+                                   "title":  "Engineering Firm Automation for Project Coordination and Report Delivery | Bobsave",
+                                   "desc":  "Automate project coordination, report delivery, client updates and payment follow-up for engineering firms.",
+                                   "keywords":  "engineering firm automation Kenya, engineering project WhatsApp, report delivery automation, engineering payment reminders"
+                               },
+                       "industry":  "construction"
+                   },
+                   {
+                       "slug":  "car-dealers",
+                       "name":  "Car Dealers",
+                       "tagline":  "Sales enquiry follow-up, test drive booking and after-sales care.",
+                       "description":  "Car dealers need fast sales response and consistent customer care from enquiry to ownership. Automate sales enquiry responses, test drive bookings, payment reminders and after-sales service scheduling.",
+                       "problems":  [
+                                        "Sales enquiry from ads answered too slowly",
+                                        "Test drive scheduling takes multiple messages",
+                                        "Payment follow-up for finance or deposits inconsistent",
+                                        "After-sales service reminders never sent"
+                                    ],
+                       "solutions":  [
+                                         "Instant sales enquiry response on WhatsApp",
+                                         "Test drive booking with availability matching",
+                                         "Payment reminder sequences for deposits and finance",
+                                         "Service due reminders sent months before"
+                                     ],
+                       "seo":  {
+                                   "title":  "Car Dealer Automation for Sales Enquiries and Test Drive Booking | Bobsave",
+                                   "desc":  "Automate sales enquiry responses, test drive bookings, payment reminders and after-sales service for car dealers.",
+                                   "keywords":  "car dealer automation Kenya, car sales WhatsApp, test drive booking automation, car after-sales reminders"
+                               },
+                       "industry":  "automotive"
+                   },
+                   {
+                       "slug":  "garages",
+                       "name":  "Garages",
+                       "tagline":  "Service booking, payment reminders and vehicle collection updates.",
+                       "description":  "Garages manage service appointments, parts and customer communication. Automate service booking, payment collection, vehicle readiness notifications and service reminders to keep bays full and customers returning.",
+                       "problems":  [
+                                        "Service bookings taken by phone when mechanics are busy",
+                                        "Vehicle ready notifications sent manually",
+                                        "Payment reminders after service delayed",
+                                        "Service reminders for regular maintenance not sent"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp service booking with instant confirmation",
+                                         "Vehicle ready for collection notification sent automatically",
+                                         "Payment reminders sent after service completion",
+                                         "Regular service reminders sent before next service due"
+                                     ],
+                       "seo":  {
+                                   "title":  "Garage Automation for Service Booking and Customer Communication | Bobsave",
+                                   "desc":  "Automate service booking, payment reminders, vehicle collection notifications and service due reminders for garages.",
+                                   "keywords":  "garage automation Kenya, car service WhatsApp, garage booking automation, vehicle maintenance reminders"
+                               },
+                       "industry":  "automotive"
+                   },
+                   {
+                       "slug":  "car-rentals",
+                       "name":  "Car Rentals",
+                       "tagline":  "Rental booking, vehicle handover and return coordination.",
+                       "description":  "Car rental businesses need seamless booking and handover. Automate rental enquiry responses, booking confirmation, vehicle handover instructions and return coordination to reduce no-shows and improve customer experience.",
+                       "problems":  [
+                                        "Rental enquiries answered after hours, customers book elsewhere",
+                                        "Booking confirmation details scattered across messages",
+                                        "Vehicle handover instructions sent inconsistently",
+                                        "Return coordination and follow-up manual"
+                                    ],
+                       "solutions":  [
+                                         "Instant rental availability and pricing on WhatsApp",
+                                         "Booking confirmation with all details in one message",
+                                         "Handover instructions and documents sent on schedule",
+                                         "Return coordination and post-rental review requests automated"
+                                     ],
+                       "seo":  {
+                                   "title":  "Car Rental Automation for Booking and Vehicle Handover | Bobsave",
+                                   "desc":  "Automate rental enquiry responses, booking confirmation, vehicle handover instructions and return coordination for car rentals.",
+                                   "keywords":  "car rental automation Kenya, car rental WhatsApp, rental booking automation, vehicle handover automation"
+                               },
+                       "industry":  "automotive"
+                   },
+                   {
+                       "slug":  "car-washes",
+                       "name":  "Car Washes",
+                       "tagline":  "Booking, loyalty reminders and customer follow-up.",
+                       "description":  "Car washes thrive on repeat visits. Automate booking, payment reminders, loyalty reward notifications and customer follow-up to keep cars coming back regularly.",
+                       "problems":  [
+                                        "Walk-in and booking management chaotic during peak hours",
+                                        "Customers forget regular washes, visits become irregular",
+                                        "Loyalty rewards never communicated",
+                                        "Special promotions sent inconsistently"
+                                    ],
+                       "solutions":  [
+                                         "WhatsApp booking with time slot confirmation",
+                                         "Regular wash reminders sent on a schedule",
+                                         "Loyalty reward notifications when earned",
+                                         "Special promotion messages sent to regulars"
+                                     ],
+                       "seo":  {
+                                   "title":  "Car Wash Automation for Booking and Loyalty Communication | Bobsave",
+                                   "desc":  "Automate booking, regular wash reminders, loyalty notifications and customer communication for car washes.",
+                                   "keywords":  "car wash automation Kenya, car wash WhatsApp booking, car wash loyalty automation, car wash promotion automation"
+                               },
+                       "industry":  "automotive"
+                   }
+               ]
+}

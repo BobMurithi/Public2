@@ -1,0 +1,886 @@
+/* =====================================================
+   Bobsave Dark Mode — bobsave-dark.css
+   Include on every page, toggle via JS
+   ===================================================== */
+
+:root {
+  --dm-bg:        #0f1310;
+  --dm-surface:   #1a1f17;
+  --dm-card:      #1e2419;
+  --dm-border:    #2a3325;
+  --dm-text:      #e8eee4;
+  --dm-muted:     #8a9e82;
+  --dm-green:     #9fe870;
+  --dm-green-dk:  #264d0c;
+  --dm-yellow:    #ffea64;
+  --dm-teal:      #a0e2e1;
+  --dm-pink:      #ffd7ef;
+}
+
+body.dark-mode {
+  background-color: var(--dm-bg) !important;
+  color: var(--dm-text) !important;
+}
+
+/* Navbar */
+body.dark-mode .bs-navbar,
+body.dark-mode nav.navbar {
+  background: rgba(15,19,16,0.95) !important;
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .bs-navbar .nav-links a,
+body.dark-mode .navbar-caption,
+body.dark-mode .nav-link {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .bs-navbar .nav-links a:hover {
+  background: rgba(159,232,112,0.1) !important;
+}
+body.dark-mode .cid-vtQJpRZL39 .container {
+  background: rgba(15,19,16,0.95) !important;
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.4) !important;
+}
+
+/* Sections & backgrounds */
+body.dark-mode section,
+body.dark-mode .cid-vtQJtIPZb4,
+body.dark-mode .cid-vtQJH77x3R,
+body.dark-mode .cid-vtQJLqzSLZ,
+body.dark-mode .cid-vtXwWygD2M,
+body.dark-mode .cid-vtXAjxG4S1,
+body.dark-mode .cid-vtXFInZ2JU,
+body.dark-mode .cid-vtXFIUoHBH,
+body.dark-mode .cid-vtXNqNoBGd,
+body.dark-mode .cid-vtYYxn3iid {
+  background-color: var(--dm-bg) !important;
+}
+
+/* Alternate section backgrounds */
+body.dark-mode .cid-vtQJtIPZb4,
+body.dark-mode .cid-vtQJLqzSLZ,
+body.dark-mode .cid-vtXwWygD2M,
+body.dark-mode .cid-vtXAjxG4S1 {
+  background-color: var(--dm-surface) !important;
+}
+
+/* Cards & wrappers */
+body.dark-mode .item-wrapper,
+body.dark-mode .card-wrapper,
+body.dark-mode .slide-content,
+body.dark-mode .widget,
+body.dark-mode .stat-card,
+body.dark-mode .article-card,
+body.dark-mode .featured-card,
+body.dark-mode .service-card,
+body.dark-mode .sidebar-widget,
+body.dark-mode .step-card {
+  background-color: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+
+/* Text */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode p, body.dark-mode li, body.dark-mode span:not(.cat-tag),
+body.dark-mode .mbr-section-title,
+body.dark-mode .mbr-text,
+body.dark-mode .card-title,
+body.dark-mode .card-text,
+body.dark-mode .item-title {
+  color: var(--dm-text) !important;
+}
+
+body.dark-mode .mbr-section-subtitle,
+body.dark-mode .item-subtitle,
+body.dark-mode .card-meta,
+body.dark-mode .service-what,
+body.dark-mode .section-sub {
+  color: var(--dm-muted) !important;
+}
+
+/* Buttons — keep green */
+body.dark-mode .btn-primary,
+body.dark-mode .btn-primary:active {
+  background-color: var(--dm-green) !important;
+  border-color: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+
+/* Footer */
+body.dark-mode footer,
+body.dark-mode .bs-footer,
+body.dark-mode section[style*="background:#edefeb"] {
+  background-color: #0a0d09 !important;
+  border-top-color: var(--dm-border) !important;
+}
+body.dark-mode footer p,
+body.dark-mode footer a {
+  color: var(--dm-muted) !important;
+}
+
+/* Blog specific */
+body.dark-mode .blog-layout,
+body.dark-mode .filter-btn,
+body.dark-mode .update-bar {
+  background-color: var(--dm-surface) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .search-input,
+body.dark-mode #searchInput {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .ad-banner {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+
+/* Services page */
+body.dark-mode .services-hero {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .how-section {
+  background: var(--dm-bg) !important;
+}
+body.dark-mode .services-section {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .tool-chip,
+body.dark-mode .hero-badge,
+body.dark-mode .for-who {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+
+/* Dashboard & Admin */
+body.dark-mode .main-content,
+body.dark-mode .page-body {
+  background: var(--dm-bg) !important;
+}
+body.dark-mode .topbar {
+  background: var(--dm-surface) !important;
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .topbar .page-title {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .data-table th {
+  color: var(--dm-muted) !important;
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .data-table td {
+  border-bottom-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .data-table tr:hover td {
+  background: var(--dm-card) !important;
+}
+body.dark-mode .invoice-table th,
+body.dark-mode .invoice-table td,
+body.dark-mode .wf-table th,
+body.dark-mode .wf-table td {
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea,
+body.dark-mode .support-form input,
+body.dark-mode .support-form select,
+body.dark-mode .support-form textarea,
+body.dark-mode .search-input,
+body.dark-mode .filter-select {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+
+/* Login screens */
+body.dark-mode .login-card {
+  background: var(--dm-card) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .login-screen {
+  background: var(--dm-bg) !important;
+}
+
+/* Scrollbar */
+body.dark-mode ::-webkit-scrollbar { width: 6px; }
+body.dark-mode ::-webkit-scrollbar-track { background: var(--dm-bg); }
+body.dark-mode ::-webkit-scrollbar-thumb { background: var(--dm-border); border-radius: 3px; }
+body.dark-mode ::-webkit-scrollbar-thumb:hover { background: var(--dm-muted); }
+
+/* =====================================================
+   Blog page (blog.html)
+   ===================================================== */
+body.dark-mode .no-results {
+  background: var(--dm-card) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .popular-item .pop-title {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .popular-item .pop-num {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .category-list li {
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .category-list li:hover {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .category-list li .count {
+  background: var(--dm-card) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .tag-item {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .tag-item:hover {
+  background: var(--dm-green) !important;
+  border-color: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sidebar-widget h3 {
+  border-bottom-color: var(--dm-border) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .blog-meta-row span {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .featured-label {
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .blog-hero .hero-badge {
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .cta-widget h3,
+body.dark-mode .cta-widget p {
+  color: var(--dm-green-dk) !important;
+}
+
+/* =====================================================
+   Privacy page (privacy.html)
+   ===================================================== */
+body.dark-mode .content a {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .content h2 {
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .last-updated {
+  background: var(--dm-card) !important;
+  color: var(--dm-muted) !important;
+  border: 1px solid var(--dm-border) !important;
+}
+
+/* =====================================================
+   Dashboard & Admin shared widgets
+   ===================================================== */
+body.dark-mode .exec-bar-wrap {
+  background: var(--dm-card) !important;
+}
+body.dark-mode .exec-bar-track {
+  background: var(--dm-border) !important;
+}
+body.dark-mode .exec-bar-labels {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .widget-title {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .widget-badge {
+  background: var(--dm-surface) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .stat-value,
+body.dark-mode .sv {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .stat-label,
+body.dark-mode .sl,
+body.dark-mode .stat-sub,
+body.dark-mode .ss {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .lead-card {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .lead-name,
+body.dark-mode .act-text {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .lead-meta {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .activity-item,
+body.dark-mode .act-item {
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .activity-time {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .topbar-sync {
+  background: var(--dm-card) !important;
+  color: var(--dm-green) !important;
+  border: 1px solid var(--dm-border) !important;
+}
+body.dark-mode .topbar-sync:hover {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .topbar-time {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .rev-label,
+body.dark-mode .rev-val {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .pill-grey {
+  background: var(--dm-surface) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .pill-green,
+body.dark-mode .status-pill.running {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .pill-yellow,
+body.dark-mode .status-pill.paused {
+  color: var(--dm-yellow) !important;
+}
+body.dark-mode .pill-teal {
+  color: var(--dm-teal) !important;
+}
+body.dark-mode .pill-red,
+body.dark-mode .status-pill.error,
+body.dark-mode .btn-red {
+  color: #e06c6c !important;
+}
+body.dark-mode .sidebar {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .admin-badge span,
+body.dark-mode .billing-plan {
+  background: var(--dm-surface) !important;
+}
+
+/* =====================================================
+   Home page (index.html)
+   ===================================================== */
+body.dark-mode .hero {
+  background: var(--dm-bg) !important;
+}
+body.dark-mode .hero .sub,
+body.dark-mode .hero-support,
+body.dark-mode .wf-note {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .wf-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .wf-chip.ai {
+  background: var(--dm-green) !important;
+  border-color: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .wf-chip.ai .dot {
+  background: var(--dm-green-dk) !important;
+}
+body.dark-mode .wf-arrow {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .section--sage {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .section-head p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .problem-card,
+body.dark-mode .svc-card,
+body.dark-mode .feat-card,
+body.dark-mode .step,
+body.dark-mode .price-card,
+body.dark-mode .inst-card,
+body.dark-mode .faq-item {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .problem-card p,
+body.dark-mode .svc-card p,
+body.dark-mode .feat-card p,
+body.dark-mode .step p,
+body.dark-mode .inst-card p,
+body.dark-mode .price-card .for-who,
+body.dark-mode .faq-body {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .svc-tag {
+  background: var(--dm-surface) !important;
+  color: var(--dm-green) !important;
+}
+body.dark-mode .feat-ico,
+body.dark-mode .step-ico,
+body.dark-mode .problem-card .p-ico,
+body.dark-mode .why-item .p-ico {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .steps-close {
+  background: var(--dm-green) !important;
+}
+body.dark-mode .price-card li::before {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .price-card.enterprise {
+  background: var(--dm-surface) !important;
+  border-color: var(--dm-surface) !important;
+}
+body.dark-mode .price-card.enterprise li {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .before-panel {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .before-panel h3 {
+  color: var(--dm-yellow) !important;
+}
+body.dark-mode .before-panel li::before {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .final-cta {
+  background: radial-gradient(1100px 520px at 78% -8%, rgba(159, 232, 112, 0.28), transparent 60%),
+    radial-gradient(900px 480px at 12% 112%, rgba(159, 232, 112, 0.2), transparent 60%),
+    var(--dm-surface) !important;
+}
+body.dark-mode .final-cta .cf-chip {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .final-cta .btn-outline {
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+}
+body.dark-mode .contact-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .contact-chip span {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form select,
+body.dark-mode .contact-form textarea {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .contact-form label,
+body.dark-mode .form-note {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .form-msg {
+  background: var(--dm-surface) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .eyebrow {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .btn-outline {
+  border-color: var(--dm-text) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .btn-outline:hover {
+  background: var(--dm-text) !important;
+  color: var(--dm-bg) !important;
+}
+body.dark-mode .footer-cta-box p,
+body.dark-mode .footer-cta-box .sub {
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .hero-badge {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .hero-visual img {
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .flow-panel {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .flow-panel .fp-title {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .why-visual {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .why-visual .why-tag {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .mini {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .mini p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .why-item {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .why-item b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .int-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .int-chip b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .int-chip small,
+body.dark-mode .int-note {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .ent-map {
+  background: var(--dm-surface) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .en-node {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .en-node b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .en-node span,
+body.dark-mode .em-arrow {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .en-ico,
+body.dark-mode .em-engine {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .em-engine .pulse-dot {
+  background: var(--dm-green-dk) !important;
+}
+body.dark-mode .em-engine b {
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .em-engine span {
+  color: var(--dm-green-dk) !important;
+  opacity: 0.8;
+}
+@media (max-width: 640px) {
+  body.home .dm-toggle {
+    bottom: 4.6rem !important;
+  }
+}
+
+/* =====================================================
+   Service pages (/services/*.html) — sp-* classes
+   ===================================================== */
+body.dark-mode .sp-nav {
+  background: rgba(15, 19, 16, 0.92) !important;
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-nav .sp-nav-links a {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-nav .sp-nav-links a:hover,
+body.dark-mode .sp-nav .sp-nav-links a.active {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sp-toggle span {
+  background: var(--dm-text) !important;
+}
+body.dark-mode .sp-nav .sp-nav-cta a {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sp-hero {
+  background: var(--dm-bg) !important;
+}
+body.dark-mode .sp-hero h1,
+body.dark-mode .sp-eyebrow {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-eyebrow {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sp-hero p.lead,
+body.dark-mode .sp-breadcrumb {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-breadcrumb a {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .sp-section--sage {
+  background: var(--dm-surface) !important;
+}
+body.dark-mode .sp-section h2 {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-section p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .tool-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-green) !important;
+}
+body.dark-mode .sp-media {
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-list-block h4 {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .sp-list li {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-list li::before {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .sp-callout {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-callout b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-outcome {
+  background: var(--dm-yellow) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sp-flow {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-flow .sp-flow-title,
+body.dark-mode .sp-rel-arrow {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .flow-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .flow-chip.ai {
+  background: var(--dm-green) !important;
+  border-color: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .flow-chip.ai .dot {
+  background: var(--dm-green-dk) !important;
+}
+body.dark-mode .flow-arrow {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-step {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-step h4 {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-step p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-rel-card {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .sp-rel-card b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-rel-card span {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-rel-card:hover {
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35) !important;
+}
+body.dark-mode .sp-cta {
+  background: radial-gradient(1100px 520px at 78% -8%, rgba(159, 232, 112, 0.16), transparent 60%), radial-gradient(900px 480px at 12% 112%, rgba(159, 232, 112, 0.1), transparent 60%), var(--dm-surface) !important;
+}
+body.dark-mode .sp-cta h2 {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-cta p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-cta .btn-outline {
+  border-color: var(--dm-text) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-cta .btn-outline:hover {
+  background: var(--dm-text) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .sp-contact-grid h3 {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-contact-grid > div > p,
+body.dark-mode .sp-chip span {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-chip {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-form label,
+body.dark-mode .sp-contact form label {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-form input,
+body.dark-mode .sp-form textarea,
+body.dark-mode .sp-contact form input,
+body.dark-mode .sp-contact form textarea {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text) !important;
+}
+body.dark-mode .sp-form input::placeholder,
+body.dark-mode .sp-form textarea::placeholder,
+body.dark-mode .sp-contact form input::placeholder,
+body.dark-mode .sp-contact form textarea::placeholder {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .sp-form-row > div {
+  position: relative;
+}
+body.dark-mode .sp-footer-bottom {
+  border-top-color: #31382c !important;
+}
+body.dark-mode .sp-mobile-cta {
+  background: var(--dm-green) !important;
+}
+body.dark-mode .sp-mobile-cta a {
+  color: var(--dm-green-dk) !important;
+}
+@media (max-width: 1120px) {
+  body.dark-mode .sp-nav .sp-nav-links {
+    background: var(--dm-surface) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+/* =====================================================
+   Phase 4 — Industry / Niche / Package / Automation pages
+   (phase4-pages.css) — p4-* classes
+   ===================================================== */
+body.dark-mode .p4-card {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .p4-head h2 {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-head p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-prob::before {
+  background: var(--dm-card) !important;
+  color: #e08563 !important;
+}
+body.dark-mode .p4-prob p,
+body.dark-mode .p4-sol p {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-sol::before {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .p4-linkcard {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .p4-linkcard:hover {
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35) !important;
+}
+body.dark-mode .p4-linkcard .p4-tag {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}
+body.dark-mode .p4-linkcard .p4-tag.p4-tag--outline {
+  background: transparent !important;
+  border-color: var(--dm-green) !important;
+  color: var(--dm-green) !important;
+}
+body.dark-mode .p4-linkcard b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-linkcard span:not(.p4-tag) {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-linkcard .p4-price {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-linkcard .p4-arrow {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .p4-pricingbox {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .p4-pricingbox h4 {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-price-row .p4-price-val {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-price-row .p4-price-note {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-price-meta {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-price-meta b {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-inc-list li {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-inc-list li::before {
+  color: var(--dm-green) !important;
+}
+body.dark-mode .p4-faq details {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+}
+body.dark-mode .p4-faq summary {
+  color: var(--dm-text) !important;
+}
+body.dark-mode .p4-faq details[open] summary {
+  border-bottom-color: var(--dm-border) !important;
+}
+body.dark-mode .p4-faq details p {
+  color: var(--dm-muted) !important;
+}
+body.dark-mode .p4-intlinks a {
+  background: var(--dm-card) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-green) !important;
+}
+body.dark-mode .p4-intlinks a:hover {
+  background: var(--dm-green) !important;
+  color: var(--dm-green-dk) !important;
+}

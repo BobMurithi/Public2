@@ -1,0 +1,156 @@
+{
+  "packages": [
+    {
+      "slug": "clinic-automation",
+      "name": "Clinic Automation Package",
+      "industry": "healthcare",
+      "niche": "clinics",
+      "tagline": "Everything your clinic needs - from patient booking to follow-up reminders.",
+      "description": "A complete automation package for clinics that reduces no-shows, frees up reception and ensures every patient interaction is handled professionally - from first enquiry to post-visit follow-up.",
+      "problems": [
+        "Patients call repeatedly for simple booking tasks",
+        "Reception spends hours on reminder calls before each day",
+        "No-shows create costly empty appointment slots",
+        "Follow-up reminders are missed, affecting patient health"
+      ],
+      "benefits": [
+        "Receptionist time returned to patients who need it most",
+        "No-shows dramatically reduced with automatic reminders",
+        "Every patient enquiry answered, even after hours",
+        "Consistent, professional communication across the whole journey"
+      ],
+      "features": [
+        "WhatsApp + web appointment booking",
+        "24h and 1h reminder messages",
+        "Patient follow-up sequences",
+        "Google Calendar sync",
+        "Secure patient communication records",
+        "Daily and weekly booking reports"
+      ],
+      "automations": ["appointment-booking", "appointment-reminders", "whatsapp-customer-support", "invoice-and-payment-reminders"],
+      "integrations": ["WhatsApp Business API", "Google Calendar", "M-Pesa Daraja API", "Google Sheets", "Gmail", "OpenAI"],
+      "pricing": { "setup": "KSh 15,000", "monthly": "KSh 5,000/mo", "setup_note": "Includes setup, configuration, training and first month support.", "monthly_note": "Managed hosting, monitoring and maintenance included." },
+      "delivery": "Live in 7-14 days. We handle setup, configure integrations and train your team.",
+      "faqs": [
+        ["Will it replace our current booking system?", "It can work alongside what you already use, or take over completely. We set it up based on what works best for your clinic."],
+        ["How long until we see the benefit?", "Most clinics see a clear drop in no-shows and missed calls within the first month."],
+        ["Can it handle multiple doctors or rooms?", "Yes - multi-provider scheduling, rooms and services are all supported."],
+        ["Do we need technical staff?", "No. We set everything up, train your team and handle all maintenance. Your reception uses WhatsApp and a dashboard they already understand."]
+      ]
+    },
+    {
+      "slug": "school-automation",
+      "name": "School Automation Package",
+      "industry": "education",
+      "niche": "schools",
+      "tagline": "Automate fee collection, parent communication and admin reminders.",
+      "description": "Handles the most time-consuming school admin tasks: fee reminders, payment confirmations, parent communications and important notifications - all delivered on WhatsApp where parents actually read them.",
+      "problems": [
+        "Fee reminders take days of admin time and feel personal",
+        "Parents say they did not receive fee notifications",
+        "Payment records are spread across spreadsheets and cheque books",
+        "Announcements to parents are slow and inconsistent"
+      ],
+      "benefits": [
+        "Fee collection rates improve noticeably",
+        "Admin staff reclaim hours every week",
+        "Parents receive clear, timely reminders",
+        "Live financial overview, always in sync"
+      ],
+      "features": [
+        "Automatic fee reminder sequences",
+        "Parent WhatsApp announcement channel",
+        "Payment confirmation receipts",
+        "Live payment ledger",
+        "Event and holiday notifications",
+        "Student communication logs"
+      ],
+      "automations": ["school-fee-reminders", "whatsapp-lead-followup", "whatsapp-customer-support", "invoice-and-payment-reminders"],
+      "integrations": ["WhatsApp Business API", "M-Pesa Daraja API", "Google Sheets", "Gmail", "SMS Gateway", "QuickBooks"],
+      "pricing": { "setup": "KSh 15,000", "monthly": "KSh 5,000/mo", "setup_note": "Includes setup, configuration, training and first month support.", "monthly_note": "Managed hosting, monitoring and maintenance included." },
+      "delivery": "Live in 7-14 days. We handle setup, configure integrations and train your team.",
+      "faqs": [
+        ["Will parents need a special app?", "No - everything works on WhatsApp, which almost every parent already uses."],
+        ["Does it handle different classes and fee amounts?", "Yes - fee structures per class, term and category are all supported."],
+        ["Can we still send personalised messages?", "Absolutely - reminders are automatic, but can be customised with specific details."],
+        ["Does it work with M-Pesa?", "Yes - via the M-Pesa Daraja API. Payment confirmations are detected and logged automatically."]
+      ]
+    },
+    {
+      "slug": "logistics-automation",
+      "name": "Logistics Automation Package",
+      "industry": "logistics",
+      "niche": "courier-companies",
+      "tagline": "Keep your customers updated from order to door - without lifting a finger.",
+      "description": "A complete delivery communication package for courier and delivery companies. Customers get real-time updates at every milestone, support questions are handled instantly, and your dispatch team sees everything in one place.",
+      "problems": [
+        "Dispatch staff spend hours answering 'where is my order?'",
+        "Drivers update delivery status manually on spreadsheets",
+        "Customer confusion at each delivery milestone",
+        "Failed deliveries sit unreported for hours"
+      ],
+      "benefits": [
+        "Customer calls drop dramatically",
+        "Dispatches tracked in real time",
+        "Professional updates at every milestone",
+        "Failed deliveries reported and re-tried faster"
+      ],
+      "features": [
+        "Automatic milestone notifications on WhatsApp",
+        "Out-for-delivery and delivered alerts",
+        "Delivery confirmation requests",
+        "Failed delivery escalation alerts",
+        "Dispatch status dashboard",
+        "Daily delivery summary reports"
+      ],
+      "automations": ["delivery-notifications", "whatsapp-customer-support", "whatsapp-lead-followup"],
+      "integrations": ["WhatsApp Business API", "Google Sheets", "SMS Gateway", "Google Maps API", "Gmail", "n8n"],
+      "pricing": { "setup": "KSh 12,000", "monthly": "KSh 4,000/mo", "setup_note": "Includes setup, configuration, training and first month support.", "monthly_note": "Managed hosting, monitoring and maintenance included." },
+      "delivery": "Live in 7-14 days. We handle setup, configure integrations and train your team.",
+      "faqs": [
+        ["Does it work with our existing system?", "We connect to your current dispatch sheet or delivery tracker, so nothing needs to be replaced."],
+        ["What if a delivery fails?", "The customer is notified, your driver is alerted, and the next available delivery attempt is scheduled."],
+        ["Can we customise the message style?", "Yes - brand voice, colours and tone are all configurable."],
+        ["Do customers need to install anything?", "No - everything goes to WhatsApp, which they already use."]
+      ]
+    },
+    {
+      "slug": "exhibition-automation",
+      "name": "Exhibition & Event Automation Package",
+      "industry": "events",
+      "niche": "exhibition-organizers",
+      "tagline": "Automate exhibitor and visitor registration - from first enquiry to post-event follow-up.",
+      "description": "End-to-end event automation: registration capture, exhibitor management, ticketing, visitor reminders, payment verification and post-event feedback - all delivered on WhatsApp and your website.",
+      "problems": [
+        "Registration teams respond to hundreds of duplicate WhatsApp messages",
+        "Exhibitors do not receive timely info about space and deadlines",
+        "Payment confirmations get lost in email and need manual checking",
+        "Visitor no-shows mean empty halls and wasted marketing spend"
+      ],
+      "benefits": [
+        "Exhibitors and visitors registered without the manual back-and-forth",
+        "Real-time attendee list, always accurate",
+        "Payments verified and registrants notified instantly",
+        "Post-event follow-up generates repeat business"
+      ],
+      "features": [
+        "WhatsApp + web registration form",
+        "Payment verification and confirmation",
+        "Exhibitor brief and updates on WhatsApp",
+        "Visitor reminder sequence",
+        "Post-event feedback collection",
+        "Real-time attendee list and reports"
+      ],
+      "automations": ["exhibition-registration", "whatsapp-lead-followup", "whatsapp-customer-support"],
+      "integrations": ["WhatsApp Business API", "Google Forms", "Google Sheets", "M-Pesa Daraja API", "Stripe", "Gmail"],
+      "pricing": { "setup": "KSh 12,000", "monthly": "KSh 4,000/mo", "setup_note": "Includes setup, configuration, training and first month support.", "monthly_note": "Managed hosting, monitoring and maintenance included." },
+      "delivery": "Live in 7-14 days. We handle setup, configure integrations and train your team.",
+      "faqs": [
+        ["Can different exhibitor packages be registered?", "Yes - exhibitors select their package in the flow, pricing is confirmed and the booking is locked automatically."],
+        ["Does it support online payments?", "Yes - via M-Pesa or Stripe. Payment confirmation triggers the ticket or exhibitor brief automatically."],
+        ["Will visitors get reminders?", "Yes - two reminders before the event with date, time and venue details."],
+        ["Can we use it for conference events too?", "Absolutely - the same flow works for conferences, workshops and any event with exhibitor and visitor registration."]
+      ]
+    }
+  ]
+}

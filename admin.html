@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="canonical" href="https://bobsave.com/admin.html">
   <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
-  <meta name="description" content="Bobsave Admin Panel — Internal dashboard for managing clients, payments, workflows and leads.">
-  <title>Admin — Bobsave</title>
+  <meta name="description" content="Bobsave Admin Panel â€” Internal dashboard for managing clients, payments, workflows and leads.">
+  <title>Admin â€” Bobsave</title>
   <!-- NOTE: Protect this page with Cloudflare Access (Zero Trust) so only you can reach it -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap"></noscript>
@@ -20,7 +21,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter Tight', sans-serif; background: #f0f2ed; color: var(--dark); min-height: 100vh; }
 
-    /* ── LOGIN ── */
+    /* â”€â”€ LOGIN â”€â”€ */
     .login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--dark-brown); }
     .login-card { background: white; border-radius: 2rem; padding: 2.5rem; width: 100%; max-width: 380px; box-shadow: 0 16px 60px rgba(0,0,0,0.3); margin: 1.5rem; }
     .login-card .logo { text-align: center; margin-bottom: 0.5rem; }
@@ -36,11 +37,11 @@
     .login-btn:hover { background: var(--dark); }
     .login-error { color: #e53e3e; font-size: 0.83rem; text-align: center; margin-top: 0.65rem; display: none; }
 
-    /* ── LAYOUT ── */
+    /* â”€â”€ LAYOUT â”€â”€ */
     .admin-app { display: none; min-height: 100vh; }
     .admin-app.visible { display: flex; }
 
-    /* ── SIDEBAR ── */
+    /* â”€â”€ SIDEBAR â”€â”€ */
     .sidebar { width: var(--sidebar-w); background: var(--dark); min-height: 100vh; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; z-index: 200; }
     .sidebar-logo { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 0.75rem; }
     .sidebar-logo img { height: 2.2rem; }
@@ -59,11 +60,11 @@
       .sidebar.open { transform: translateX(0); }
     }
 
-    /* ── MAIN ── */
+    /* â”€â”€ MAIN â”€â”€ */
     .main-content { margin-left: var(--sidebar-w); flex: 1; min-width: 0; }
     @media (max-width: 768px) { .main-content { margin-left: 0; } }
 
-    /* ── TOPBAR ── */
+    /* â”€â”€ TOPBAR â”€â”€ */
     .topbar { background: white; padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8ede4; position: sticky; top: 0; z-index: 100; }
     .topbar-left { display: flex; align-items: center; gap: 1rem; }
     .menu-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; display: none; }
@@ -74,13 +75,13 @@
     .topbar-sync:hover { background: var(--green); }
     .topbar-time { font-size: 0.78rem; color: #aaa; }
 
-    /* ── SECTIONS ── */
+    /* â”€â”€ SECTIONS â”€â”€ */
     .page-body { padding: 1.75rem 2rem; }
     @media (max-width: 640px) { .page-body { padding: 1.25rem; } }
     .section { display: none; }
     .section.active { display: block; }
 
-    /* ── STAT CARDS ── */
+    /* â”€â”€ STAT CARDS â”€â”€ */
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.1rem; margin-bottom: 1.75rem; }
     .stat-card { background: white; border-radius: 1.25rem; padding: 1.25rem; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
     .stat-card .si { font-size: 1.4rem; margin-bottom: 0.6rem; }
@@ -91,15 +92,16 @@
     .sc-yellow { border-top: 3px solid var(--yellow); }
     .sc-teal { border-top: 3px solid var(--teal); }
     .sc-pink { border-top: 3px solid var(--pink); }
+  .sc-blue { border-top: 3px solid #4a7dff; background: rgba(74,125,255,0.08); }
     .sc-brown { border-top: 3px solid var(--dark-brown); }
 
-    /* ── WIDGET ── */
+    /* â”€â”€ WIDGET â”€â”€ */
     .widget { background: white; border-radius: 1.25rem; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 1.5rem; }
     .widget-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; flex-wrap: wrap; gap: 0.5rem; }
     .widget-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; }
     .wh-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
-    /* ── TABLES ── */
+    /* â”€â”€ TABLES â”€â”€ */
     .data-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
     .data-table thead { position: sticky; top: 0; }
     .data-table th { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 0 0 0.65rem; text-align: left; border-bottom: 1.5px solid var(--sage); white-space: nowrap; }
@@ -107,7 +109,7 @@
     .data-table tr:last-child td { border-bottom: none; }
     .data-table tr:hover td { background: #fafcf8; }
 
-    /* ── PILLS ── */
+    /* â”€â”€ PILLS â”€â”€ */
     .pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.65rem; border-radius: 2rem; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
     .pill-green { background: rgba(159,232,112,0.2); color: var(--green-dark); }
     .pill-yellow { background: rgba(255,234,100,0.2); color: #7a6500; }
@@ -115,7 +117,7 @@
     .pill-teal { background: rgba(160,226,225,0.2); color: #1f6463; }
     .pill-grey { background: var(--sage); color: #666; }
 
-    /* ── ACTION BUTTONS ── */
+    /* â”€â”€ ACTION BUTTONS â”€â”€ */
     .btn-sm { padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 700; border: none; cursor: pointer; font-family: 'Inter Tight', sans-serif; transition: all 0.2s; }
     .btn-green { background: var(--green); color: var(--green-dark); }
     .btn-green:hover { background: #bcef9c; }
@@ -124,17 +126,17 @@
     .btn-red { background: rgba(229,62,62,0.1); color: #c53030; }
     .btn-red:hover { background: rgba(229,62,62,0.2); }
 
-    /* ── SEARCH BAR ── */
+    /* â”€â”€ SEARCH BAR â”€â”€ */
     .search-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center; }
     .search-input { flex: 1; min-width: 180px; padding: 0.6rem 1rem; border: 1.5px solid #e0e7d8; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.88rem; outline: none; }
     .search-input:focus { border-color: var(--green); }
     .filter-select { padding: 0.6rem 1rem; border: 1.5px solid #e0e7d8; border-radius: 2rem; font-family: 'Inter Tight', sans-serif; font-size: 0.85rem; outline: none; background: white; cursor: pointer; }
 
-    /* ── TWO COL ── */
+    /* â”€â”€ TWO COL â”€â”€ */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
 
-    /* ── REVENUE CHART ── */
+    /* â”€â”€ REVENUE CHART â”€â”€ */
     .rev-chart { display: flex; align-items: flex-end; gap: 0.5rem; height: 100px; padding-top: 1rem; }
     .rev-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
     .rev-bar { width: 100%; border-radius: 0.4rem 0.4rem 0 0; background: var(--green); opacity: 0.85; transition: opacity 0.2s; min-height: 4px; }
@@ -142,7 +144,7 @@
     .rev-label { font-size: 0.65rem; color: #aaa; white-space: nowrap; }
     .rev-val { font-size: 0.65rem; font-weight: 700; color: var(--green-dark); }
 
-    /* ── ACTIVITY ── */
+    /* â”€â”€ ACTIVITY â”€â”€ */
     .activity-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .act-item { display: flex; align-items: flex-start; gap: 0.75rem; }
     .act-icon { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
@@ -152,7 +154,7 @@
     .act-text { font-size: 0.84rem; font-weight: 500; color: var(--dark); }
     .act-time { font-size: 0.72rem; color: #aaa; margin-top: 0.1rem; }
 
-    /* ── LEAD CARDS ── */
+    /* â”€â”€ LEAD CARDS â”€â”€ */
     .lead-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
     .lead-card { background: white; border-radius: 1.25rem; padding: 1.25rem; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border-left: 4px solid var(--green); }
     .lead-card.hot { border-left-color: #e53e3e; }
@@ -161,14 +163,17 @@
     .lead-meta { font-size: 0.78rem; color: #888; margin-bottom: 0.75rem; }
     .lead-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   </style>
+  <link rel="stylesheet" href="assets/theme/css/bobsave-dark.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203726035557482" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- ══ LOGIN ══ -->
+<!-- â•â• LOGIN â•â• -->
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
     <div class="logo"><img src="assets/images/bobsave-logo.svg" alt="Bobsave"></div>
-    <div class="admin-badge"><span>⚙ Admin Access Only</span></div>
+    <div class="admin-badge"><span>âš™ Admin Access Only</span></div>
     <h2>Admin Panel</h2>
     <div class="form-group">
       <label>Admin Username</label>
@@ -176,14 +181,14 @@
     </div>
     <div class="form-group">
       <label>Admin Password</label>
-      <input type="password" id="adminPass" placeholder="••••••••" autocomplete="current-password">
+      <input type="password" id="adminPass" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" autocomplete="current-password">
     </div>
-    <button class="login-btn" onclick="doAdminLogin()">Access Admin Panel →</button>
+    <button class="login-btn" onclick="doAdminLogin()">Access Admin Panel â†’</button>
     <div class="login-error" id="loginError">Incorrect credentials. Access denied.</div>
   </div>
 </div>
 
-<!-- ══ ADMIN APP ══ -->
+<!-- â•â• ADMIN APP â•â• -->
 <div class="admin-app" id="adminApp">
 
   <!-- SIDEBAR -->
@@ -194,22 +199,22 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Dashboard</div>
-      <a href="#" class="active" onclick="showSection('overview',this)"><span class="ni">📊</span> Overview</a>
-      <a href="#" onclick="showSection('clients',this)"><span class="ni">👥</span> Clients</a>
-      <a href="#" onclick="showSection('payments',this)"><span class="ni">💳</span> Payments</a>
-      <a href="#" onclick="showSection('workflows',this)"><span class="ni">⚡</span> Workflows</a>
-      <a href="#" onclick="showSection('leads',this)"><span class="ni">🎯</span> Leads</a>
+      <a href="#" class="active" onclick="showSection('overview',this)"><span class="ni">ðŸ“Š</span> Overview</a>
+      <a href="#" onclick="showSection('clients',this)"><span class="ni">ðŸ‘¥</span> Clients</a>
+      <a href="#" onclick="showSection('payments',this)"><span class="ni">ðŸ’³</span> Payments</a>
+      <a href="#" onclick="showSection('workflows',this)"><span class="ni">âš¡</span> Workflows</a>
+      <a href="#" onclick="showSection('leads',this)"><span class="ni">ðŸŽ¯</span> Leads</a>
       <div class="nav-section-label">Content</div>
-      <a href="#" onclick="showSection('blog',this)"><span class="ni">📝</span> Blog Feed</a>
+      <a href="#" onclick="showSection('blog',this)"><span class="ni">ðŸ“</span> Blog Feed</a>
       <div class="nav-section-label">System</div>
-      <a href="#" onclick="showSection('activity',this)"><span class="ni">📋</span> Activity Log</a>
-      <a href="#" onclick="showSection('settings',this)"><span class="ni">⚙️</span> Settings</a>
+      <a href="#" onclick="showSection('activity',this)"><span class="ni">ðŸ“‹</span> Activity Log</a>
+      <a href="#" onclick="showSection('settings',this)"><span class="ni">âš™ï¸</span> Settings</a>
       <div class="nav-section-label">Site</div>
-      <a href="index.html" target="_blank"><span class="ni">🌐</span> View Site</a>
-      <a href="dashboard.html" target="_blank"><span class="ni">👤</span> Client View</a>
+      <a href="index.html" target="_blank"><span class="ni">ðŸŒ</span> View Site</a>
+      <a href="dashboard.html" target="_blank"><span class="ni">ðŸ‘¤</span> Client View</a>
     </nav>
     <div class="sidebar-bottom">
-      <button class="logout-btn" onclick="doLogout()"><span>🚪</span> Sign Out</button>
+      <button class="logout-btn" onclick="doLogout()"><span>ðŸšª</span> Sign Out</button>
     </div>
   </nav>
 
@@ -217,18 +222,18 @@
   <div class="main-content">
     <div class="topbar">
       <div class="topbar-left">
-        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">â˜°</button>
         <span class="page-title" id="pageTitle">Overview</span>
       </div>
       <div class="topbar-right">
         <span class="topbar-time" id="clockDisplay"></span>
-        <button class="topbar-sync" onclick="syncData()">↻ Sync n8n</button>
+        <button class="topbar-sync" onclick="syncData()">â†» Sync n8n</button>
       </div>
     </div>
 
     <div class="page-body">
 
-      <!-- ── OVERVIEW ── -->
+      <!-- â”€â”€ OVERVIEW â”€â”€ -->
       <div class="section active" id="section-overview">
         <div class="stats-grid" id="overviewStats"></div>
         <div class="two-col">
@@ -245,7 +250,7 @@
           <div class="widget">
             <div class="widget-header">
               <span class="widget-title">New Leads (Last 7 Days)</span>
-              <span style="font-size:0.78rem;color:#aaa;" id="leadCount">—</span>
+              <span style="font-size:0.78rem;color:#aaa;" id="leadCount">â€”</span>
             </div>
             <div class="lead-grid" id="leadMini"></div>
           </div>
@@ -256,10 +261,10 @@
         </div>
       </div>
 
-      <!-- ── CLIENTS ── -->
+      <!-- â”€â”€ CLIENTS â”€â”€ -->
       <div class="section" id="section-clients">
         <div class="search-bar">
-          <input class="search-input" type="text" placeholder="🔍  Search clients by name, email, plan..." oninput="filterClients(this.value)">
+          <input class="search-input" type="text" placeholder="ðŸ”  Search clients by name, email, plan..." oninput="filterClients(this.value)">
           <select class="filter-select" onchange="filterClientsByPlan(this.value)">
             <option value="">All Plans</option>
             <option value="Starter">Starter</option>
@@ -272,7 +277,7 @@
         <div class="widget">
           <div class="widget-header">
             <span class="widget-title">All Clients</span>
-            <span class="widget-title" id="clientCount" style="color:var(--dark)">—</span>
+            <span class="widget-title" id="clientCount" style="color:var(--dark)">â€”</span>
           </div>
           <table class="data-table" id="clientTable">
             <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Plan</th><th>Status</th><th>Since</th><th>Workflows</th><th>Actions</th></tr></thead>
@@ -281,11 +286,11 @@
         </div>
       </div>
 
-      <!-- ── PAYMENTS ── -->
+      <!-- â”€â”€ PAYMENTS â”€â”€ -->
       <div class="section" id="section-payments">
         <div class="stats-grid" id="paymentStats"></div>
         <div class="search-bar">
-          <input class="search-input" type="text" placeholder="🔍  Search payments..." oninput="filterPayments(this.value)">
+          <input class="search-input" type="text" placeholder="ðŸ”  Search payments..." oninput="filterPayments(this.value)">
           <select class="filter-select">
             <option>All Methods</option>
             <option>M-Pesa</option>
@@ -302,7 +307,7 @@
         <div class="widget">
           <div class="widget-header">
             <span class="widget-title">Payment History</span>
-            <button class="btn-sm btn-dark" onclick="exportCSV()">↓ Export CSV</button>
+            <button class="btn-sm btn-dark" onclick="exportCSV()">â†“ Export CSV</button>
           </div>
           <table class="data-table" id="paymentTable">
             <thead><tr><th>Date</th><th>Client</th><th>Plan</th><th>Amount</th><th>Method</th><th>Ref</th><th>Status</th></tr></thead>
@@ -311,13 +316,13 @@
         </div>
       </div>
 
-      <!-- ── WORKFLOWS ── -->
+      <!-- â”€â”€ WORKFLOWS â”€â”€ -->
       <div class="section" id="section-workflows">
         <div class="widget">
           <div class="widget-header">
             <span class="widget-title">All Client Workflows</span>
             <div class="wh-actions">
-              <span class="pill pill-green">⚡ All Systems Normal</span>
+              <span class="pill pill-green">âš¡ All Systems Normal</span>
             </div>
           </div>
           <table class="data-table" id="workflowTable">
@@ -327,11 +332,11 @@
         </div>
       </div>
 
-      <!-- ── LEADS ── -->
+      <!-- â”€â”€ LEADS â”€â”€ -->
       <div class="section" id="section-leads">
         <div class="stats-grid" id="leadStats"></div>
         <div class="search-bar">
-          <input class="search-input" type="text" placeholder="🔍  Search leads..." oninput="filterLeads(this.value)">
+          <input class="search-input" type="text" placeholder="ðŸ”  Search leads..." oninput="filterLeads(this.value)">
           <select class="filter-select">
             <option>All Status</option>
             <option>New</option>
@@ -349,31 +354,31 @@
         </div>
       </div>
 
-      <!-- ── BLOG FEED ── -->
+      <!-- â”€â”€ BLOG FEED â”€â”€ -->
       <div class="section" id="section-blog">
         <div class="widget">
           <div class="widget-header">
             <span class="widget-title">Blog Feed Manager</span>
             <div class="wh-actions">
-              <button class="btn-sm btn-green" onclick="triggerN8nBlogRefresh()">🔄 Trigger n8n Refresh</button>
-              <button class="btn-sm btn-dark" onclick="loadBlogFeed()">↻ Reload Feed</button>
+              <button class="btn-sm btn-green" onclick="triggerN8nBlogRefresh()">ðŸ”„ Trigger n8n Refresh</button>
+              <button class="btn-sm btn-dark" onclick="loadBlogFeed()">â†» Reload Feed</button>
             </div>
           </div>
-          <p style="font-size:0.85rem;color:#888;margin-bottom:1.25rem;">Articles below are loaded from <code>assets/data/blog-feed.json</code> — updated automatically by your n8n workflow every 6 hours.</p>
+          <p style="font-size:0.85rem;color:#888;margin-bottom:1.25rem;">Articles below are loaded from <code>assets/data/blog-feed.json</code> â€” updated automatically by your n8n workflow every 6 hours.</p>
           <table class="data-table" id="blogTable">
-            <thead><tr><th>#</th><th>Title</th><th>Category</th><th>Source</th><th>Date</th><th>Featured</th></tr></thead>
+            <thead><tr><th>#</th><th>Title</th><th>Category</th><th>Source</th><th>Date</th><th>Featured</th><th>Open</th></tr></thead>
             <tbody id="blogBody"></tbody>
           </table>
         </div>
         <div class="widget" style="background:var(--sage);border:2px dashed #c8dcc0;">
           <p style="font-size:0.85rem;color:#666;text-align:center;">
-            🤖 <strong>n8n Blog Automation:</strong> Set your n8n Schedule Trigger to run every 6 hours → RSS Feed nodes → OpenAI rewrite → Write File node → Push to GitHub → Cloudflare Pages auto-deploys.
+            ðŸ¤– <strong>n8n Blog Automation:</strong> Set your n8n Schedule Trigger to run every 6 hours â†’ RSS Feed nodes â†’ OpenAI rewrite â†’ Write File node â†’ Push to GitHub â†’ Cloudflare Pages auto-deploys.
             <br><br>Webhook URL for manual trigger: <code style="background:white;padding:0.2rem 0.5rem;border-radius:0.5rem;">https://your-n8n.bobsave.com/webhook/refresh-blog</code>
           </p>
         </div>
       </div>
 
-      <!-- ── ACTIVITY LOG ── -->
+      <!-- â”€â”€ ACTIVITY LOG â”€â”€ -->
       <div class="section" id="section-activity">
         <div class="widget">
           <div class="widget-header">
@@ -387,7 +392,7 @@
         </div>
       </div>
 
-      <!-- ── SETTINGS ── -->
+      <!-- â”€â”€ SETTINGS â”€â”€ -->
       <div class="section" id="section-settings">
         <div class="two-col">
           <div class="widget">
@@ -413,7 +418,7 @@
                 <label style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#888;display:block;margin-bottom:0.35rem;">n8n API Key</label>
                 <input class="search-input" style="border-radius:1rem;width:100%;" type="password" placeholder="n8n_api_...">
               </div>
-              <button type="submit" class="btn-sm btn-green" style="width:fit-content;padding:0.6rem 1.5rem;font-size:0.9rem;">Save Settings →</button>
+              <button type="submit" class="btn-sm btn-green" style="width:fit-content;padding:0.6rem 1.5rem;font-size:0.9rem;">Save Settings â†’</button>
               <p id="settingsMsg" style="color:var(--green-dark);font-size:0.82rem;display:none;"></p>
             </form>
           </div>
@@ -448,7 +453,7 @@
 </div>
 
 <script>
-  // ── DEMO DATA ──
+  // â”€â”€ DEMO DATA â”€â”€
   const ADMIN_PASS = 'bobsave2025';
 
   const DATA = {
@@ -492,7 +497,7 @@
     ],
     activity: [
       { time:'5 min ago',  event:'Payment Received',   client:'Nairobi Grills',  detail:'KSh 7,500 via M-Pesa',     status:'green' },
-      { time:'12 min ago', event:'New Lead',            client:'Brian Mwenda',    detail:'WhatsApp inquiry — Business plan', status:'green' },
+      { time:'12 min ago', event:'New Lead',            client:'Brian Mwenda',    detail:'WhatsApp inquiry â€” Business plan', status:'green' },
       { time:'1 hr ago',   event:'Workflow Paused',     client:'Sunrise Academy', detail:'HR Onboarding Flow paused by admin', status:'yellow' },
       { time:'2 hr ago',   event:'Blog Refresh',        client:'System',          detail:'8 new articles pulled from RSS feeds', status:'green' },
       { time:'3 hr ago',   event:'Invoice Sent',        client:'Jane Wanjiku',    detail:'INV-0042 emailed automatically', status:'green' },
@@ -510,11 +515,37 @@
     ]
   };
 
+// --- REAL LEADS from the public get-started.html form (localStorage + n8n webhook) ---
+  function getStoredLeads() {
+    const norm = s => (s || 'new').toLowerCase();
+    try {
+      const raw = JSON.parse(localStorage.getItem('bs_leads') || '[]');
+      return raw.map(x => ({
+        id: x.id,
+        date: x.date ? new Date(x.date).toLocaleDateString() : '--',
+        name: x.name || 'Unknown',
+        contact: x.whatsapp || x.email || '-',
+        business: x.business || '',
+        email: x.email || '',
+        industry: x.industry || '',
+        interest: [x.industry, x.interest].filter(v => v && v !== 'Not sure yet - recommend something').join(' / ') || 'General enquiry',
+        goal: x.goal || '',
+        tools: x.tools || '',
+        message: x.message || '',
+        source: 'Website Form',
+        status: norm(x.status),
+        bs: true
+      }));
+    } catch (e) { return []; }
+  }
+  const storedLeads = getStoredLeads();
+  if (storedLeads.length) { DATA.leads = [...storedLeads, ...DATA.leads]; }
+
   let allClients = [...DATA.clients];
   let allPayments = [...DATA.payments];
   let allLeads = [...DATA.leads];
 
-  // ── LOGIN ──
+  // â”€â”€ LOGIN â”€â”€
   function doAdminLogin() {
     const user = document.getElementById('adminUser').value.trim();
     const pass = document.getElementById('adminPass').value.trim();
@@ -529,7 +560,7 @@
   }
   document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') doAdminLogin(); });
 
-  // ── INIT ──
+  // â”€â”€ INIT â”€â”€
   function initDashboard() {
     renderOverviewStats();
     renderRevenueChart();
@@ -547,21 +578,21 @@
     startClock();
   }
 
-  // ── OVERVIEW STATS ──
+  // â”€â”€ OVERVIEW STATS â”€â”€
   function renderOverviewStats() {
     const totalRevenue = DATA.payments.filter(p => p.status === 'paid').reduce((s,p) => s + parseInt(p.amount.replace(/[^0-9]/g,'')), 0);
     const activeClients = DATA.clients.filter(c => c.status === 'active').length;
     const activeWfs = DATA.workflows.filter(w => w.status === 'running').length;
     const newLeads = DATA.leads.filter(l => l.status === 'new' || l.status === 'hot').length;
     document.getElementById('overviewStats').innerHTML = `
-      <div class="stat-card sc-green"><div class="si">💰</div><div class="sv">KSh ${(totalRevenue/1000).toFixed(0)}k</div><div class="sl">Revenue (Jul)</div><div class="ss">↑ 11% vs last month</div></div>
-      <div class="stat-card sc-teal"><div class="si">👥</div><div class="sv">${activeClients}</div><div class="sl">Active Clients</div><div class="ss">${DATA.clients.length} total</div></div>
-      <div class="stat-card sc-yellow"><div class="si">⚡</div><div class="sv">${activeWfs}</div><div class="sl">Live Workflows</div><div class="ss">${DATA.workflows.length} total</div></div>
-      <div class="stat-card sc-pink"><div class="si">🎯</div><div class="sv">${newLeads}</div><div class="sl">Hot Leads</div><div class="ss">Need follow-up</div></div>
-      <div class="stat-card sc-brown"><div class="si">📝</div><div class="sv">8</div><div class="sl">Blog Articles</div><div class="ss">Updated 2 hrs ago</div></div>`;
+      <div class="stat-card sc-green"><div class="si">ðŸ’°</div><div class="sv">KSh ${(totalRevenue/1000).toFixed(0)}k</div><div class="sl">Revenue (Jul)</div><div class="ss">â†‘ 11% vs last month</div></div>
+      <div class="stat-card sc-teal"><div class="si">ðŸ‘¥</div><div class="sv">${activeClients}</div><div class="sl">Active Clients</div><div class="ss">${DATA.clients.length} total</div></div>
+      <div class="stat-card sc-yellow"><div class="si">âš¡</div><div class="sv">${activeWfs}</div><div class="sl">Live Workflows</div><div class="ss">${DATA.workflows.length} total</div></div>
+      <div class="stat-card sc-pink"><div class="si">ðŸŽ¯</div><div class="sv">${newLeads}</div><div class="sl">Hot Leads</div><div class="ss">Need follow-up</div></div>
+      <div class="stat-card sc-brown"><div class="si">ðŸ“</div><div class="sv">8</div><div class="sl">Blog Articles</div><div class="ss">Updated 2 hrs ago</div></div>`;
   }
 
-  // ── REVENUE CHART ──
+  // â”€â”€ REVENUE CHART â”€â”€
   function renderRevenueChart() {
     const max = Math.max(...DATA.revenue.map(r => r.amount));
     document.getElementById('revChart').innerHTML = DATA.revenue.map(r => `
@@ -572,33 +603,33 @@
       </div>`).join('');
   }
 
-  // ── ACTIVITY FEED ──
+  // â”€â”€ ACTIVITY FEED â”€â”€
   function renderActivityFeed() {
-    const icons = { green:'✅', yellow:'⚠️', red:'❌' };
+    const icons = { green:'âœ…', yellow:'âš ï¸', red:'âŒ' };
     const colors = { green:'green', yellow:'yellow', red:'red' };
     document.getElementById('activityFeed').innerHTML = DATA.activity.slice(0,5).map(a => `
       <div class="act-item">
         <div class="act-icon ${colors[a.status]}">${icons[a.status]}</div>
-        <div><div class="act-text">${a.event} — ${a.client}</div><div class="act-time">${a.time} · ${a.detail}</div></div>
+        <div><div class="act-text">${a.event} â€” ${a.client}</div><div class="act-time">${a.time} Â· ${a.detail}</div></div>
       </div>`).join('');
   }
 
-  // ── LEAD MINI ──
+  // â”€â”€ LEAD MINI â”€â”€
   function renderLeadMini() {
     const hotLeads = DATA.leads.filter(l => l.status === 'new' || l.status === 'hot').slice(0,4);
     document.getElementById('leadCount').textContent = hotLeads.length + ' need follow-up';
     document.getElementById('leadMini').innerHTML = hotLeads.map(l => `
       <div class="lead-card ${l.status === 'hot' ? 'hot' : ''}">
         <div class="lead-name">${l.name}</div>
-        <div class="lead-meta">${l.contact} · ${l.interest} · via ${l.source}</div>
+        <div class="lead-meta">${l.contact} Â· ${l.interest} Â· via ${l.source}</div>
         <div class="lead-actions">
-          <a href="https://wa.me/${l.contact.replace(/[^0-9]/g,'')}" target="_blank" class="btn-sm btn-green">💬 WhatsApp</a>
-          <button class="btn-sm btn-dark" onclick="markLeadContacted('${l.name}')">✓ Contacted</button>
+          <a href="https://wa.me/${l.contact.replace(/[^0-9]/g,'')}" target="_blank" class="btn-sm btn-green">ðŸ’¬ WhatsApp</a>
+          <button class="btn-sm btn-dark" onclick="markLeadContacted('${l.name}')">âœ“ Contacted</button>
         </div>
       </div>`).join('');
   }
 
-  // ── WORKFLOW HEALTH ──
+  // â”€â”€ WORKFLOW HEALTH â”€â”€
   function renderWfHealth() {
     document.getElementById('wfHealth').innerHTML = `
       <thead><tr><th>Workflow</th><th>Client</th><th>Status</th><th>Last Run</th></tr></thead>
@@ -606,12 +637,12 @@
         <tr>
           <td>${w.name}</td>
           <td style="color:#888">${w.client}</td>
-          <td><span class="pill ${w.status === 'running' ? 'pill-green' : 'pill-yellow'}">${w.status === 'running' ? '⚡ Running' : '⏸ Paused'}</span></td>
+          <td><span class="pill ${w.status === 'running' ? 'pill-green' : 'pill-yellow'}">${w.status === 'running' ? 'âš¡ Running' : 'â¸ Paused'}</span></td>
           <td style="color:#aaa;font-size:0.78rem">${w.last}</td>
         </tr>`).join('')}</tbody>`;
   }
 
-  // ── CLIENTS ──
+  // â”€â”€ CLIENTS â”€â”€
   function renderClients(list) {
     document.getElementById('clientCount').textContent = list.length + ' clients';
     document.getElementById('clientBody').innerHTML = list.map((c, i) => `
@@ -620,12 +651,12 @@
         <td><strong>${c.name}</strong></td>
         <td style="color:#888">${c.email}</td>
         <td><span class="pill ${c.plan === 'Enterprise' ? 'pill-teal' : c.plan === 'Pro' ? 'pill-yellow' : 'pill-green'}">${c.plan}</span></td>
-        <td><span class="pill ${c.status === 'active' ? 'pill-green' : 'pill-grey'}">${c.status === 'active' ? '✓ Active' : '⏸ Paused'}</span></td>
+        <td><span class="pill ${c.status === 'active' ? 'pill-green' : 'pill-grey'}">${c.status === 'active' ? 'âœ“ Active' : 'â¸ Paused'}</span></td>
         <td style="color:#888;font-size:0.8rem">${c.since}</td>
         <td style="color:#888">${c.workflows} workflows</td>
         <td>
           <div style="display:flex;gap:0.4rem">
-            <button class="btn-sm btn-green" onclick="messageClient('${c.name}')">💬</button>
+            <button class="btn-sm btn-green" onclick="messageClient('${c.name}')">ðŸ’¬</button>
             <button class="btn-sm btn-dark" onclick="viewClient('${c.name}')">View</button>
           </div>
         </td>
@@ -636,7 +667,7 @@
   function messageClient(name) { window.open('https://wa.me/254702505946?text=Hi%20' + encodeURIComponent(name) + '%2C%20this%20is%20Bobsave!', '_blank'); }
   function viewClient(name) { alert('In production: open client detail page or fetch from n8n webhook for ' + name); }
 
-  // ── PAYMENTS ──
+  // â”€â”€ PAYMENTS â”€â”€
   function renderPayments(list) {
     document.getElementById('paymentBody').innerHTML = list.map(p => `
       <tr>
@@ -646,7 +677,7 @@
         <td><strong>${p.amount}</strong></td>
         <td><span class="pill pill-grey">${p.method}</span></td>
         <td style="color:#aaa;font-size:0.78rem">${p.ref}</td>
-        <td><span class="pill ${p.status === 'paid' ? 'pill-green' : 'pill-yellow'}">${p.status === 'paid' ? '✓ Paid' : '⏳ Pending'}</span></td>
+        <td><span class="pill ${p.status === 'paid' ? 'pill-green' : 'pill-yellow'}">${p.status === 'paid' ? 'âœ“ Paid' : 'â³ Pending'}</span></td>
       </tr>`).join('');
   }
   function renderPaymentStats() {
@@ -654,9 +685,9 @@
     const total = paid.reduce((s,p) => s + parseInt(p.amount.replace(/[^0-9]/g,'')), 0);
     const pending = DATA.payments.filter(p => p.status === 'pending').length;
     document.getElementById('paymentStats').innerHTML = `
-      <div class="stat-card sc-green"><div class="si">💰</div><div class="sv">KSh ${total.toLocaleString()}</div><div class="sl">Total Collected</div><div class="ss">${paid.length} transactions</div></div>
-      <div class="stat-card sc-yellow"><div class="si">⏳</div><div class="sv">${pending}</div><div class="sl">Pending</div><div class="ss">Awaiting confirmation</div></div>
-      <div class="stat-card sc-teal"><div class="si">📅</div><div class="sv">Aug 1</div><div class="sl">Next Billing Date</div><div class="ss">5 clients renewing</div></div>`;
+      <div class="stat-card sc-green"><div class="si">ðŸ’°</div><div class="sv">KSh ${total.toLocaleString()}</div><div class="sl">Total Collected</div><div class="ss">${paid.length} transactions</div></div>
+      <div class="stat-card sc-yellow"><div class="si">â³</div><div class="sv">${pending}</div><div class="sl">Pending</div><div class="ss">Awaiting confirmation</div></div>
+      <div class="stat-card sc-teal"><div class="si">ðŸ“…</div><div class="sv">Aug 1</div><div class="sl">Next Billing Date</div><div class="ss">5 clients renewing</div></div>`;
   }
   function filterPayments(q) { renderPayments(DATA.payments.filter(p => JSON.stringify(p).toLowerCase().includes(q.toLowerCase()))); }
   function exportCSV() {
@@ -665,57 +696,67 @@
     const a = document.createElement('a'); a.href = 'data:text/csv,' + encodeURIComponent(csv); a.download = 'bobsave-payments.csv'; a.click();
   }
 
-  // ── WORKFLOWS ──
+  // â”€â”€ WORKFLOWS â”€â”€
   function renderWorkflows() {
     document.getElementById('workflowBody').innerHTML = DATA.workflows.map(w => `
       <tr>
         <td><strong>${w.name}</strong></td>
         <td style="color:#888">${w.client}</td>
         <td>${w.plan}</td>
-        <td><span class="pill ${w.status === 'running' ? 'pill-green' : 'pill-yellow'}">${w.status === 'running' ? '⚡ Running' : '⏸ Paused'}</span></td>
+        <td><span class="pill ${w.status === 'running' ? 'pill-green' : 'pill-yellow'}">${w.status === 'running' ? 'âš¡ Running' : 'â¸ Paused'}</span></td>
         <td>${w.exec.toLocaleString()}</td>
         <td style="color:#aaa;font-size:0.8rem">${w.last}</td>
         <td>
           <div style="display:flex;gap:0.4rem">
-            <button class="btn-sm btn-green" onclick="alert('Trigger: POST to n8n webhook to run workflow')">▶ Run</button>
-            <button class="btn-sm btn-red" onclick="alert('Pause: POST to n8n webhook to pause workflow')">⏸</button>
+            <button class="btn-sm btn-green" onclick="alert('Trigger: POST to n8n webhook to run workflow')">â–¶ Run</button>
+            <button class="btn-sm btn-red" onclick="alert('Pause: POST to n8n webhook to pause workflow')">â¸</button>
           </div>
         </td>
       </tr>`).join('');
   }
 
-  // ── LEADS ──
+  // â”€â”€ LEADS â”€â”€
+const LEAD_STATUSES = ['new', 'contacted', 'converted', 'paid', 'configuring', 'testing', 'delivered', 'lost'];
   function renderLeads(list) {
-    const statusMap = { new:'pill-teal', contacted:'pill-yellow', converted:'pill-green', hot:'pill-red', lost:'pill-grey' };
+    const statusMap = { new:'pill-teal', contacted:'pill-yellow', converted:'pill-green', paid:'pill-green', configuring:'pill-yellow', testing:'pill-teal', delivered:'pill-green', hot:'pill-red', lost:'pill-grey' };
     document.getElementById('leadsBody').innerHTML = list.map(l => `
       <tr>
         <td style="color:#aaa;font-size:0.8rem">${l.date}</td>
-        <td><strong>${l.name}</strong></td>
+        <td><strong>${l.name}</strong>${l.business ? '<br><span style="color:#888;font-size:0.78rem">' + l.business + '</span>' : ''}</td>
         <td style="color:#888">${l.contact}</td>
-        <td>${l.interest}</td>
+        <td>${l.interest}${l.goal ? '<br><span style="color:#aaa;font-size:0.78rem">' + l.goal.slice(0, 56) + (l.goal.length > 56 ? '...' : '') + '</span>' : ''}</td>
         <td><span class="pill pill-grey">${l.source}</span></td>
         <td><span class="pill ${statusMap[l.status] || 'pill-grey'}">${l.status}</span></td>
         <td>
-          <div style="display:flex;gap:0.4rem">
-            <a href="https://wa.me/${l.contact.replace(/[^0-9]/g,'')}" target="_blank" class="btn-sm btn-green">💬</a>
-            <button class="btn-sm btn-dark" onclick="markLeadContacted('${l.name}')">✓ Done</button>
+          <div style="display:flex;gap:0.4rem;align-items:center">
+            <a href="https://wa.me/${(l.contact || '').replace(/[^0-9]/g,'')}" target="_blank" class="btn-sm btn-green">WhatsApp</a>
+            ${l.bs ? '<select class="search-input" style="padding:0.3rem 0.5rem;font-size:0.78rem;width:auto;" onchange="updateStoredStatus(\'' + l.id + '\', this.value)">' + LEAD_STATUSES.map(s => '<option' + (s === (l.status || '').toLowerCase() ? ' selected' : '') + '>' + s + '</option>').join('') + '</select>' : '<button class="btn-sm btn-dark" onclick="markLeadContacted(\'' + l.name + '\')">Done</button>'}
           </div>
         </td>
       </tr>`).join('');
+  }
+  function updateStoredStatus(id, status) {
+    const raw = JSON.parse(localStorage.getItem('bs_leads') || '[]');
+    const i = raw.findIndex(x => x.id === id);
+    if (i > -1) {
+      raw[i].status = status.charAt(0).toUpperCase() + status.slice(1);
+      localStorage.setItem('bs_leads', JSON.stringify(raw));
+    }
+    renderLeads(DATA.leads.map(l => l.id === id ? Object.assign({}, l, { status: status }) : l));
+    renderLeadStats();
   }
   function renderLeadStats() {
     const byStatus = {};
     DATA.leads.forEach(l => byStatus[l.status] = (byStatus[l.status] || 0) + 1);
     document.getElementById('leadStats').innerHTML = `
-      <div class="stat-card sc-teal"><div class="si">🆕</div><div class="sv">${byStatus.new || 0}</div><div class="sl">New Leads</div></div>
-      <div class="stat-card sc-yellow"><div class="si">📞</div><div class="sv">${byStatus.contacted || 0}</div><div class="sl">Contacted</div></div>
-      <div class="stat-card sc-green"><div class="si">✅</div><div class="sv">${byStatus.converted || 0}</div><div class="sl">Converted</div></div>
-      <div class="stat-card sc-pink"><div class="si">🔥</div><div class="sv">${byStatus.hot || 0}</div><div class="sl">Hot Leads</div></div>`;
-  }
-  function filterLeads(q) { renderLeads(DATA.leads.filter(l => JSON.stringify(l).toLowerCase().includes(q.toLowerCase()))); }
+      <div class="stat-card sc-teal"><div class="si">New</div><div class="sv">${byStatus.new || 0}</div><div class="sl">New Leads</div></div>
+      <div class="stat-card sc-yellow"><div class="si">Contact</div><div class="sv">${byStatus.contacted || 0}</div><div class="sl">Contacted</div></div>
+      <div class="stat-card sc-green"><div class="si">Paid</div><div class="sv">${byStatus.paid || 0}</div><div class="sl">Paid / Converted</div></div>
+      <div class="stat-card sc-blue"><div class="si">Go Live</div><div class="sv">${byStatus.delivered || 0}</div><div class="sl">Delivered</div></div>`;
+  }  function filterLeads(q) { renderLeads(DATA.leads.filter(l => JSON.stringify(l).toLowerCase().includes(q.toLowerCase()))); }
   function markLeadContacted(name) { alert(name + ' marked as contacted! In production: POST to n8n webhook to update CRM.'); }
 
-  // ── BLOG FEED ──
+  // â”€â”€ BLOG FEED â”€â”€
   async function loadBlogFeed() {
     try {
       const res = await fetch('assets/data/blog-feed.json?v=' + Date.now());
@@ -727,15 +768,16 @@
           <td><span class="pill pill-green">${p.category}</span></td>
           <td style="color:#888">${p.source}</td>
           <td style="color:#aaa;font-size:0.8rem">${p.date}</td>
-          <td>${p.featured ? '<span class="pill pill-yellow">⭐ Yes</span>' : '—'}</td>
+          <td>${p.featured ? '<span class="pill pill-yellow">â­ Yes</span>' : 'â€”'}</td>
+          <td><a href="${p.url}" target="_blank" rel="noopener" class="btn-sm btn-green">Open â†—</a></td>
         </tr>`).join('');
     } catch(e) {
-      document.getElementById('blogBody').innerHTML = '<tr><td colspan="6" style="color:#aaa;text-align:center;padding:2rem;">Could not load blog feed.</td></tr>';
+      document.getElementById('blogBody').innerHTML = '<tr><td colspan="7" style="color:#aaa;text-align:center;padding:2rem;">Could not load blog feed.</td></tr>';
     }
   }
   function triggerN8nBlogRefresh() { alert('In production: POST to https://your-n8n.bobsave.com/webhook/refresh-blog\n\nThis triggers n8n to pull fresh RSS articles and update blog-feed.json.'); }
 
-  // ── ACTIVITY LOG ──
+  // â”€â”€ ACTIVITY LOG â”€â”€
   function renderActivityLog() {
     document.getElementById('activityBody').innerHTML = DATA.activity.map(a => `
       <tr>
@@ -743,12 +785,12 @@
         <td><strong>${a.event}</strong></td>
         <td style="color:#888">${a.client}</td>
         <td style="color:#666;font-size:0.82rem">${a.detail}</td>
-        <td><span class="pill ${a.status === 'green' ? 'pill-green' : 'pill-yellow'}">${a.status === 'green' ? '✓ OK' : '⚠ Note'}</span></td>
+        <td><span class="pill ${a.status === 'green' ? 'pill-green' : 'pill-yellow'}">${a.status === 'green' ? 'âœ“ OK' : 'âš  Note'}</span></td>
       </tr>`).join('');
   }
   function clearLog() { if (confirm('Clear activity log?')) document.getElementById('activityBody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:#aaa;padding:2rem;">Log cleared.</td></tr>'; }
 
-  // ── NAV ──
+  // â”€â”€ NAV â”€â”€
   function showSection(id, el) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
@@ -760,14 +802,14 @@
     return false;
   }
 
-  // ── SYNC ──
+  // â”€â”€ SYNC â”€â”€
   function syncData() {
     const btn = document.querySelector('.topbar-sync');
-    btn.textContent = '⏳ Syncing...';
-    setTimeout(() => { btn.textContent = '↻ Sync n8n'; alert('Sync complete!\n\nIn production: this calls your n8n webhook to fetch fresh client data, payment confirmations, and workflow stats.'); }, 1200);
+    btn.textContent = 'â³ Syncing...';
+    setTimeout(() => { btn.textContent = 'â†» Sync n8n'; alert('Sync complete!\n\nIn production: this calls your n8n webhook to fetch fresh client data, payment confirmations, and workflow stats.'); }, 1200);
   }
 
-  // ── CLOCK ──
+  // â”€â”€ CLOCK â”€â”€
   function startClock() {
     function tick() {
       document.getElementById('clockDisplay').textContent = new Date().toLocaleTimeString('en-KE', { hour:'2-digit', minute:'2-digit', second:'2-digit' }) + ' EAT';
@@ -775,16 +817,16 @@
     tick(); setInterval(tick, 1000);
   }
 
-  // ── SETTINGS ──
+  // â”€â”€ SETTINGS â”€â”€
   function saveSettings(e) {
     e.preventDefault();
     const msg = document.getElementById('settingsMsg');
-    msg.textContent = '✅ Settings saved!';
+    msg.textContent = 'âœ… Settings saved!';
     msg.style.display = 'block';
     setTimeout(() => msg.style.display = 'none', 3000);
   }
 
-  // ── LOGOUT ──
+  // â”€â”€ LOGOUT â”€â”€
   function doLogout() {
     document.getElementById('adminApp').classList.remove('visible');
     document.getElementById('loginScreen').style.display = 'flex';
@@ -792,5 +834,6 @@
     document.getElementById('adminPass').value = '';
   }
 </script>
+<script src="assets/theme/js/bobsave-darkmode.js"></script>
 </body>
 </html>
