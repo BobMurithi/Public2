@@ -477,7 +477,9 @@
     //   .then(r => r.json()).then(data => { if (data.ok) loadDashboard(data.user); else showErr('Invalid credentials.'); })
 
     // Demo: accept any non-empty input
-    sessionStorage.setItem('bs_user', JSON.stringify({ name: email.split('@')[0], email }));
+    var existing = JSON.parse(localStorage.getItem('bs_user') || 'null');
+    if (existing) { existing.email = email; localStorage.setItem('bs_user', JSON.stringify(existing)); }
+    else { localStorage.setItem('bs_user', JSON.stringify({ id: 'user_' + Date.now(), firstName: email.split('@')[0], lastName: '', email: email, phone: '', business: '', createdAt: new Date().toISOString(), packages: [], automations: [] })); }
     loadDashboard();
   }
 
@@ -492,12 +494,16 @@
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('dashboard').classList.add('visible');
 
+    var u = JSON.parse(localStorage.getItem('bs_user') || '{}');
+    var userName = (u.firstName || u.name || 'User') + (u.lastName ? ' ' + u.lastName : '');
+    var userPkg = (u.packages && u.packages.length > 0) ? u.packages[u.packages.length - 1] : null;
+    var planName = userPkg ? userPkg.id.replace(/-/g,' ').replace(/\b\w/g,function(l){return l.toUpperCase()}) : 'No Package';
+    var payRef = JSON.parse(localStorage.getItem('bs_last_payment') || 'null');
     const d = CLIENT_DATA;
 
-    // User info
-    document.getElementById('userName').textContent = d.name;
-    document.getElementById('userPlan').textContent = d.plan + ' Plan';
-    document.getElementById('userInitial').textContent = d.name.charAt(0).toUpperCase();
+    document.getElementById('userName').textContent = userName;
+    document.getElementById('userPlan').textContent = planName;
+    document.getElementById('userInitial').textContent = userName.charAt(0).toUpperCase();
 
     // Stats
     const pct = Math.round((d.execUsed / d.execLimit) * 100);
@@ -593,7 +599,7 @@
   function renderMyRequests() {
     const box = document.getElementById('myRequests');
     if (!box) return;
-    const u = (() => { try { return JSON.parse(sessionStorage.getItem('bs_user') || '{}'); } catch (e) { return {}; } })();
+    const u = (() => { try { return JSON.parse(localStorage.getItem('bs_user') || '{}'); } catch (e) { return {}; } })();
     const myEmail = (u.email || '').toLowerCase().trim();
     let leads = [];
     try { leads = JSON.parse(localStorage.getItem('bs_leads') || '[]'); } catch (e) { leads = []; }
@@ -651,7 +657,7 @@
 
   // â”€â”€ LOGOUT â”€â”€
   function doLogout() {
-    sessionStorage.removeItem('bs_user');
+    localStorage.removeItem('bs_user');
     document.getElementById('dashboard').classList.remove('visible');
     document.getElementById('loginScreen').style.display = 'flex';
     document.getElementById('loginEmail').value = '';
@@ -659,7 +665,7 @@
   }
 
   // â”€â”€ AUTO-LOGIN if session exists â”€â”€
-  if (sessionStorage.getItem('bs_user')) loadDashboard();
+  if (localStorage.getItem('bs_user')) loadDashboard();
 
   // â”€â”€ ENTER KEY on login â”€â”€
   document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });

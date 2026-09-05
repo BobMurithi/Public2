@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <title>Payment Successful - Bobsave</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme/css/bobsave-dark.css">
+  <style>
+    :root{--green:#9fe870;--green-dark:#264d0c;--dark:#232323;--dark-brown:#3a341c;--sage:#edefeb;--white:#fff;--muted:#5c6b57}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter Tight',sans-serif;color:var(--dark);background:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem}
+    .success-card{text-align:center;max-width:520px;width:100%}
+    .check-circle{width:100px;height:100px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-size:3rem}
+    .success-card h1{font-size:2rem;font-weight:800;margin-bottom:.5rem}
+    .success-card p{color:var(--muted);font-size:1.05rem;line-height:1.6;margin-bottom:2rem}
+    .ref-box{background:var(--sage);border-radius:.75rem;padding:1rem 1.5rem;margin-bottom:2rem;font-size:.9rem}
+    .ref-box strong{color:var(--green-dark)}
+    .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:1rem;padding:.85rem 2rem;border-radius:2rem;border:2px solid transparent;transition:all .2s;cursor:pointer;font-family:inherit}
+    .btn-primary{background:var(--green);color:var(--green-dark)}
+    .btn-primary:hover{background:#bcef9c}
+    .btn-outline{background:transparent;border-color:var(--dark);color:var(--dark);margin-left:.8rem}
+    .onboarding{background:var(--sage);border-radius:1rem;padding:2rem;margin-top:2rem;text-align:left}
+    .onboarding h3{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
+    .step{display:flex;gap:1rem;align-items:flex-start;padding:.6rem 0}
+    .step-num{width:32px;height:32px;background:var(--green);color:var(--green-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+    .step-text{font-size:.9rem}.step-text strong{display:block;margin-bottom:.1rem}
+  </style>
+</head>
+<body>
+  <div class="success-card">
+    <div class="check-circle">&#10003;</div>
+    <h1>Payment Successful!</h1>
+    <p>Your package has been purchased. Our team will begin setting up your automations within 24 hours.</p>
+
+    <div class="ref-box" id="refBox">
+      <strong>Reference:</strong> <span id="refId"></span>
+    </div>
+
+    <div>
+      <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+      <a href="index.html" class="btn btn-outline">Back to Home</a>
+    </div>
+
+    <div class="onboarding">
+      <h3>What Happens Next</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Account Setup</strong>Your account and dashboard are being activated.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Onboarding Call</strong>We'll reach out to discuss your automation requirements.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Configuration</strong>We set up your automations, integrations and test everything.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Go Live</strong>Your automations go live with full monitoring and support.</div></div>
+    </div>
+  </div>
+
+  <script>
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref') || 'N/A';
+  document.getElementById('refId').textContent = ref;
+  </script>
+</body>
+</html>

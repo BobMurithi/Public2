@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" href="/assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <title>Training Centers Enterprise - Bobsave</title>
+  <meta name="description" content="Automate your training centers with Bobsave's Enterprise package.">
+  <link rel="canonical" href="https://bobsave.com/industries/education/training-centers/packages/training-centers-enterprise/index.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/theme/css/bobsave-dark.css">
+  <style>
+:root{--green:#9fe870;--green-dark:#264d0c;--dark:#232323;--dark-brown:#3a341c;--sage:#edefeb;--white:#fff;--muted:#5c6b57;--line:#e4e9df;--pink:#ffd7ef;--yellow:#ffea64;--teal:#a0e2e1}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
+img{max-width:100%}
+a{color:var(--green-dark)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:1rem;padding:0.85rem 1.9rem;border-radius:2rem;transition:all .2s;border:2px solid transparent;cursor:pointer;text-align:center}
+.btn-primary{background:var(--green);color:var(--green-dark)}
+.btn-primary:hover{background:#bcef9c}
+.btn-outline{background:transparent;border-color:var(--dark);color:var(--dark)}
+.btn-outline:hover{background:var(--dark);color:var(--white)}
+.btn-dark{background:var(--dark-brown);color:var(--white)}
+.btn-wa{background:#25d366;color:var(--white)}
+
+.bs-navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bs-navbar .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+.bs-navbar .nav-logo img{height:3.1rem;display:block}
+.nav-links{display:flex;gap:.1rem;list-style:none;align-items:center}
+.nav-links>li{position:relative}
+.nav-links>li>a{text-decoration:none;color:var(--dark);font-size:.95rem;font-weight:500;padding:.55rem .9rem;border-radius:2rem;transition:background .2s;display:flex;align-items:center;gap:.25rem;white-space:nowrap}
+.nav-links>li>a:hover{background:rgba(159,232,112,.15);color:var(--green-dark)}
+.nav-links>li>a .caret{font-size:.65rem;transition:transform .2s}
+.nav-links>li:hover>a .caret{transform:rotate(180deg)}
+.nav-cta a{background:var(--green);color:var(--green-dark);font-weight:700;padding:.6rem 1.45rem;border-radius:2rem;text-decoration:none;font-size:.95rem;transition:background .2s;white-space:nowrap}
+.nav-cta a:hover{background:#bcef9c}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.nav-toggle span{display:block;width:26px;height:2px;background:var(--dark);border-radius:2px}
+.mega-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 40px rgba(0,0,0,.1);padding:1.5rem;min-width:680px;z-index:1001}
+.nav-links>li:hover>.mega-menu{display:block}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+.mega-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--green-dark);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid var(--green)}
+.mega-col a{display:block;padding:.35rem .6rem;font-size:.88rem;color:var(--dark);text-decoration:none;border-radius:.4rem;transition:background .15s}
+.mega-col a:hover{background:rgba(159,232,112,.12);color:var(--green-dark)}
+.mega-footer{display:flex;gap:1rem;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line)}
+.mega-footer a{font-size:.85rem;font-weight:600;color:var(--green-dark);text-decoration:none;padding:.4rem .8rem;border-radius:.5rem;transition:background .15s}
+.mega-footer a:hover{background:rgba(159,232,112,.15)}
+.simple-dropdown{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--line);border-radius:.75rem;box-shadow:0 8px 30px rgba(0,0,0,.08);padding:.75rem;min-width:220px;z-index:1001}
+.nav-links>li:hover>.simple-dropdown{display:block}
+.simple-dropdown a{display:block;padding:.4rem .75rem;font-size:.88rem;color:var(--dark);text-decoration:none;border-radius:.4rem;transition:background .15s}
+.simple-dropdown a:hover{background:rgba(159,232,112,.12);color:var(--green-dark)}
+.simple-dropdown .dd-divider{height:1px;background:var(--line);margin:.4rem 0}
+.simple-dropdown .dd-more{font-weight:600;color:var(--green-dark)}
+
+@media(max-width:900px){.nav-toggle{display:flex}.bs-navbar .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--white);padding:1rem 1.5rem 1.5rem;box-shadow:0 8px 24px rgba(0,0,0,.08);align-items:stretch;max-height:80vh;overflow-y:auto}.bs-navbar .nav-links.open{display:flex}.nav-links>li>a{padding:.65rem .5rem;font-size:1rem}.nav-links>li>a .caret{float:right}.mega-menu{display:none!important;position:static;transform:none;min-width:0;box-shadow:none;border:none;border-radius:0;padding:0 0 0 1rem}.mega-menu.mobile-open{display:block!important}.mega-grid{grid-template-columns:1fr;gap:.8rem}.simple-dropdown{display:none!important;position:static;min-width:0;box-shadow:none;border:none;border-radius:0;padding:0 0 0 1rem}.simple-dropdown.mobile-open{display:block!important}.mega-footer{flex-direction:column;gap:.5rem}.nav-cta{display:none}}
+
+.breadcrumb{padding:1rem 0;font-size:.85rem;color:var(--muted)}
+.breadcrumb a{color:var(--green-dark);text-decoration:none}
+.breadcrumb span{margin:0 .4rem;color:var(--line)}
+
+.hero-niche{padding:4rem 0 3rem;background:linear-gradient(135deg,var(--sage) 0%,var(--white) 100%)}
+.hero-niche h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:.75rem}
+.hero-niche p{font-size:1.15rem;color:var(--muted);max-width:700px;margin-bottom:1.5rem}
+
+.section{padding:4rem 0}
+.section-dark{background:var(--dark-brown);color:var(--white)}
+.section-sage{background:var(--sage)}
+.section-head{max-width:760px;margin:0 auto 3rem;text-align:center}
+.section-head h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:.6rem}
+.section-head p{color:var(--muted);font-size:1.05rem}
+
+.automations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+.automation-card{background:var(--white);border:1px solid var(--line);border-radius:1rem;padding:1.5rem;transition:box-shadow .2s}
+.automation-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.automation-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
+.automation-card p{font-size:.9rem;color:var(--muted)}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:start}
+.package-card{background:var(--white);border:2px solid var(--line);border-radius:1.2rem;padding:2rem;position:relative;transition:box-shadow .2s,transform .2s}
+.package-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
+.package-card.popular{border-color:var(--green)}
+.package-card.popular::after{content:'Most Popular';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--green-dark);font-size:.78rem;font-weight:700;padding:.3rem 1rem;border-radius:2rem;white-space:nowrap}
+.package-card h3{font-size:1.3rem;font-weight:800;margin-bottom:.3rem}
+.package-card .price{font-size:2rem;font-weight:900;color:var(--green-dark);margin:1rem 0}
+.package-card .price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.package-card .price span{display:block;font-size:.85rem;color:var(--muted);font-weight:400}
+.package-card .desc{font-size:.95rem;color:var(--muted);margin-bottom:1.2rem}
+.package-card ul{list-style:none;margin-bottom:1.5rem}
+.package-card ul li{padding:.35rem 0;font-size:.9rem;padding-left:1.5rem;position:relative}
+.package-card ul li::before{content:'\2713';position:absolute;left:0;color:var(--green-dark);font-weight:700}
+.package-card .btn{width:100%}
+
+.niche-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.niche-tab{background:var(--sage);color:var(--dark);padding:.6rem 1.2rem;border-radius:2rem;text-decoration:none;font-size:.9rem;font-weight:600;transition:all .2s}
+.niche-tab:hover,.niche-tab.active{background:var(--green);color:var(--green-dark)}
+
+.footer{background:var(--dark-brown);color:var(--white);padding:3rem 0 1.5rem}
+.footer a{color:var(--green)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer h4{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.8rem;color:var(--green)}
+.footer p{font-size:.9rem;line-height:1.7;opacity:.8}
+.footer a{text-decoration:none;transition:opacity .2s}
+.footer a:hover{opacity:.8}
+.footer-bottom{text-align:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;opacity:.5}
+
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* Paystack modal */
+.ps-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:10000;align-items:center;justify-content:center}
+.ps-modal-overlay.active{display:flex}
+.ps-modal{background:var(--white);border-radius:1.2rem;padding:2.5rem;max-width:480px;width:90%;text-align:center}
+.ps-modal h2{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
+.ps-modal p{color:var(--muted);margin-bottom:1.5rem}
+.ps-modal .btn{margin:.3rem}
+
+  .pkg-detail{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+  .pkg-pricing{background:var(--sage);border-radius:1.2rem;padding:2.5rem;position:sticky;top:100px}
+  @media(max-width:768px){.pkg-detail{grid-template-columns:1fr}.pkg-pricing{position:static}}
+  </style>
+</head>
+<body>
+<nav class="bs-navbar">
+  <div class="wrap nav-wrap">
+    <a class="nav-logo" href="/"><img src="/assets/images/bobsave-logo.svg" alt="Bobsave"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#services">Services <span class="caret">&#9662;</span></a>
+        <div class="mega-menu">
+          <div class="mega-grid">
+            <div class="mega-col"><h4>Core Automation</h4>
+              <a href="/services/sales.html">Sales Automation</a><a href="/services/support.html">Customer Support</a><a href="/services/marketing.html">Marketing Automation</a><a href="/services/finance.html">Finance Automation</a><a href="/services/ecommerce.html">E-commerce Automation</a><a href="/services/productivity.html">Productivity</a><a href="/services/data.html">Data &amp; Integrations</a><a href="/services/enterprise.html">Enterprise</a>
+            </div>
+            <div class="mega-col"><h4>Industries</h4>
+              <a href="/industries/healthcare/index.html">🏥 Healthcare</a>
+              <a href="/industries/real-estate/index.html">🏢 Real Estate</a>
+              <a href="/industries/hospitality/index.html">🏨 Hospitality</a>
+              <a href="/industries/ecommerce/index.html">🛒 E-commerce</a>
+              <a href="/industries/professional-services/index.html">💼 Professional Services</a>
+              <a href="/industries/automotive/index.html">🚗 Automotive</a>
+              <a href="/industries/construction/index.html">🏗️ Construction</a>
+              <a href="/industries/education/index.html">🎓 Education</a>
+              <a href="/industries/events/index.html">🎪 Events</a>
+              <a href="/industries/finance/index.html">💰 Finance</a>
+              <a href="/industries/logistics/index.html">🚚 Logistics</a>
+              <a href="/industries/ngo/index.html">🌍 NGOs & Organizations</a>
+              <a href="/industries/manufacturing/index.html">🏭 Manufacturing</a>
+              <a href="/industries/agriculture/index.html">🌾 Agriculture</a>
+              <a href="/industries/recruitment/index.html">👔 Recruitment</a>
+              <a href="/industries/security/index.html">🔒 Security</a>
+              <a href="/industries/sports/index.html">⚽ Sports & Fitness</a>
+              <a href="/industries/local-services/index.html">🔧 Local Services</a>
+              <a href="/industries/travel/index.html">✈️ Travel</a>
+              <a href="/industries/enterprise/index.html">🏢 Enterprise</a>
+            </div>
+            <div class="mega-col"><h4>Quick Links</h4>
+              <a href="/blog.html">Blog</a><a href="/dashboard.html">Dashboard</a><a href="/get-started.html">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/dashboard.html">Log in</a></li>
+    </ul>
+    <div class="nav-cta"><a href="/get-started.html">Get Started</a></div>
+  </div>
+</nav>
+
+<div class="breadcrumb wrap">
+  <a href="/">Home</a><span>/</span><a href="/industries/education/index.html">Education</a><span>/</span><a href="/industries/education/training-centers/index.html">Training Centers</a><span>/</span>Training Centers Enterprise
+</div>
+
+<section class="hero-niche">
+  <div class="wrap">
+    <h1>Training Centers Enterprise</h1>
+    <p>For large training centers operations.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="pkg-detail">
+      <div>
+        <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:1rem">What's Included</h2>
+        <p style="color:var(--muted);margin-bottom:1.5rem">Everything your training centers business needs to automate operations.</p>
+        <div class="automations-grid" style="grid-template-columns:1fr">
+          <div class="automation-card"><h3>Course Enrollment</h3><p>Automated enrollment and confirmation.</p></div>
+          <div class="automation-card"><h3>Class Reminders</h3><p>Upcoming class notifications.</p></div>
+          <div class="automation-card"><h3>Fee Reminders</h3><p>Payment reminders.</p></div>
+          <div class="automation-card"><h3>Certificate Delivery</h3><p>Automated certificate delivery.</p></div>
+          <div class="automation-card"><h3>Review Requests</h3><p>Post-course review requests.</p></div>
+          <div class="automation-card"><h3>Lead Nurture</h3><p>Drip campaigns for course enquiries.</p></div>
+        </div>
+
+        <h2 style="font-size:1.8rem;font-weight:800;margin:2rem 0 1rem">Features</h2>
+        <ul style="list-style:none;margin-bottom:1.5rem">
+          <li style="padding:.4rem 0;font-size:.95rem;padding-left:1.8rem;position:relative"><span style="position:absolute;left:0;color:var(--green-dark);font-weight:700">&#10003;</span> Custom architecture</li>
+          <li style="padding:.4rem 0;font-size:.95rem;padding-left:1.8rem;position:relative"><span style="position:absolute;left:0;color:var(--green-dark);font-weight:700">&#10003;</span> Unlimited automations</li>
+          <li style="padding:.4rem 0;font-size:.95rem;padding-left:1.8rem;position:relative"><span style="position:absolute;left:0;color:var(--green-dark);font-weight:700">&#10003;</span> Advanced reporting & analytics</li>
+          <li style="padding:.4rem 0;font-size:.95rem;padding-left:1.8rem;position:relative"><span style="position:absolute;left:0;color:var(--green-dark);font-weight:700">&#10003;</span> SLA support</li>
+          <li style="padding:.4rem 0;font-size:.95rem;padding-left:1.8rem;position:relative"><span style="position:absolute;left:0;color:var(--green-dark);font-weight:700">&#10003;</span> Dedicated onboarding</li>
+        </ul>
+      </div>
+
+      <div class="pkg-pricing">
+        <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:.5rem">Training Centers Enterprise</h3>
+        <div class="price">Custom<span>Contact us for pricing</span></div>
+        <p style="color:var(--muted);margin-bottom:1.5rem;font-size:.95rem">Sla support &middot; 5,000 tasks/mo &middot; 6 integrations</p>
+        <button class="btn btn-primary" style="width:100%;margin-bottom:1rem" onclick="payWithPaystack({&quot;id&quot;:&quot;training-centers-enterprise&quot;,&quot;setupPrice&quot;:null,&quot;monthlyPrice&quot;:null,&quot;nicheId&quot;:&quot;training-centers&quot;,&quot;industryId&quot;:&quot;education&quot;})">Buy Now</button>
+        <a href="/get-started.html?industry=education&niche=training-centers&package=training-centers-enterprise" class="btn btn-outline" style="width:100%">Talk to Us</a>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:1rem;text-align:center">Setup fee charged once. Monthly billing starts after activation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap" style="text-align:center">
+    <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:.75rem">Questions About Training Centers Enterprise?</h2>
+    <p style="color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 2rem">We'll help you determine if this package is the right fit for your training centers business.</p>
+    <a href="/get-started.html?industry=education&niche=training-centers&package=training-centers-enterprise" class="btn btn-primary">Get a Free Consultation</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><img src="/assets/images/bobsave-logo.svg" alt="Bobsave" style="height:2rem;margin-bottom:1rem;filter:brightness(0) invert(1)"><p>Bobsave builds and manages AI-powered business automation workflows for companies of all sizes.</p></div>
+      <div><h4>Industries</h4><a href="/industries/healthcare/index.html" style="display:block;padding:.2rem 0">Healthcare</a><a href="/industries/real-estate/index.html" style="display:block;padding:.2rem 0">Real Estate</a><a href="/industries/hospitality/index.html" style="display:block;padding:.2rem 0">Hospitality</a><a href="/industries/ecommerce/index.html" style="display:block;padding:.2rem 0">E-commerce</a><a href="/industries/professional-services/index.html" style="display:block;padding:.2rem 0">Professional Services</a><a href="/industries/automotive/index.html" style="display:block;padding:.2rem 0">Automotive</a></div>
+      <div><h4>More Industries</h4><a href="/industries/construction/index.html" style="display:block;padding:.2rem 0">Construction</a><a href="/industries/education/index.html" style="display:block;padding:.2rem 0">Education</a><a href="/industries/events/index.html" style="display:block;padding:.2rem 0">Events</a><a href="/industries/finance/index.html" style="display:block;padding:.2rem 0">Finance</a><a href="/industries/logistics/index.html" style="display:block;padding:.2rem 0">Logistics</a><a href="/industries/ngo/index.html" style="display:block;padding:.2rem 0">NGOs & Organizations</a></div>
+      <div><h4>Company</h4><a href="/" style="display:block;padding:.2rem 0">Home</a><a href="/blog.html" style="display:block;padding:.2rem 0">Blog</a><a href="/privacy.html" style="display:block;padding:.2rem 0">Privacy</a><a href="/get-started.html" style="display:block;padding:.2rem 0">Contact</a><a href="/dashboard.html" style="display:block;padding:.2rem 0">Dashboard</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Bobsave &mdash; Business Automation &middot; Nairobi, Kenya</div>
+  </div>
+</footer>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+var bsUser = JSON.parse(localStorage.getItem('bs_user') || 'null');
+
+function payWithPaystack(packageData) {
+  if (!bsUser) {
+    localStorage.setItem('bs_pending_package', JSON.stringify(packageData));
+    window.location.href = '/checkout.html?package=' + encodeURIComponent(packageData.id);
+    return;
+  }
+  var handler = PaystackPop.setup({
+    key: 'pk_test_3dcb96f3bb37fc6815fb2aa2997147c85dd936fb',
+    email: bsUser.email,
+    amount: (packageData.setupPrice || packageData.monthlyPrice) * 100,
+    currency: 'USD',
+    metadata: {
+      custom_fields: [
+        { display_name: 'Package', variable_name: 'package', value: packageData.id },
+        { display_name: 'Niche', variable_name: 'niche', value: packageData.nicheId },
+        { display_name: 'Industry', variable_name: 'industry', value: packageData.industryId },
+        { display_name: 'User', variable_name: 'user_id', value: bsUser.id }
+      ]
+    },
+    callback: function(response) {
+      localStorage.setItem('bs_last_payment', JSON.stringify({
+        reference: response.reference,
+        package: packageData.id,
+        amount: packageData.setupPrice || packageData.monthlyPrice,
+        date: new Date().toISOString()
+      }));
+      window.location.href = '/payment-success.html?ref=' + response.reference;
+    },
+    onClose: function() {}
+  });
+  handler.openIframe();
+}
+</script>
+<script>
+document.getElementById('navToggle').addEventListener('click', function(){document.getElementById('navLinks').classList.toggle('open')});
+if(window.innerWidth<=900){document.querySelectorAll('.nav-links>li>a').forEach(function(a){a.addEventListener('click',function(e){var d=this.nextElementSibling;if(d&&(d.classList.contains('mega-menu')||d.classList.contains('simple-dropdown'))){e.preventDefault();d.classList.toggle('mobile-open')}})})}
+</script>
+</body></html>
