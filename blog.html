@@ -349,6 +349,10 @@
   let currentPage = 1;
   const ARTICLES_PER_PAGE = 6;
 
+  function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').substring(0, 80);
+  }
+
   // ── LOAD BLOG FEED ──
   async function loadBlog() {
     try {
@@ -356,6 +360,7 @@
       const res = await fetch('assets/data/blog-feed.json?v=' + Date.now());
       if (!res.ok) throw new Error('Feed unavailable');
       allArticles = await res.json();
+      allArticles.forEach(a => { if (!a.slug) a.slug = slugify(a.title); });
       filteredArticles = [...allArticles];
       renderBlog();
       renderCategories();
@@ -401,7 +406,7 @@
                 <span>📅 ${formatDate(featured.date)}</span>
                 <span>⏱ ${featured.read_time}</span>
               </div>
-              <a href="${featured.url}" class="read-more" target="_blank" rel="noopener">Read Article →</a>
+              <a href="article.html?slug=${featured.slug || encodeURIComponent(featured.url)}" class="read-more">Read Article &rarr;</a>
             </div>
           </div>
         </div>`;
@@ -425,7 +430,7 @@
             </div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem">
               <span style="font-size:0.78rem;color:#aaa">📅 ${formatDate(article.date)}</span>
-              <a href="${article.url}" class="read-more" target="_blank" rel="noopener">Read →</a>
+              <a href="article.html?slug=${article.slug || encodeURIComponent(article.url)}" class="read-more">Read &rarr;</a>
             </div>
           </div>
         </div>`;

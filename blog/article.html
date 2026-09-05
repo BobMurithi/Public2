@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="../assets/images/bobsave-logo.svg" type="image/svg+xml">
+  <title id="pageTitle">Loading... - Bobsave Blog</title>
+  <meta name="description" id="pageDesc" content="">
+  <link rel="canonical" id="pageCanonical" href="">
+  <meta property="og:title" id="ogTitle" content="">
+  <meta property="og:description" id="ogDesc" content="">
+  <meta property="og:image" id="ogImage" content="">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/theme/css/style.css">
+  <link rel="stylesheet" href="../assets/theme/css/bobsave-dark.css">
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203726035557482" crossorigin="anonymous"></script>
+  <style>
+    :root { --green: #9fe870; --green-dk: #264d0c; --pink: #ffd7ef; --dark: #232323; --sage: #edefeb; --line: #dde8d5; --white: #ffffff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter Tight', sans-serif; color: var(--dark); background: #fff; line-height: 1.7; }
+    a { color: var(--green-dk); text-decoration: none; }
+
+    .article-nav { background: var(--white); border-bottom: 1px solid var(--line); padding: 0.9rem 0; position: sticky; top: 0; z-index: 100; }
+    .article-nav .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .article-nav .back-link { font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
+    .article-nav .back-link:hover { color: var(--green-dk); }
+    .article-nav .site-name { font-weight: 800; font-size: 1.05rem; color: var(--dark); }
+
+    .article-hero { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 1.5rem; }
+    .article-hero .cat-tag { display: inline-block; padding: 0.3rem 0.85rem; border-radius: 2rem; font-size: 0.78rem; font-weight: 700; margin-bottom: 1rem; }
+    .article-hero h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.2; margin-bottom: 1rem; color: var(--dark); }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.88rem; color: #666; margin-bottom: 1.5rem; }
+    .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .article-hero .hero-img { width: 100%; border-radius: 1rem; margin: 1.5rem 0; max-height: 420px; object-fit: cover; }
+    .article-hero .img-credit { font-size: 0.75rem; color: #999; text-align: right; margin-top: -0.8rem; margin-bottom: 1.5rem; }
+
+    .article-body { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 3rem; font-size: 1.08rem; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 0.8rem; color: var(--dark); }
+    .article-body h3 { font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.2rem; color: #444; }
+    .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.5rem; color: #444; }
+    .article-body li { margin-bottom: 0.5rem; }
+    .article-body blockquote { border-left: 4px solid var(--green); padding: 1rem 1.5rem; background: var(--sage); border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; font-style: italic; }
+    .article-body img { width: 100%; border-radius: 0.75rem; margin: 1.5rem 0; }
+    .article-body .img-credit { font-size: 0.75rem; color: #999; text-align: right; margin-top: -1rem; margin-bottom: 1rem; }
+    .article-body code { background: var(--sage); padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-size: 0.92rem; }
+    .article-body pre { background: #1a1a2e; color: #e0e0e0; padding: 1.2rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }
+    .article-body pre code { background: none; padding: 0; color: inherit; }
+
+    .cta-box { background: var(--sage); border: 1px solid var(--line); border-radius: 1rem; padding: 2rem; margin: 2rem 0; text-align: center; }
+    .cta-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .cta-box p { font-size: 0.95rem; color: #666; margin-bottom: 1rem; }
+    .cta-box a.btn-cta { display: inline-block; background: var(--green); color: var(--green-dk); padding: 0.7rem 1.8rem; border-radius: 2rem; font-weight: 700; font-size: 0.95rem; }
+    .cta-box a.btn-cta:hover { background: #b5f090; }
+
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2rem 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .article-tags span { background: var(--sage); padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.82rem; color: #666; }
+
+    .share-row { display: flex; gap: 0.5rem; margin: 1.5rem 0; }
+    .share-row a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--line); color: var(--dark); }
+    .share-row a:hover { background: var(--sage); }
+
+    .related-section { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .related-section h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .related-card { border: 1px solid var(--line); border-radius: 0.75rem; overflow: hidden; }
+    .related-card img { width: 100%; height: 140px; object-fit: cover; }
+    .related-card .rc-body { padding: 0.8rem; }
+    .related-card .rc-body h4 { font-size: 0.92rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.3rem; }
+    .related-card .rc-body span { font-size: 0.78rem; color: #999; }
+
+    .ad-article { margin: 2rem 0; text-align: center; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .article-footer { background: var(--dark); color: #ccc; padding: 2rem 0; text-align: center; font-size: 0.88rem; }
+    .article-footer a { color: var(--green); }
+
+    .loading-state { text-align: center; padding: 5rem 1.5rem; }
+    .loading-state .spinner { width: 40px; height: 40px; border: 4px solid var(--line); border-top-color: var(--green); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-state { text-align: center; padding: 5rem 1.5rem; }
+    .error-state h2 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .error-state p { color: #666; margin-bottom: 1.5rem; }
+    .error-state a { display: inline-block; background: var(--green); color: var(--green-dk); padding: 0.6rem 1.5rem; border-radius: 2rem; font-weight: 700; }
+
+    @media (max-width: 640px) {
+      .article-hero h1 { font-size: 1.6rem; }
+      .article-body { font-size: 1rem; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="article-nav">
+    <div class="wrap">
+      <a href="javascript:history.back()" class="back-link">&larr; Back</a>
+      <a href="../index.html" class="site-name">Bobsave</a>
+      <a href="index.html" style="font-size:0.88rem;font-weight:600;">Blog</a>
+    </div>
+  </nav>
+
+  <div id="articleContent">
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading article...</p>
+    </div>
+  </div>
+
+  <script>
+    const FEED_URL = '../assets/data/blog-feed.json';
+
+    function getSlug() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('slug');
+    }
+
+    function formatDate(d) {
+      return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    async function loadArticle() {
+      const slug = getSlug();
+      if (!slug) { showError(); return; }
+
+      try {
+        const res = await fetch(FEED_URL + '?v=' + Date.now());
+        const articles = await res.json();
+        const article = articles.find(a => a.slug === slug || a.url === decodeURIComponent(slug));
+
+        if (!article) { showError(); return; }
+
+        document.title = article.title + ' - Bobsave Blog';
+        document.getElementById('pageDesc').content = article.summary;
+        document.getElementById('pageCanonical').href = 'https://bobsave.com/blog/article.html?slug=' + slug;
+        document.getElementById('ogTitle').content = article.title;
+        document.getElementById('ogDesc').content = article.summary;
+        document.getElementById('ogImage').content = article.image;
+
+        const content = article.content || generateFallbackContent(article);
+        const tags = (article.tags || [article.category]).map(t => '<span>#' + t.toLowerCase().replace(/\s+/g, '') + '</span>').join('');
+
+        const related = articles.filter(a => a.slug !== slug && a.category === article.category).slice(0, 3);
+        const relatedHtml = related.length ? `
+          <div class="related-section">
+            <h3>You might also like</h3>
+            <div class="related-grid">
+              ${related.map(r => `
+                <a href="article.html?slug=${r.slug || encodeURIComponent(r.url)}" class="related-card">
+                  <img src="${r.image}" alt="${r.title}" loading="lazy">
+                  <div class="rc-body">
+                    <h4>${r.title}</h4>
+                    <span>${formatDate(r.date)} &middot; ${r.read_time}</span>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>` : '';
+
+        document.getElementById('articleContent').innerHTML = `
+          <article class="article-hero">
+            <div class="wrap" style="max-width:760px;margin:0 auto;">
+              <span class="cat-tag" style="background:${article.tag_color};color:${article.tag_text}">${article.category}</span>
+              <h1>${article.title}</h1>
+              <div class="article-meta">
+                <span>By ${article.author || 'Bobsave Team'}</span>
+                <span>${formatDate(article.date)}</span>
+                <span>${article.read_time}</span>
+              </div>
+              <img class="hero-img" src="${article.image}" alt="${article.title}">
+              ${article.image_credit ? '<div class="img-credit">Photo: ' + article.image_credit + '</div>' : ''}
+            </div>
+          </article>
+
+          <div class="ad-article">
+            <div class="wrap" style="max-width:760px;margin:0 auto;">
+              <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6203726035557482" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </div>
+
+          <div class="article-body">
+            ${content}
+          </div>
+
+          <div class="cta-box" style="max-width:760px;margin:0 auto 2rem;">
+            <h3>Ready to automate your business?</h3>
+            <p>Bobsave builds custom n8n workflows that save you hours every week.</p>
+            <a href="../get-started.html?industry=${encodeURIComponent(article.category)}" class="btn-cta">Get Free Consultation</a>
+          </div>
+
+          <div class="article-body">
+            <div class="article-tags">${tags}</div>
+            <div class="share-row">
+              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://bobsave.com/blog/article.html?slug=' + slug)}" target="_blank">Twitter</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://bobsave.com/blog/article.html?slug=' + slug)}&title=${encodeURIComponent(article.title)}" target="_blank">LinkedIn</a>
+              <a href="https://wa.me/?text=${encodeURIComponent(article.title + ' ' + 'https://bobsave.com/blog/article.html?slug=' + slug)}" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="ad-article">
+            <div class="wrap" style="max-width:760px;margin:0 auto;">
+              <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6203726035557482" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </div>
+
+          ${relatedHtml}
+
+          <footer class="article-footer">
+            <div class="wrap">
+              <p><a href="../index.html">Bobsave</a> &mdash; Business Automation Made Simple</p>
+              <p style="margin-top:0.3rem;"><a href="https://wa.me/254702505946">+254 702 505 946</a></p>
+            </div>
+          </footer>
+        `;
+      } catch (e) {
+        showError();
+      }
+    }
+
+    function generateFallbackContent(article) {
+      const paras = (article.summary || '').split('. ').filter(Boolean);
+      let html = '';
+      paras.forEach(p => { html += '<p>' + p.trim() + (p.trim().endsWith('.') ? '' : '.') + '</p>'; });
+      html += '<p>This article explores the latest trends in ' + article.category.toLowerCase() + ' and how businesses can leverage automation and AI to stay ahead. Stay tuned for more insights from the Bobsave team.</p>';
+      return html;
+    }
+
+    function showError() {
+      document.getElementById('articleContent').innerHTML = `
+        <div class="error-state">
+          <h2>404</h2>
+          <p>Article not found.</p>
+          <a href="index.html">Back to Blog</a>
+        </div>`;
+    }
+
+    loadArticle();
+  </script>
+</body>
+</html>
